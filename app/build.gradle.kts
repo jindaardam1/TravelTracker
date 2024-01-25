@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.traveltracker"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.traveltracker"
