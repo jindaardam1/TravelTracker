@@ -39,7 +39,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="18dp"
         android:layout_marginEnd="10dp"
-        android:text="Pais"
+        android:text="País"
         android:textAlignment="viewStart"
         android:textSize="25sp"
         app:layout_constraintEnd_toStartOf="@+id/editTextText9"
@@ -66,11 +66,11 @@
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginEnd="10dp"
         android:text="Password"
         android:textAlignment="viewStart"
         android:textSize="25sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextText8"
+        app:layout_constraintEnd_toStartOf="@+id/editTextTextPassword2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
@@ -80,7 +80,7 @@
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="21dp"
-        android:layout_marginEnd="17dp"
+        android:layout_marginEnd="10dp"
         android:text="Email"
         android:textAlignment="viewStart"
         android:textSize="25sp"
@@ -94,7 +94,7 @@
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="50dp"
-        android:layout_marginEnd="17dp"
+        android:layout_marginEnd="10dp"
         android:text="UserName"
         android:textAlignment="viewStart"
         android:textSize="25sp"
@@ -111,7 +111,9 @@
         android:ems="10"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        android:hint="usuario"
+        />
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
@@ -122,29 +124,22 @@
         android:ems="10"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText7" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextText7"
+        android:hint="correo"
 
-    <EditText
-        android:id="@+id/editTextText8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="18dp"
-        android:ems="10"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+        />
 
     <EditText
         android:id="@+id/editTextTextPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="23dp"
         android:ems="10"
+        android:hint="repite contraseña"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText8" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
 
     <EditText
         android:id="@+id/editTextText9"
@@ -155,7 +150,22 @@
         android:ems="10"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
+        android:hint="País en el que resides"
+        />
+
+    <EditText
+        android:id="@+id/editTextTextPassword2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="14dp"
+        android:ems="10"
+        android:hint="contraseña"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
