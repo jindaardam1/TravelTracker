@@ -25,7 +25,7 @@
         android:layout_marginStart="102dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="129dp"
-        android:text="TravelTracker"
+        android:text="Mexico"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
