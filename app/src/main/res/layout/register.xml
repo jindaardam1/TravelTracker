@@ -12,8 +12,7 @@
         android:layout_height="wrap_content"
         tools:srcCompat="@tools:sample/avatars"
         android:layout_marginTop="45dp"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/logo"/>
+        android:layout_centerHorizontal="true"/>
 
     <TextView
         android:id="@+id/usernameView"
@@ -25,8 +24,7 @@
         android:ems="10"
         android:inputType="text"
         android:minHeight="48dp"
-        android:text="Name"
-        android:textSize="20dp"/>
+        android:text="Name" />
 
     <TextView
         android:id="@+id/email"
@@ -38,8 +36,7 @@
         android:ems="10"
         android:inputType="text"
         android:minHeight="48dp"
-        android:text="Email"
-        android:textSize="20dp"/>
+        android:text="Email" />
 
     <TextView
         android:id="@+id/confirmView"
@@ -51,8 +48,7 @@
         android:ems="10"
         android:inputType="text"
         android:minHeight="48dp"
-        android:text="Confirm"
-        android:textSize="20dp"/>
+        android:text="Confirm" />
 
     <TextView
         android:id="@+id/passwordView"
@@ -64,8 +60,7 @@
         android:ems="10"
         android:inputType="text"
         android:minHeight="48dp"
-        android:text="Contraseña"
-        android:textSize="20dp"/>
+        android:text="Contraseña" />
 
     <TextView
         android:id="@+id/paisView"
@@ -77,82 +72,36 @@
         android:ems="10"
         android:inputType="text"
         android:minHeight="48dp"
-        android:text="País"
-        android:textSize="20dp"/>
+        android:text="País" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Completar registro"
+        android:text="Button"
         android:layout_below="@id/paisView"
         android:layout_marginTop="40dp"
-        android:layout_centerHorizontal="true"
-        android:textSize="20dp"/>
+        android:layout_centerHorizontal="true"/>
 
     <EditText
         android:id="@+id/UsernameEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/imageView"
-        android:layout_toRightOf="@id/usernameView"
-        android:layout_marginLeft="60dp"
+        android:layout_toLeftOf="@id/UsernameEdit"
         android:ems="10"
         android:inputType="text"
         android:minHeight="48dp"
-        android:text=""
-        android:layout_marginTop="25dp"/>
+        android:text="Name" />
     <EditText
         android:id="@+id/EmailEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
-        android:text=""
-        android:layout_toRightOf="@id/email"
-        android:layout_below="@id/UsernameEdit"
-        android:layout_marginTop="28dp"
-        android:layout_marginLeft="60dp"
-        android:minHeight="48dp"/>
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/EmailEdit"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="28dp"
-        android:layout_toRightOf="@+id/confirmView"
-        android:ems="10"
-        android:inputType="text"
-        android:text=""
-        android:id="@+id/confirmarEdit"
-        android:minHeight="48dp"/>
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/confirmarEdit"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="28dp"
-        android:layout_toRightOf="@+id/passwordView"
-        android:ems="10"
-        android:inputType="text"
-        android:id="@+id/contrasenaEdit"
-        android:minHeight="48dp"/>
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/contrasenaEdit"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="28dp"
-        android:layout_toRightOf="@+id/paisView"
-        android:ems="10"
-        android:inputType="text"
-        android:id="@+id/paisEdit"
-        android:minHeight="48dp"
-        />
-
+        android:text="Name"
+        android:layout_toLeftOf="@id/UsernameEdit"
+        android:layout_below="@id/UsernameEdit"/>
 
 
 </RelativeLayout>
