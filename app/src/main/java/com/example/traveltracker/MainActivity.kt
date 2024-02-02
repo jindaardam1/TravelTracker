@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+<<<<<<< Updated upstream
         setContentView(R.layout.activity_main)
 
         searchView = findViewById(R.id.searchView)
@@ -34,6 +35,9 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
         })
+=======
+        setContentView(R.layout.activity_ofertas)
+>>>>>>> Stashed changes
     }
 
 }
