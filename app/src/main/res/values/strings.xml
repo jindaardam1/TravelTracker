@@ -134,5 +134,6 @@
     <string name="PaisesVisitadosText">Países visitados</string>
     <string name="txtBtnSeleccionarColorVisitados">Seleccionar color</string>
     <string name="TemaText">Tema</string>
+    <string name="PaisesPorVisitarText">Países por visitar</string>
 
 </resources>
