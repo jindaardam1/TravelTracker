@@ -73,7 +73,8 @@
         android:layout_marginTop="10dp"
         android:layout_alignParentEnd="true"
         android:layout_marginRight="30dp"
-        android:text="@string/txtBtnSeleccionarColorVisitados" />
+        android:text="@string/txtBtnSeleccionarColorVisitados"
+        android:backgroundTint="@color/lightblue" />
 
     <TextView android:id="@+id/txtOpcionesPaisesPorVisitar"
         android:layout_width="wrap_content"
@@ -81,17 +82,18 @@
         android:text="@string/PaisesPorVisitarText"
         android:textSize="20dp"
         android:layout_below="@id/txtOpcionesPaisesVisitados"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="25dp"
         android:layout_marginLeft="50dp" />
 
     <Button android:id="@+id/btnSeleccionarColorPaisesPorVisitar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/btnSeleccionarColorPaisesVisitados"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="1dp"
         android:layout_alignParentEnd="true"
         android:layout_marginRight="30dp"
-        android:text="@string/txtBtnSeleccionarColorVisitados" />
+        android:text="@string/txtBtnSeleccionarColorVisitados"
+        android:backgroundTint="@color/lightblue" />
 
 
 
