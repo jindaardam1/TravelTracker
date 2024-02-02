@@ -128,5 +128,11 @@
     <string name="Nueva_Zelanda">Nueva Zelanda</string>
     <string name="Australia">Australia</string>
     <string name="Papua_Nueva_Guinea">Papua Nueva Guinea</string>
+    <string name="OpcionesText">Opciones</string>
+    <string name="ModoOscuroText">Modo oscuro</string>
+    <string name="textoOpcionesColores">Colores del mapa</string>
+    <string name="PaisesVisitadosText">Países visitados</string>
+    <string name="txtBtnSeleccionarColorVisitados">Seleccionar color</string>
+    <string name="TemaText">Tema</string>
 
 </resources>
