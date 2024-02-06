@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layoutDescription="@xml/register_scene">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3dp"
+        android:src="@mipmap/logo" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="142dp"
+        android:layout_height="58dp"
+        android:layout_below="@id/paisEdit"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="REGISTER"
+
+        />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="145dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/textView7"
+        android:layout_marginStart="24dp"
+        android:text="País"
+        android:textAlignment="viewStart"
+        android:textSize="25sp"
+        android:layout_marginTop="25dp"/>
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="145dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/textView8"
+        android:layout_marginStart="24dp"
+        android:text="Confirm"
+        android:textAlignment="viewStart"
+        android:textSize="25sp"
+        android:layout_marginTop="25dp"/>
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="145dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/EmailView"
+        android:layout_marginStart="24dp"
+        android:text="Password"
+        android:textAlignment="viewStart"
+        android:textSize="25sp"
+        android:layout_marginTop="25dp"/>
+
+    <TextView
+        android:id="@+id/EmailView"
+        android:layout_width="145dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/UsernameView"
+        android:layout_marginStart="24dp"
+        android:text="Email"
+        android:textAlignment="viewStart"
+        android:textSize="25sp"
+        android:layout_marginTop="25dp"/>
+
+    <TextView
+        android:id="@+id/UsernameView"
+        android:layout_width="145dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/imageView"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="50dp"
+        android:text="UserName"
+        android:textAlignment="viewStart"
+        android:textSize="25sp"
+
+        />
+    <EditText
+        android:layout_width="145dp"
+        android:layout_height="48dp"
+        android:layout_toRightOf="@+id/UsernameView"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@id/imageView"
+        android:layout_marginTop="50dp"
+        android:id="@+id/usernameEdit"/>
+    <EditText
+        android:layout_width="145dp"
+        android:layout_height="48dp"
+        android:layout_toRightOf="@+id/UsernameView"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@id/usernameEdit"
+        android:layout_marginTop="25dp"
+        android:id="@+id/emailEdit"/>
+    <EditText
+        android:layout_width="145dp"
+        android:layout_height="48dp"
+        android:layout_toRightOf="@+id/UsernameView"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@id/emailEdit"
+        android:layout_marginTop="25dp"
+        android:id="@+id/passwordEdit"/>
+
+    <EditText
+        android:layout_width="145dp"
+        android:layout_height="48dp"
+        android:layout_toRightOf="@+id/UsernameView"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@id/passwordEdit"
+        android:layout_marginTop="25dp"
+        android:id="@+id/confirmEdit"/>
+    <EditText
+        android:layout_width="145dp"
+        android:layout_height="48dp"
+        android:layout_toRightOf="@+id/UsernameView"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@id/confirmEdit"
+        android:layout_marginTop="25dp"
+        android:id="@+id/paisEdit"/>
+
+
+</RelativeLayout>

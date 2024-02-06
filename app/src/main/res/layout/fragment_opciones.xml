@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OpcionesActivity">
+
+    <TextView android:id="@+id/txtOpciones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/OpcionesText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textSize="40dp"
+        android:textStyle="bold" />
+
+    <TextView android:id="@+id/txtTema"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/TemaText"
+        android:layout_below="@id/txtOpciones"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:textStyle="bold"
+        android:textSize="25dp" />
+
+    <TextView android:id="@+id/txtModoOscuro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ModoOscuroText"
+        android:textSize="20dp"
+        android:layout_below="@id/txtTema"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="50dp" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/txtTema"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="50dp"
+        android:thumbTextPadding="10dp"
+        android:height="50dp"
+        android:width="60dp"
+        android:scaleX="2"
+        android:scaleY="2" />
+
+    <TextView android:id="@+id/txtOpcionesColoresMapa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textoOpcionesColores"
+        android:textSize="25dp"
+        android:layout_below="@id/txtModoOscuro"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="40dp"
+        android:textStyle="bold" />
+
+    <TextView android:id="@+id/txtOpcionesPaisesVisitados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/PaisesVisitadosText"
+        android:textSize="20dp"
+        android:layout_below="@id/txtOpcionesColoresMapa"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="50dp" />
+
+    <Button android:id="@+id/btnSeleccionarColorPaisesVisitados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtOpcionesColoresMapa"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="30dp"
+        android:text="@string/txtBtnSeleccionarColorVisitados"
+        android:backgroundTint="@color/lightblue" />
+
+    <TextView android:id="@+id/txtOpcionesPaisesPorVisitar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/PaisesPorVisitarText"
+        android:textSize="20dp"
+        android:layout_below="@id/txtOpcionesPaisesVisitados"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="50dp" />
+
+    <Button android:id="@+id/btnSeleccionarColorPaisesPorVisitar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnSeleccionarColorPaisesVisitados"
+        android:layout_marginTop="1dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="30dp"
+        android:text="@string/txtBtnSeleccionarColorVisitados"
+        android:backgroundTint="@color/lightblue" />
+
+
+
+
+
+
+</RelativeLayout>

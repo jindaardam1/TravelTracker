@@ -135,5 +135,7 @@
     <string name="txtBtnSeleccionarColorVisitados">Seleccionar color</string>
     <string name="TemaText">Tema</string>
     <string name="PaisesPorVisitarText">Países por visitar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
