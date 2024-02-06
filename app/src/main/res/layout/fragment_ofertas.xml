@@ -34,7 +34,7 @@
         android:text="¡Encuentra tu viaje soñado al mejor precio!"
         android:layout_marginBottom="10dp"/>
 
-    <androidx.appcompat.widget.SearchView
+    <SearchView
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
