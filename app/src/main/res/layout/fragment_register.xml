@@ -107,7 +107,7 @@
         android:layout_below="@id/emailEdit"
         android:layout_marginTop="25dp"
         android:id="@+id/passwordEdit"
-        android:hint="contraseña"/>
+        android:hint="Contraseña"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -117,7 +117,7 @@
         android:layout_below="@id/passwordEdit"
         android:layout_marginTop="25dp"
         android:id="@+id/confirmEdit"
-        android:hint="confirma contraseña"/>
+        android:hint="Confirma contraseña"/>
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="48dp"
