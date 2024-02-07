@@ -88,7 +88,8 @@
         android:layout_marginLeft="50dp"
         android:layout_below="@id/imageView"
         android:layout_marginTop="50dp"
-        android:id="@+id/usernameEdit"/>
+        android:id="@+id/usernameEdit"
+        android:hint="Nombre usuario"/>
     <EditText
         android:layout_width="145dp"
         android:layout_height="48dp"
@@ -96,7 +97,8 @@
         android:layout_marginLeft="50dp"
         android:layout_below="@id/usernameEdit"
         android:layout_marginTop="25dp"
-        android:id="@+id/emailEdit"/>
+        android:id="@+id/emailEdit"
+        android:hint="Email"/>
     <EditText
         android:layout_width="145dp"
         android:layout_height="48dp"
@@ -104,24 +106,27 @@
         android:layout_marginLeft="50dp"
         android:layout_below="@id/emailEdit"
         android:layout_marginTop="25dp"
-        android:id="@+id/passwordEdit"/>
+        android:id="@+id/passwordEdit"
+        android:hint="contraseña"/>
 
     <EditText
-        android:layout_width="145dp"
+        android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_toRightOf="@+id/UsernameView"
         android:layout_marginLeft="50dp"
         android:layout_below="@id/passwordEdit"
         android:layout_marginTop="25dp"
-        android:id="@+id/confirmEdit"/>
+        android:id="@+id/confirmEdit"
+        android:hint="confirma contraseña"/>
     <EditText
-        android:layout_width="145dp"
+        android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_toRightOf="@+id/UsernameView"
         android:layout_marginLeft="50dp"
         android:layout_below="@id/confirmEdit"
         android:layout_marginTop="25dp"
-        android:id="@+id/paisEdit"/>
+        android:id="@+id/paisEdit"
+        android:hint="País en el que vives"/>
 
 
 </RelativeLayout>
