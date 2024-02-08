@@ -1,132 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:layoutDescription="@xml/register_scene">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_centerHorizontal="true"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
         android:layout_marginTop="3dp"
         android:src="@mipmap/logo" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="142dp"
-        android:layout_height="58dp"
-        android:layout_below="@id/paisEdit"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-        android:text="REGISTER"
-
-        />
-
     <TextView
-        android:id="@+id/textView6"
-        android:layout_width="145dp"
-        android:layout_height="48dp"
-        android:layout_below="@id/textView7"
-        android:layout_marginStart="24dp"
-        android:text="País"
-        android:textAlignment="viewStart"
-        android:textSize="25sp"
-        android:layout_marginTop="25dp"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/registrarse"
+        android:textSize="35sp"
+        android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="145dp"
-        android:layout_height="48dp"
-        android:layout_below="@id/textView8"
-        android:layout_marginStart="24dp"
-        android:text="Confirm"
-        android:textAlignment="viewStart"
-        android:textSize="25sp"
-        android:layout_marginTop="25dp"/>
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="145dp"
-        android:layout_height="48dp"
-        android:layout_below="@id/EmailView"
-        android:layout_marginStart="24dp"
-        android:text="Password"
-        android:textAlignment="viewStart"
-        android:textSize="25sp"
-        android:layout_marginTop="25dp"/>
-
-    <TextView
-        android:id="@+id/EmailView"
-        android:layout_width="145dp"
-        android:layout_height="48dp"
-        android:layout_below="@id/UsernameView"
-        android:layout_marginStart="24dp"
-        android:text="Email"
-        android:textAlignment="viewStart"
-        android:textSize="25sp"
-        android:layout_marginTop="25dp"/>
-
-    <TextView
-        android:id="@+id/UsernameView"
-        android:layout_width="145dp"
-        android:layout_height="48dp"
-        android:layout_below="@id/imageView"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="50dp"
-        android:text="UserName"
-        android:textAlignment="viewStart"
-        android:textSize="25sp"
-
-        />
     <EditText
-        android:layout_width="145dp"
-        android:layout_height="48dp"
-        android:layout_toRightOf="@+id/UsernameView"
-        android:layout_marginLeft="50dp"
-        android:layout_below="@id/imageView"
-        android:layout_marginTop="50dp"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
         android:id="@+id/usernameEdit"
-        android:hint="Nombre usuario"/>
+        android:hint="Nombre de usuario"/>
+
     <EditText
-        android:layout_width="145dp"
-        android:layout_height="48dp"
-        android:layout_toRightOf="@+id/UsernameView"
-        android:layout_marginLeft="50dp"
-        android:layout_below="@id/usernameEdit"
-        android:layout_marginTop="25dp"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
         android:id="@+id/emailEdit"
-        android:hint="Email"/>
+        android:hint="Correo electrónico"/>
+
     <EditText
-        android:layout_width="145dp"
-        android:layout_height="48dp"
-        android:layout_toRightOf="@+id/UsernameView"
-        android:layout_marginLeft="50dp"
-        android:layout_below="@id/emailEdit"
-        android:layout_marginTop="25dp"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
         android:id="@+id/passwordEdit"
         android:hint="Contraseña"/>
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_toRightOf="@+id/UsernameView"
-        android:layout_marginLeft="50dp"
-        android:layout_below="@id/passwordEdit"
-        android:layout_marginTop="25dp"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
         android:id="@+id/confirmEdit"
-        android:hint="Confirma contraseña"/>
+        android:hint="Confirmar contraseña"/>
+
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_toRightOf="@+id/UsernameView"
-        android:layout_marginLeft="50dp"
-        android:layout_below="@id/confirmEdit"
-        android:layout_marginTop="25dp"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
         android:id="@+id/paisEdit"
         android:hint="País en el que vives"/>
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="330dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="25dp"
+        android:text="@string/registrarse"
+        android:backgroundTint="@color/lightblue"
+        />
 
-</RelativeLayout>
+</LinearLayout>

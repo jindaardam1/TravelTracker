@@ -144,5 +144,6 @@
     <string name="password">Password</string>
     <string name="email">Email</string>
     <string name="username">UserName</string>
+    <string name="registrarse">Registrarse</string>
 
 </resources>
