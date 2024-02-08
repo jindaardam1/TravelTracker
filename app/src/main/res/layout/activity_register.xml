@@ -29,7 +29,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:id="@+id/usernameEdit"
-        android:hint="Nombre de usuario"/>
+        android:hint="@string/nombre_de_usuario"/>
 
     <EditText
         android:layout_width="300dp"
@@ -37,7 +37,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:id="@+id/emailEdit"
-        android:hint="Correo electrónico"/>
+        android:hint="@string/correo_electr_nico"/>
 
     <EditText
         android:layout_width="300dp"
@@ -45,7 +45,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:id="@+id/passwordEdit"
-        android:hint="Contraseña"/>
+        android:hint="@string/pass"/>
 
     <EditText
         android:layout_width="300dp"
@@ -53,7 +53,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:id="@+id/confirmEdit"
-        android:hint="Confirmar contraseña"/>
+        android:hint="@string/confirmar_pass"/>
 
     <EditText
         android:layout_width="300dp"
@@ -61,7 +61,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:id="@+id/paisEdit"
-        android:hint="País en el que vives"/>
+        android:hint="@string/pa_s_en_el_que_vives"/>
 
     <Button
         android:id="@+id/button"

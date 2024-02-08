@@ -145,5 +145,15 @@
     <string name="email">Email</string>
     <string name="username">UserName</string>
     <string name="registrarse">Registrarse</string>
+    <string name="ini_ses">Iniciar sesión</string>
+    <string name="usuario">Usuario</string>
+    <string name="pass">Contraseña</string>
+    <string name="ini_ses_button">INICIAR SESIÓN</string>
+    <string name="no_tienes_cuenta">¿No tienes cuenta?</string>
+    <string name="registrarse_login">Registrarse</string>
+    <string name="nombre_de_usuario">Nombre de usuario</string>
+    <string name="correo_electr_nico">Correo electrónico</string>
+    <string name="confirmar_pass">Confirmar contraseña</string>
+    <string name="pa_s_en_el_que_vives">País en el que vives</string>
 
 </resources>

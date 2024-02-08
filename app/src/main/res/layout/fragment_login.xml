@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Iniciar sesión"
+        android:text="@string/ini_ses"
         android:textSize="35sp"
         android:textStyle="bold" />
 
@@ -28,7 +28,7 @@
         android:id="@+id/editTextUsername"
         android:layout_width="300dp"
         android:layout_height="70dp"
-        android:hint="Usuario"
+        android:hint="@string/usuario"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"/>
 
@@ -36,7 +36,7 @@
         android:id="@+id/editTextPassword"
         android:layout_width="300dp"
         android:layout_height="70dp"
-        android:hint="Contraseña"
+        android:hint="@string/pass"
         android:inputType="textPassword"
         android:layout_marginBottom="16dp"/>
 
@@ -44,7 +44,7 @@
         android:id="@+id/buttonLogin"
         android:layout_width="330dp"
         android:layout_height="70dp"
-        android:text="INICIAR SESIÓN"
+        android:text="@string/ini_ses_button"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/lightblue" />
@@ -66,12 +66,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="¿No tienes cuenta?" />
+        android:text="@string/no_tienes_cuenta" />
 
     <Button
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Registrarse"
+        android:text="@string/registrarse"
         android:layout_marginBottom="8dp"
         android:backgroundTint="@color/darkblue" />
 </LinearLayout>
