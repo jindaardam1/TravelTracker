@@ -1,4 +1,4 @@
-package core
+package utils
 
 import org.json.JSONObject
 import java.io.BufferedReader
@@ -7,8 +7,8 @@ import java.net.HttpURLConnection
 import java.net.URL
 
 class Localizacion {
-    private val urlBase =
-        "https://eu1.locationiq.com/v1/reverse?key=pk.4f19789516687fb1486834896e17c95b&lat=%s&lon=%s&format=json"
+    private val apiKey = "pk.4f19789516687fb1486834896e17c95b"
+    private val urlBase = "https://eu1.locationiq.com/v1/reverse?key=${apiKey}&lat=%s&lon=%s&format=json"
 
     private fun construirURL(latitud: Double, longitud: Double): String {
         return urlBase.format(latitud, longitud)
