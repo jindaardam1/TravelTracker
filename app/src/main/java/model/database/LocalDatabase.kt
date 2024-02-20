@@ -12,7 +12,7 @@ abstract class LocalDatabase : RoomDatabase() {
     abstract fun userDao(): DAO
 
     companion object {
-        private const val DB_KUDAGE = "Kudage.db"
+        private const val DB = "TravelTracker.db"
 
         @Volatile
         private var INSTANCE: LocalDatabase? = null
@@ -25,7 +25,7 @@ abstract class LocalDatabase : RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         LocalDatabase::class.java,
-                        DB_KUDAGE).build()
+                        DB).build()
 
                     INSTANCE = instance
                 }
