@@ -1,5 +1,6 @@
 package com.example.traveltracker
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -50,12 +51,21 @@ class RegisterActivity : AppCompatActivity() {
                 Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            else{Toast.makeText(this, "TODO CORRECTO", Toast.LENGTH_SHORT).show()}
+            else
+            {
+                Toast.makeText(this, "TODO CORRECTO", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+
+            }
 
             // Si la validación pasa, puedes proceder con el registro
-            // Agrega aquí la lógica para el registro (por ejemplo, enviar los datos a un servidor)
+            // Agrega aquí la lógica para el registro (por ejemplo, enviar los datos a un servidor) TODO
 
             // Una vez completado el registro, puedes navegar a otra actividad o realizar cualquier otra acción necesaria
+
+
         }
     }
 }
