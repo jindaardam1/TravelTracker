@@ -15,23 +15,32 @@
         <activity
             android:name=".OpcionesActivity"
             android:exported="false" />
+
+<!--        <activity-->
+<!--            android:name=".RegisterActivity"-->
+<!--            android:exported="false" -->
+<!--            -->
+<!--            />-->
+
         <activity
-            android:name=".RegisterActivity"
+            android:name=".RecomendacionActivity"
             android:exported="false" />
-        <activity
-            android:name=".recomendacion"
-            android:exported="false" />
+
         <activity
             android:name=".PerfilActivity"
             android:exported="false" />
+
         <activity
             android:name=".OfertasActivity"
             android:exported="false" />
+
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
+
+<!--        AQUI PARA CAMBIAR LO QUE SE PINTA-->
         <activity
-            android:name=".MainActivity"
+            android:name=".RegisterActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

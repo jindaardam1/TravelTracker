@@ -55,13 +55,16 @@
         android:id="@+id/confirmEdit"
         android:hint="@string/confirmar_pass"/>
 
-    <EditText
+
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteTextViewCountry"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
-        android:id="@+id/paisEdit"
-        android:hint="@string/pa_s_en_el_que_vives"/>
+        android:hint="País"
+         />
+
 
     <Button
         android:id="@+id/button"
