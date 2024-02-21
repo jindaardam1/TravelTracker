@@ -14,6 +14,7 @@ class Localizacion {
         return urlBase.format(latitud, longitud)
     }
 
+    // Este método no puede ser llamado en el hilo principal de ejecución de la app
     fun coordenadasAPais(latitud: Double, longitud: Double): String {
         try {
             val url = construirURL(latitud, longitud)
