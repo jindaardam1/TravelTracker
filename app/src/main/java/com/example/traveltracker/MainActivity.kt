@@ -1,10 +1,11 @@
 package com.example.traveltracker
 
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.google.android.gms.maps.MapFragment
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // Encontrar vistas por ID
-        val navigation_option1: TextView = findViewById(R.id.navigation_option1)
+        val navigation_option1: ImageView = findViewById(R.id.navigation_option1)
         val navigation_option2: TextView = findViewById(R.id.navigation_option2)
         val navigation_option3: TextView = findViewById(R.id.navigation_option3)
         val navigation_option4: TextView = findViewById(R.id.navigation_option4)
