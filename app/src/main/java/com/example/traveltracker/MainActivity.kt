@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.google.android.gms.maps.MapFragment
+
 
 class MainActivity : AppCompatActivity() {
 

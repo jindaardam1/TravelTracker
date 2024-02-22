@@ -40,7 +40,10 @@
         android:layout_marginEnd="62dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toBottomOf="@+id/textView12" >
+
+    </SearchView>
+
 
     <Button
         android:id="@+id/button5"
@@ -73,4 +76,12 @@
         android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="177dp"
+        android:layout_height="58dp"
+        android:visibility="gone"
+        tools:ignore="MissingConstraints"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
