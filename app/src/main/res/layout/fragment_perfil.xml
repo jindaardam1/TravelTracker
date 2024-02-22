@@ -40,31 +40,20 @@
         android:textSize="25sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/opciones_navegacion"
-        android:layout_width="250dp"
-        android:layout_height="36dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:gravity="center"
-        android:text="opciones navegación"
-        android:textSize="25sp"
-        android:textStyle="bold" />
 
     <Button
         android:id="@+id/Borrar_datos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/opciones_navegacion"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
-        android:layout_marginBottom="70dp"
+        android:layout_marginBottom="50dp"
         android:backgroundTint="@color/darkred"
         android:gravity="center"
         android:text="Borrar datos"
         android:textColor="@android:color/white"
         android:textSize="25sp"
         android:textStyle="bold" />
+
 
 </RelativeLayout>

@@ -23,20 +23,12 @@
 <!--            />-->
 
         <activity
-            android:name=".RecomendacionActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".PerfilActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".OfertasActivity"
-            android:exported="false" />
-
-        <activity
             android:name=".LoginActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
 
 <!--        AQUI PARA CAMBIAR LO QUE SE PINTA-->
         <activity
