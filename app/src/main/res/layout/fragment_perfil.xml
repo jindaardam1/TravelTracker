@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutDescription="@xml/activity_perfil_scene"
-    tools:context=".PerfilActivity">
+    tools:context=".PerfilFragment">
 
     <ImageView
         android:id="@+id/imageView2"
