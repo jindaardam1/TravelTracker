@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layoutDescription="@xml/fragment_recomendacion_scene">
+    app:layoutDescription="@xml/fragment_recomendacion_scene"
+    tools:context=".RecomendacionFragment">
 
     <TextView
         android:id="@+id/recomendacionTEXTO"
