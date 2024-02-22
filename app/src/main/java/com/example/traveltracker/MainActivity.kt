@@ -1,44 +1,36 @@
 package com.example.traveltracker
 
 import android.os.Bundle
-import android.util.Log
-import android.widget.SearchView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import model.database.LocalDatabase
+import androidx.fragment.app.Fragment
+import com.google.android.gms.maps.MapFragment
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var searchView: SearchView
-    private lateinit var resultTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        searchView = findViewById(R.id.searchView)
-        resultTextView = findViewById(R.id.textView12)
+        // Encontrar vistas por ID
+        val navigation_option1: TextView = findViewById(R.id.navigation_option1)
+        val navigation_option2: TextView = findViewById(R.id.navigation_option2)
+        val navigation_option3: TextView = findViewById(R.id.navigation_option3)
+        val navigation_option4: TextView = findViewById(R.id.navigation_option4)
 
-        // Configurar un listener para el cambio en el texto de búsqueda
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                // Puedes realizar acciones cuando se envía la búsqueda (pulsar Enter)
-                return true
-            }
+        // Establecer controladores de clic para cada TextView
+        navigation_option1.setOnClickListener { loadFragment(MapaFragment()) }
+        navigation_option2.setOnClickListener { loadFragment(OfertasFragment()) }
+        navigation_option3.setOnClickListener { loadFragment(RecomendacionFragment()) }
+        navigation_option4.setOnClickListener { loadFragment(PerfilFragment()) }
 
-            override fun onQueryTextChange(newText: String?): Boolean {
-                // Actualizar el texto en el TextView
-                resultTextView.text = "$newText"
-                return true
-            }
-        })
-        setContentView(R.layout.activity_main)
-
-        try {
-            LocalDatabase.getInstance(this)
-            Log.i("Info", "Conexión establecida con la db")
-        } catch (e: Exception) {
-            Log.e("Error", e.toString())
-        }
+        // Cargar el fragmento inicial (puedes cambiarlo según tus necesidades)
+        loadFragment(MapaFragment())
     }
 
+    private fun loadFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, fragment)
+            .commit()
+    }
 }
