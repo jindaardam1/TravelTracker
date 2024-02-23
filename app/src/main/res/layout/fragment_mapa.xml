@@ -34,7 +34,7 @@
     <SearchView
         android:id="@+id/searchView"
         android:layout_width="284dp"
-        android:layout_height="67dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="65dp"
         android:layout_marginTop="21dp"
         android:layout_marginEnd="62dp"
@@ -43,7 +43,16 @@
         app:layout_constraintTop_toBottomOf="@+id/textView12" >
 
     </SearchView>
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="280dp"
+        android:layout_height="84dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        tools:layout_editor_absoluteX="69dp"
+        tools:layout_editor_absoluteY="125dp" />
 
     <Button
         android:id="@+id/button5"
@@ -77,11 +86,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="177dp"
-        android:layout_height="58dp"
-        android:visibility="gone"
-        tools:ignore="MissingConstraints"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
