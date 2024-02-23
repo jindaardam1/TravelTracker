@@ -23,18 +23,17 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Encontrar vistas por ID
-//        val navigation_option1: ImageView = findViewById(R.id.navigation_option1)
-//        val navigation_option2: TextView = findViewById(R.id.navigation_option2)
-//        val navigation_option3: TextView = findViewById(R.id.navigation_option3)
-//        val navigation_option4: TextView = findViewById(R.id.navigation_option4)
-//
-//        // Establecer controladores de clic para cada TextView
-//        navigation_option1.setOnClickListener { loadFragment(MapaFragment()) }
-//        navigation_option2.setOnClickListener { loadFragment(OfertasFragment()) }
-//        navigation_option3.setOnClickListener { loadFragment(RecomendacionFragment()) }
-//        navigation_option4.setOnClickListener { loadFragment(PerfilFragment()) }
+        val navigation_option1: ImageView = findViewById(R.id.navigation_option1)
+        val navigation_option2: ImageView = findViewById(R.id.navigation_option2)
+        val navigation_option3: ImageView = findViewById(R.id.navigation_option3)
+        val navigation_option4: ImageView = findViewById(R.id.navigation_option4)
 
-        // Cargar el fragmento inicial (puedes cambiarlo según tus necesidades)
+        // Establecer controladores de clic para cada TextView
+        navigation_option1.setOnClickListener { loadFragment(MapaFragment()) }
+        navigation_option2.setOnClickListener { loadFragment(OfertasFragment()) }
+        navigation_option3.setOnClickListener { loadFragment(RecomendacionFragment()) }
+        navigation_option4.setOnClickListener { loadFragment(PerfilFragment()) }
+
         loadFragment(MapaFragment())
     }
 
