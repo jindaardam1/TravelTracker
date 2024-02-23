@@ -13,7 +13,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import model.dao.EstadoPaisDAO
 
-@Database(entities = [EstadoPais::class, PaisConfirmado::class], version = 1)
+//@Database(entities = [EstadoPais::class, PaisConfirmado::class], version = 1)
 abstract class LocalDatabase : RoomDatabase() {
 
     abstract fun estadoPaisDao(): EstadoPaisDAO
