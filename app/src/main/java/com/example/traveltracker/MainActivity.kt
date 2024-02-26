@@ -1,15 +1,20 @@
 package com.example.traveltracker
 
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import model.database.LocalDatabase
 
-
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var myImageView: ImageView
+    private lateinit var navigation_option1: ImageView
+    private lateinit var navigation_option2: ImageView
+    private lateinit var navigation_option3: ImageView
+    private lateinit var navigation_option4: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,17 +28,34 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Encontrar vistas por ID
-        val navigation_option1: ImageView = findViewById(R.id.navigation_option1)
-        val navigation_option2: ImageView = findViewById(R.id.navigation_option2)
-        val navigation_option3: ImageView = findViewById(R.id.navigation_option3)
-        val navigation_option4: ImageView = findViewById(R.id.navigation_option4)
+        myImageView = findViewById(R.id.navigation_option1) // Cambiar al ID correcto si es diferente
+        navigation_option1 = findViewById(R.id.navigation_option1)
+        navigation_option2 = findViewById(R.id.navigation_option2)
+        navigation_option3 = findViewById(R.id.navigation_option3)
+        navigation_option4 = findViewById(R.id.navigation_option4)
 
-        // Establecer controladores de clic para cada TextView
-        navigation_option1.setOnClickListener { loadFragment(MapaFragment()) }
-        navigation_option2.setOnClickListener { loadFragment(OfertasFragment()) }
-        navigation_option3.setOnClickListener { loadFragment(RecomendacionFragment()) }
-        navigation_option4.setOnClickListener { loadFragment(PerfilFragment()) }
+        // Cambiar color de navigation_option1 por defecto
+        changeColor(navigation_option1, R.color.lightblue)
 
+        // Establecer controladores de clic para cada ImageView
+        navigation_option1.setOnClickListener {
+            changeColor(navigation_option1, R.color.lightblue)
+            loadFragment(MapaFragment())
+        }
+        navigation_option2.setOnClickListener {
+            changeColor(navigation_option2, R.color.lightblue)
+            loadFragment(OfertasFragment())
+        }
+        navigation_option3.setOnClickListener {
+            changeColor(navigation_option3, R.color.lightblue)
+            loadFragment(RecomendacionFragment())
+        }
+        navigation_option4.setOnClickListener {
+            changeColor(navigation_option4, R.color.lightblue)
+            loadFragment(PerfilFragment())
+        }
+
+        // Cargar el fragmento inicial
         loadFragment(MapaFragment())
     }
 
@@ -41,5 +63,16 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, fragment)
             .commit()
+    }
+
+    private fun changeColor(imageView: ImageView, colorResourceId: Int) {
+        // Restablecer el color de todos los botones
+        navigation_option1.setColorFilter(resources.getColor(R.color.black), PorterDuff.Mode.SRC_IN)
+        navigation_option2.setColorFilter(resources.getColor(R.color.black), PorterDuff.Mode.SRC_IN)
+        navigation_option3.setColorFilter(resources.getColor(R.color.black), PorterDuff.Mode.SRC_IN)
+        navigation_option4.setColorFilter(resources.getColor(R.color.black), PorterDuff.Mode.SRC_IN)
+
+        // Cambiar el color del botón pulsado
+        imageView.setColorFilter(resources.getColor(colorResourceId), PorterDuff.Mode.SRC_IN)
     }
 }
