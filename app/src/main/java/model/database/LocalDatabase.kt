@@ -1,8 +1,9 @@
 package model.database
 
-import EstadoPais
-import PaisConfirmado
+import model.entity.EstadoPais
+import model.entity.PaisConfirmado
 import android.content.Context
+import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -13,7 +14,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import model.dao.EstadoPaisDAO
 
-//@Database(entities = [EstadoPais::class, PaisConfirmado::class], version = 1)
+@Database(entities = [EstadoPais::class, PaisConfirmado::class], version = 1)
 abstract class LocalDatabase : RoomDatabase() {
 
     abstract fun estadoPaisDao(): EstadoPaisDAO
@@ -35,6 +36,7 @@ abstract class LocalDatabase : RoomDatabase() {
                         .addCallback(object : Callback() {
                             override fun onCreate(db: SupportSQLiteDatabase) {
                                 super.onCreate(db)
+                                Log.i("Callback", "Callback llamado")
                                 primerasInsercionesNecesarias(context)
                             }
                         })
@@ -82,10 +84,14 @@ abstract class LocalDatabase : RoomDatabase() {
                 val database = getInstance(context)
                 val estadoPaisDao = database.estadoPaisDao()
 
+                var c = 0
+
                 codigoPaises.forEach { codigo ->
                     estadoPaisDao.insert(EstadoPais(nombrePais = codigo, haEstado = false, visitando = false, ultimaModificacion = ""))
+                    c++
                 }
 
+                Log.i("Inserts", "Inserts creados con éxito. ($c)")
             }
 
         }
