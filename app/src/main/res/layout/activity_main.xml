@@ -6,7 +6,7 @@
     tools:context=".MainActivity">
 
     <!-- Horizontal Navigation Bar -->
-    <HorizontalScrollView
+    <HorizontalScrollView android:id="@+id/horizontalScrollView"
         android:layout_width="500dp"
         android:layout_height="100dp"
         android:layout_alignParentBottom="true"
@@ -63,7 +63,8 @@
     <FrameLayout
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_above="@id/horizontalScrollView">
 
         <!-- Your main content goes here (if any) -->
 
