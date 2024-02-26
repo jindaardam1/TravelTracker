@@ -26,8 +26,9 @@ class PaisView(private val countries: List<String>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.countryName.text = countries[position]
+        holder.countryName.text = filteredCountries[position] // Cambia `countries` a `filteredCountries`
     }
+
 
     override fun getItemCount(): Int {
         return filteredCountries.size

@@ -6,25 +6,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
 import android.widget.SearchView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.LinearLayoutManager
+import java.util.Locale
 
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
-private lateinit var recyclerView: RecyclerView
-private lateinit var adapter: PaisView
-private lateinit var searchView: SearchView
-/**
- * A simple [Fragment] subclass.
- * Use the [MapaFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class MapaFragment : Fragment() {
-    // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
 
@@ -34,10 +26,6 @@ class MapaFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
-
-
-
-
     }
 
     override fun onCreateView(
@@ -45,18 +33,16 @@ class MapaFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_mapa, container, false)
-
-        recyclerView = view.findViewById(R.id.recyclerView)
-        searchView = view.findViewById(R.id.searchView)
-
-        setupRecyclerView()
-
+        val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
+        val searchView: SearchView = view.findViewById(R.id.searchView)
+        setupRecyclerView(recyclerView, searchView)
         return view
     }
-    private fun setupRecyclerView() {
-        val countries = listOf("Mexico", "Canada", "Estados Unidos", "Reino Unido", "Alemania", "España")
+
+    private fun setupRecyclerView(recyclerView: RecyclerView, searchView: SearchView) {
+        val countries = listOf("Mexico", "Canada", "United States", "United Kingdom", "Germany")
         Log.d("MapaFragment", "Países en la lista: $countries")
-        adapter = PaisView(countries)
+        val adapter = CountryAdapter(countries)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
@@ -67,22 +53,13 @@ class MapaFragment : Fragment() {
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 Log.d("MapaFragment", "Texto de búsqueda cambiado: $newText")
-                adapter.filter.filter(newText)
+                adapter.getFilter().filter(newText)
                 return true
             }
         })
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment MapaFragment.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             MapaFragment().apply {
@@ -91,5 +68,56 @@ class MapaFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    private class CountryAdapter(private val countries: List<String>) :
+        RecyclerView.Adapter<CountryAdapter.ViewHolder>() {
+
+        private var filteredCountries: List<String> = countries.toList()
+
+        inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+            val countryName: TextView = itemView.findViewById(android.R.id.text1)
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+            val view = LayoutInflater.from(parent.context)
+                .inflate(android.R.layout.simple_list_item_1, parent, false)
+            return ViewHolder(view)
+        }
+
+        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+            holder.countryName.text = filteredCountries[position]
+        }
+
+        override fun getItemCount(): Int {
+            return filteredCountries.size
+        }
+
+        fun getFilter(): Filter {
+            return object : Filter() {
+                override fun performFiltering(constraint: CharSequence?): FilterResults {
+                    val filterResults = FilterResults()
+                    val filteredList = mutableListOf<String>()
+                    val searchQuery = constraint.toString().toLowerCase(Locale.getDefault())
+                    if (!constraint.isNullOrEmpty()) {
+                        for (country in countries) {
+                            if (country.toLowerCase(Locale.getDefault()).contains(searchQuery)) {
+                                filteredList.add(country)
+                            }
+                        }
+                    } else {
+                        filteredList.addAll(countries)
+                    }
+                    filterResults.values = filteredList
+                    return filterResults
+                }
+
+                override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+                    filteredCountries = results?.values as? List<String> ?: listOf()
+                    notifyDataSetChanged()
+                    Log.d("CountryAdapter", "Países filtrados: $filteredCountries")
+                }
+            }
+        }
     }
 }
