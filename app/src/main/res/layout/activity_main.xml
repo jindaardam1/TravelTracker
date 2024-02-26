@@ -6,9 +6,9 @@
     tools:context=".MainActivity">
 
     <!-- Horizontal Navigation Bar -->
-    <HorizontalScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <HorizontalScrollView android:id="@+id/horizontalScrollView"
+        android:layout_width="500dp"
+        android:layout_height="100dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="?android:attr/windowBackground">
@@ -16,52 +16,43 @@
         <LinearLayout
             android:id="@+id/linearNavigation"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:gravity="center"
-            android:weightSum="4">
+            android:gravity="center">
 
-            <!-- Icono 1 -->
             <ImageView
                 android:id="@+id/navigation_option1"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:layout_weight="1"
-                android:padding="8dp"
+                android:layout_marginLeft="12dp"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:padding="16dp"
                 android:src="@drawable/ic_map_icon"
                 android:contentDescription="Mapa"
                 android:layout_gravity="center"
                 android:scaleType="fitCenter"/>
 
-
-            <!-- Icono 2 -->
             <ImageView
                 android:id="@+id/navigation_option2"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:layout_weight="1"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
                 android:padding="16dp"
                 android:src="@drawable/ic_offers_icon"
                 android:contentDescription="Ofertas"
                 android:layout_gravity="center"/>
 
-            <!-- Icono 3 -->
             <ImageView
                 android:id="@+id/navigation_option3"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
                 android:padding="16dp"
                 android:src="@drawable/ic_recommendation_icon"
                 android:contentDescription="Recomendación"
                 android:layout_gravity="center"/>
 
-            <!-- Icono 4 -->
             <ImageView
                 android:id="@+id/navigation_option4"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
                 android:padding="16dp"
                 android:src="@drawable/ic_profile_icon"
                 android:contentDescription="Perfil"
@@ -72,7 +63,8 @@
     <FrameLayout
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_above="@id/horizontalScrollView">
 
         <!-- Your main content goes here (if any) -->
 
