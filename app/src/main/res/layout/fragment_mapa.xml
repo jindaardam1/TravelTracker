@@ -43,15 +43,16 @@
         app:layout_constraintTop_toBottomOf="@+id/textView12" >
 
     </SearchView>
+
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="280dp"
+        android:id="@+id/paco"
+        android:layout_width="281dp"
         android:layout_height="84dp"
+        android:layout_below="@id/searchView"
         android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView"
-        tools:layout_editor_absoluteX="69dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="68dp"
         tools:layout_editor_absoluteY="125dp" />
 
     <Button
