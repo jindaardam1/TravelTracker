@@ -1,9 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-
-    /* Persistencia de datos con Room */
-    kotlin("kapt")
+    id("kotlin-kapt") // Cambiado a la forma más común de declarar el plugin Kotlin Kapt
 }
 
 android {
@@ -39,7 +37,6 @@ android {
 }
 
 dependencies {
-
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
@@ -54,8 +51,10 @@ dependencies {
 
     val roomVersion = "2.6.1"
 
-
-    /* ROOM DB */
+    // Dependencia Room
     implementation("androidx.room:room-runtime:$roomVersion")
     kapt("androidx.room:room-compiler:$roomVersion")
+
+    // Dependencia Room-KTX para soporte de coroutines
+    implementation("androidx.room:room-ktx:$roomVersion")
 }

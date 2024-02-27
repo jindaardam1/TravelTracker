@@ -1,5 +1,6 @@
 package com.example.traveltracker
 
+import OfertasFragment
 import android.graphics.PorterDuff
 import android.os.Bundle
 import android.util.Log
@@ -21,8 +22,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         try {
-            LocalDatabase.getInstance(this)
+            var db = LocalDatabase.getInstance(this)
             Log.i("Database", "Base de datos creada con éxito")
+            db.estadoPaisDao().getAll()
         } catch (e: Exception) {
             Log.e("Error", e.toString())
         }
