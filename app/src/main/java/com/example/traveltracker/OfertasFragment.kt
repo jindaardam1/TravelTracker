@@ -1,3 +1,5 @@
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -24,15 +26,22 @@ class OfertasFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_ofertas, container, false)
 
-        // Initialize ListView
+        // Meter valores al ListView
         listView = view.findViewById(R.id.listView)
         adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, ofertasList)
         listView.adapter = adapter
 
-        // Initialize SearchView
+        // Clickamos en una oferta y abrimos la página web de la oferta
+        listView.setOnItemClickListener { _, _, position, _ ->
+            // Open an empty HTML page
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse("https://www.iberia.com/es/")
+            startActivity(intent)
+        }
+
+
         searchView = view.findViewById(R.id.searchView)
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
