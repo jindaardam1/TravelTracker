@@ -18,45 +18,49 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="center"
+            android:layout_gravity="center">
 
             <ImageView
                 android:id="@+id/navigation_option1"
-                android:layout_marginLeft="12dp"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:padding="16dp"
                 android:src="@drawable/ic_map_icon"
                 android:contentDescription="Mapa"
                 android:layout_gravity="center"
                 android:scaleType="fitCenter"/>
 
+            <!-- Añade espacio entre los ImageViews -->
             <ImageView
                 android:id="@+id/navigation_option2"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:padding="16dp"
                 android:src="@drawable/ic_offers_icon"
                 android:contentDescription="Ofertas"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"/>
 
             <ImageView
                 android:id="@+id/navigation_option3"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:padding="16dp"
                 android:src="@drawable/ic_recommendation_icon"
                 android:contentDescription="Recomendación"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"/>
 
             <ImageView
                 android:id="@+id/navigation_option4"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:padding="16dp"
                 android:src="@drawable/ic_profile_icon"
                 android:contentDescription="Perfil"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"/>
         </LinearLayout>
     </HorizontalScrollView>
 
