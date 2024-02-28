@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt") // Cambiado a la forma más común de declarar el plugin Kotlin Kapt
+    id("com.google.gms.google-services") version "4.4.1" apply false
 }
 
 android {
@@ -61,6 +62,6 @@ dependencies {
     // Dependencia Room-KTX para soporte de coroutines
     implementation("androidx.room:room-ktx:$roomVersion")
 
-
+    implementation(platform("com.google.firebase:firebase-bom:32.7.2"))
 
 }
