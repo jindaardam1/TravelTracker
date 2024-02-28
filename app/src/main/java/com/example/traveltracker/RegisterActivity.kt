@@ -51,6 +51,13 @@ class RegisterActivity : AppCompatActivity() {
                 Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+
+            // Verificar si el país seleccionado está en la lista de países
+            if (!countries.contains(selectedCountry)) {
+                Toast.makeText(this, "Seleccione un país válido de la lista", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             else
             {
                 Toast.makeText(this, "TODO CORRECTO", Toast.LENGTH_SHORT).show()

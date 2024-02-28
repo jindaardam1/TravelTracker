@@ -33,6 +33,8 @@ class RecomendacionFragment : Fragment() {
             .load(imagenURL)
             .into(imageView)
 
+
+
         return view
     }
 }
