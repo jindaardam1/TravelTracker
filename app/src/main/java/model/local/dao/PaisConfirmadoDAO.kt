@@ -1,10 +1,10 @@
-package model.dao
+package model.local.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import model.entity.PaisConfirmado
+import model.local.entity.PaisConfirmado
 
 @Dao
 interface PaisConfirmadoDAO {

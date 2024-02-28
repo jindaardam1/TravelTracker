@@ -8,7 +8,7 @@ import android.util.Log
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import model.database.LocalDatabase
+import model.local.database.LocalDatabase
 
 class MainActivity : AppCompatActivity() {
 

@@ -1,7 +1,7 @@
-package model.database
+package model.local.database
 
-import model.entity.EstadoPais
-import model.entity.PaisConfirmado
+import model.local.entity.EstadoPais
+import model.local.entity.PaisConfirmado
 import android.content.Context
 import android.util.Log
 import androidx.room.Database
@@ -12,7 +12,7 @@ import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import model.dao.EstadoPaisDAO
+import model.local.dao.EstadoPaisDAO
 
 @Database(entities = [EstadoPais::class, PaisConfirmado::class], version = 1)
 abstract class LocalDatabase : RoomDatabase() {

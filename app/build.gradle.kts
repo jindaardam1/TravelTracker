@@ -47,6 +47,7 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.7.6")
     implementation("com.google.android.gms:play-services-maps:18.2.0")
     implementation ("com.github.bumptech.glide:glide:4.12.0")
+    implementation("com.google.firebase:firebase-firestore-ktx:24.10.2")
 
 
     testImplementation("junit:junit:4.13.2")
