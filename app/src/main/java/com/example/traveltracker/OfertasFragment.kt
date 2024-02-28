@@ -19,6 +19,18 @@ class OfertasFragment : Fragment() {
         "Vuelo por 600€ hacia Bolivia",
         "Vuelo por 320€ hacia Noruega",
         "Vuelo por 1000€ hacia Australia",
+        "Vuelo por 1000€ hacia Australia",
+        "Vuelo por 600€ hacia Bolivia",
+        "Vuelo por 320€ hacia Noruega",
+        "Vuelo por 1000€ hacia Australia",
+        "Vuelo por 1000€ hacia Australia",
+        "Vuelo por 600€ hacia Bolivia",
+        "Vuelo por 320€ hacia Noruega",
+        "Vuelo por 1000€ hacia Australia",
+        "Vuelo por 1000€ hacia Australia",
+        "Vuelo por 600€ hacia Bolivia",
+        "Vuelo por 320€ hacia Noruega",
+        "Vuelo por 1000€ hacia Australia",
         "Vuelo por 1000€ hacia Australia"
     )
 
@@ -37,7 +49,7 @@ class OfertasFragment : Fragment() {
         listView.setOnItemClickListener { _, _, position, _ ->
             // Open an empty HTML page
             val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = Uri.parse("https://www.iberia.com/es/")
+            intent.data = Uri.parse("https://www.iberia.com/es/buscador-vuelos/")
             startActivity(intent)
         }
 
