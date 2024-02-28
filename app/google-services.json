@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "322638883175",
+    "project_id": "dbtraveltracker",
+    "storage_bucket": "dbtraveltracker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:322638883175:android:5d5b567e95f695b39d67c2",
+        "android_client_info": {
+          "package_name": "com.example.traveltracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZtJg8BeFinbY7Sg-iNmDfX1eM2RrjcVY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
