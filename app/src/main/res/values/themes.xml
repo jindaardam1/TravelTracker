@@ -5,5 +5,11 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.TravelTracker" parent="Base.Theme.TravelTracker" />
+<!--    <style name="Theme.TravelTracker" parent="Base.Theme.TravelTracker" />-->
+
+
+    <style name="Theme.TravelTracker" parent="Base.Theme.TravelTracker">
+        <!-- Otros atributos de estilo -->
+        <item name="android:windowBackground">@drawable/Fondo</item>
+    </style>
 </resources>

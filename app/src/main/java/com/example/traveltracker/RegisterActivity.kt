@@ -62,7 +62,6 @@ class RegisterActivity : AppCompatActivity() {
             {
                 Toast.makeText(this, "TODO CORRECTO", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, MainActivity::class.java)
-                // Funciona con esto, puede que no sea la mejor forma de hacerlo
                 finish()
                 startActivity(intent)
 
