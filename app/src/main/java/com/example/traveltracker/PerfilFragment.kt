@@ -1,10 +1,16 @@
 package com.example.traveltracker
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import model.firebase.dao.UsuarioDAO
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,6 +32,46 @@ class PerfilFragment : Fragment() {
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
+        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val buttonBorrarDatos = view.findViewById<Button>(R.id.Borrar_datos)
+        buttonBorrarDatos.setOnClickListener {
+            CoroutineScope(Dispatchers.Main).launch {
+                //probarInsertDB()
+                probarConsultarDB()
+            }
+        }
+    }
+
+    private suspend fun probarConsultarDB() {
+        try {
+            val usuarioDAO = UsuarioDAO()
+
+            val nombreUsuario = "ejemploUsuario"
+            val contra = "password123"
+
+
+            usuarioDAO.comprobarUsuario(nombreUsuario, contra)
+        } catch (e: Exception) {
+            Log.e("Error al insertar en Firebase", e.toString())
+        }
+    }
+
+    private suspend fun probarInsertDB() {
+        try {
+            val usuarioDAO = UsuarioDAO()
+
+            val nombreUsuario = "ejemploUsuario"
+            val contra = "password123"
+            val email = "usuario@example.com"
+
+            usuarioDAO.insertarUsuario(nombreUsuario, contra, email)
+        } catch (e: Exception) {
+            Log.e("Error al insertar en Firebase", e.toString())
         }
     }
 

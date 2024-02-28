@@ -2,7 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt") // Cambiado a la forma más común de declarar el plugin Kotlin Kapt
-    id("com.google.gms.google-services") version "4.4.1" apply false
+    id("com.google.gms.google-services") version "4.4.1"
 }
 
 android {
@@ -48,6 +48,7 @@ dependencies {
     implementation("com.google.android.gms:play-services-maps:18.2.0")
     implementation ("com.github.bumptech.glide:glide:4.12.0")
     implementation("com.google.firebase:firebase-firestore-ktx:24.10.2")
+    implementation("com.google.firebase:firebase-common-ktx:20.4.2")
 
 
     testImplementation("junit:junit:4.13.2")
