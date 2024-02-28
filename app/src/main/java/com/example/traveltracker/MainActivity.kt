@@ -22,6 +22,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val fondoImageView = findViewById<ImageView>(R.id.fondoImageView)
+        fondoImageView.alpha = 0.8f // ajusta la transparencia al 80%
+
         try {
             var db = LocalDatabase.getInstance(this)
             Log.i("Database", "Base de datos creada con éxito")
