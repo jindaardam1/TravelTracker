@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,40 +10,30 @@
         android:id="@+id/imageView4"
         android:layout_width="280dp"
         android:layout_height="279dp"
-        android:layout_marginStart="65dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="66dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView"
-        app:srcCompat="@drawable/mapa_2d" />
+        android:src="@drawable/mapa_2d"
+        android:layout_below="@id/searchView"/>
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="102dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="129dp"
-        android:text="Mexico"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="TravelTracker"
+        android:textStyle="bold"
+        android:textSize="30sp" />
 
     <SearchView
         android:id="@+id/searchView"
         android:layout_width="284dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="21dp"
         android:layout_marginEnd="62dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" >
-
-    </SearchView>
-
+        android:layout_below="@id/textView12"
+        android:background="@drawable/border_background"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/paco"
@@ -51,42 +41,38 @@
         android:layout_height="84dp"
         android:layout_below="@id/searchView"
         android:visibility="gone"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="68dp"
-        tools:layout_editor_absoluteY="125dp" />
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="21dp"/>
 
     <Button
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_below="@id/imageView4"
         android:layout_marginTop="21dp"
-        android:layout_marginEnd="39dp"
+        android:layout_marginLeft="50dp"
         android:text="Button"
-        app:layout_constraintEnd_toStartOf="@+id/button6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        android:backgroundTint="@color/lightblue"/>
 
     <Button
         android:id="@+id/button6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/imageView4"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="21dp"
-        android:layout_marginEnd="41dp"
         android:text="Button"
-        app:layout_constraintEnd_toStartOf="@+id/button7"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        android:backgroundTint="@color/lightblue"/>
 
     <Button
         android:id="@+id/button7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/imageView4"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="21dp"
-        android:layout_marginEnd="38dp"
         android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        android:layout_marginRight="50dp"
+        android:backgroundTint="@color/lightblue"/>
 
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
