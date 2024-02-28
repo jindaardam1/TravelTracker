@@ -8,6 +8,11 @@ import android.util.Log
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import model.firebase.dao.UsuarioDAO
 import model.local.database.LocalDatabase
 
 class MainActivity : AppCompatActivity() {
@@ -31,6 +36,29 @@ class MainActivity : AppCompatActivity() {
         } catch (e: Exception) {
             Log.e("Error", e.toString())
         }
+
+        try {
+            val db = LocalDatabase.getInstance(this@MainActivity)
+            Log.i("Database", "Base de datos creada con éxito")
+            db.estadoPaisDao().getAll()
+        } catch (e: Exception) {
+            Log.e("Error", e.toString())
+        }
+/*
+        try { // TODO: hacer que esto se use en un buttonClick para ver si funciona
+            val usuarioDAO = UsuarioDAO()
+
+            // Datos del nuevo usuario
+            val nombreUsuario = "ejemploUsuario"
+            val contra = "password123"
+            val email = "usuario@example.com"
+
+            // Insertar el nuevo usuario en la base de datos
+            usuarioDAO.insertarUsuario(nombreUsuario, contra, email)
+        } catch (e: Exception) {
+            Log.e("Error al insertar en Firebase", e.toString())
+        }*/
+
 
         // Encontrar vistas por ID
         myImageView = findViewById(R.id.navigation_option1) // Cambiar al ID correcto si es diferente
