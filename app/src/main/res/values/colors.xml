@@ -8,4 +8,5 @@
     <color name="gray">#5e6266</color>
     <color name="lightgray">#929292</color>
     <color name="darkred">#D60000</color>
+    <color name="backGroundBright">#DAE6EF</color>
 </resources>

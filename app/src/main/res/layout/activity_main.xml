@@ -29,7 +29,8 @@
                 android:src="@drawable/ic_map_icon"
                 android:contentDescription="Mapa"
                 android:layout_gravity="center"
-                android:scaleType="fitCenter"/>
+                android:scaleType="fitCenter"
+                />
 
             <!-- Añade espacio entre los ImageViews -->
             <ImageView
