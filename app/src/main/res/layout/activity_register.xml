@@ -40,12 +40,14 @@
         android:hint="@string/correo_electr_nico"/>
 
     <EditText
+        android:id="@+id/passwordEdit"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
-        android:id="@+id/passwordEdit"
-        android:hint="@string/pass"/>
+        android:hint="@string/pass"
+        android:inputType="textPassword" />
+
 
     <EditText
         android:layout_width="300dp"
@@ -53,7 +55,8 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:id="@+id/confirmEdit"
-        android:hint="@string/confirmar_pass"/>
+        android:hint="@string/confirmar_pass"
+        android:inputType="textPassword"/>
 
 
     <AutoCompleteTextView
