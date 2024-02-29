@@ -8,6 +8,10 @@ import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import model.firebase.dao.UsuarioDAO
 
 class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,16 +60,17 @@ class RegisterActivity : AppCompatActivity() {
             if (!countries.contains(selectedCountry)) {
                 Toast.makeText(this, "Seleccione un país válido de la lista", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
-            }
+            } else {
+                CoroutineScope(Dispatchers.Main).launch {
+                    val usuarioDao = UsuarioDAO()
 
-            else
-            {
-                Toast.makeText(this, "TODO CORRECTO", Toast.LENGTH_SHORT).show()
+                    usuarioDao.insertarUsuario(username, password, email)
+                }
+
+                Toast.makeText(this, "Usuario registrado", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, MainActivity::class.java)
                 finish()
                 startActivity(intent)
-
-
             }
 
             // Si la validación pasa, puedes proceder con el registro
