@@ -1,5 +1,6 @@
 package com.example.traveltracker
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -11,6 +12,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import model.firebase.dao.UsuarioDAO
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,6 +35,7 @@ class PerfilFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,38 +43,14 @@ class PerfilFragment : Fragment() {
 
         val buttonBorrarDatos = view.findViewById<Button>(R.id.Borrar_datos)
         buttonBorrarDatos.setOnClickListener {
-            CoroutineScope(Dispatchers.Main).launch {
-                //probarInsertDB()
-                probarConsultarDB()
-            }
+
         }
-    }
 
-    private suspend fun probarConsultarDB() {
-        try {
-            val usuarioDAO = UsuarioDAO()
-
-            val nombreUsuario = "ejemploUsuario"
-            val contra = "password123"
-
-
-            usuarioDAO.comprobarUsuario(nombreUsuario, contra)
-        } catch (e: Exception) {
-            Log.e("Error al insertar en Firebase", e.toString())
-        }
-    }
-
-    private suspend fun probarInsertDB() {
-        try {
-            val usuarioDAO = UsuarioDAO()
-
-            val nombreUsuario = "ejemploUsuario"
-            val contra = "password123"
-            val email = "usuario@example.com"
-
-            usuarioDAO.insertarUsuario(nombreUsuario, contra, email)
-        } catch (e: Exception) {
-            Log.e("Error al insertar en Firebase", e.toString())
+        val botonCerrarSesion = view.findViewById<Button>(R.id.Cerrar_sesion)
+        botonCerrarSesion.setOnClickListener {
+            val intent = Intent(requireContext(), LoginActivity::class.java)
+            startActivity(intent)
+            requireActivity().finish()
         }
     }
 
