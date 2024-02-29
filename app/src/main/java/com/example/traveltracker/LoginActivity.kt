@@ -7,12 +7,16 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import model.firebase.dao.UsuarioDAO
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var editTextUsername: EditText
     private lateinit var editTextPassword: EditText // Declaración de la variable
-    val botonRegistrarse = findViewById<Button>(R.id.registrarseButton)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         try {
@@ -29,6 +33,9 @@ class LoginActivity : AppCompatActivity() {
             findViewById<Button>(R.id.buttonLogin).setOnClickListener {
                 iniciarSesion()
             }
+
+            val botonRegistrarse = findViewById<Button>(R.id.registrarseButton)
+
             botonRegistrarse.setOnClickListener(){
                 iraRegistrar()
             }
@@ -48,7 +55,7 @@ class LoginActivity : AppCompatActivity() {
             return  true;
 
     }
-    private fun Contraseña(): Boolean {
+    private fun Contrasena(): Boolean {
         val contra = editTextPassword.text.toString()
         //Aquí (en el if) hay que hacer una consulta a la base de datos la cual no sé como hacer "where contra == contraenlabase de datos" o algo así
         //por el momento he puesto estas condiciones para que no de error
@@ -60,12 +67,30 @@ class LoginActivity : AppCompatActivity() {
             return  true;
     }
     private fun iniciarSesion() {
-        if  (Contraseña() && user()) {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
+        if (Contrasena() && user()) {
+            try {
+                val usuarioDAO = UsuarioDAO()
+                val contra = editTextPassword.text.toString()
+                val nombreUsuario = editTextUsername.text.toString()
+
+                var autentic: Boolean
+
+                CoroutineScope(Dispatchers.Main).launch {
+                    autentic = usuarioDAO.comprobarUsuario(nombreUsuario, contra)
+                    if (autentic) {
+                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        Toast.makeText(this@LoginActivity, "Usuario o contraseña inválidos.", Toast.LENGTH_LONG).show()
+                    }
+                }
+            } catch (e: Exception) {
+                Log.e("Error al insertar en Firebase", e.toString())
+            }
         }
     }
+
     private fun iraRegistrar() {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
