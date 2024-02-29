@@ -40,6 +40,18 @@
         android:textSize="25sp"
         android:textStyle="bold" />
 
+    <Button
+        android:id="@+id/Cerrar_sesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/Borrar_datos"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/lightblue"
+        android:gravity="center"
+        android:text="Cerrar sesión"
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/Borrar_datos"

@@ -22,8 +22,8 @@ class RecomendacionFragment : Fragment() {
         val imageView: ImageView = view.findViewById(R.id.imageView3)
 
         // Obtener datos de la recomendación (nombre e imagen)
-        val nombreRecomendacion = "Nombre de la recomendación" // Cambiar por el nombre real
-        val imagenURL = "https://ejemplo.com/imagen.jpg" // Cambiar por la URL real de la imagen
+        val nombreRecomendacion = "PLAYA DE VARADERO (CUBA)" // Cambiar por el nombre real
+        val imagenURL = "https://media.traveler.es/photos/61376e02c6202df7591601a1/master/w_1920%2Cc_limit/138178.jpg" // Cambiar por la URL real de la imagen
 
         // Asignar el nombre a TextView
         nombreTextView.text = nombreRecomendacion
