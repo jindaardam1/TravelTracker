@@ -9,7 +9,6 @@
 
 
     <style name="Theme.TravelTracker" parent="Base.Theme.TravelTracker">
-        <!-- Otros atributos de estilo -->
         <item name="android:windowBackground">@drawable/fondo2</item>
         <item name="android:textColor">@color/white</item>
     </style>

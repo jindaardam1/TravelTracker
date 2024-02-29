@@ -49,6 +49,8 @@ dependencies {
     implementation ("com.github.bumptech.glide:glide:4.12.0")
     implementation("com.google.firebase:firebase-firestore-ktx:24.10.2")
     implementation("com.google.firebase:firebase-common-ktx:20.4.2")
+    implementation ("com.google.android.libraries.places:places:3.3.0")
+
 
 
     testImplementation("junit:junit:4.13.2")
