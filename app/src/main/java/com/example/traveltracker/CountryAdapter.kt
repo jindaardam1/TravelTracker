@@ -11,11 +11,11 @@ import com.example.traveltracker.Country
 import com.example.traveltracker.R
 import java.util.Locale
 
-
-class CountryAdapter(private val countries: List<com.example.traveltracker.Country>) :
+class CountryAdapter(private val countries: List<Country>, private val onItemClickListener: (String) -> Unit) :
     RecyclerView.Adapter<CountryAdapter.ViewHolder>(), Filterable {
 
     private var filteredCountries: List<Country> = countries
+    private var selectedItemPosition: Int = RecyclerView.NO_POSITION
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val nameTextView: TextView = view.findViewById(R.id.nameTextView)
@@ -32,8 +32,22 @@ class CountryAdapter(private val countries: List<com.example.traveltracker.Count
         val country = filteredCountries[position]
         holder.nameTextView.text = country.name
         holder.flagEmojiTextView.text = country.flagEmoji
-    }
 
+        // Cambiar el color de fondo del elemento seleccionado
+        if (position == selectedItemPosition) {
+            holder.itemView.setBackgroundResource(R.color.selectedItemBackground)
+        } else {
+            holder.itemView.setBackgroundResource(android.R.color.transparent)
+            selectedItemPosition = -1
+        }
+
+        // Establecer el listener de clic en el elemento
+        holder.itemView.setOnClickListener {
+            selectedItemPosition = holder.adapterPosition
+            notifyDataSetChanged()
+            onItemClickListener(country.id)
+        }
+    }
 
     override fun getItemCount(): Int {
         return filteredCountries.size
@@ -42,7 +56,7 @@ class CountryAdapter(private val countries: List<com.example.traveltracker.Count
     override fun getFilter(): Filter {
         return object : Filter() {
             override fun performFiltering(constraint: CharSequence?): FilterResults {
-                val filteredList = mutableListOf<com.example.traveltracker.Country>()
+                val filteredList = mutableListOf<Country>()
                 val filterPattern = constraint.toString().toLowerCase(Locale.getDefault()).trim()
 
                 for (country in countries) {
@@ -58,9 +72,13 @@ class CountryAdapter(private val countries: List<com.example.traveltracker.Count
 
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
                 @Suppress("UNCHECKED_CAST")
-                filteredCountries = results?.values as List<com.example.traveltracker.Country>
+                filteredCountries = results?.values as List<Country>
+                // Limpiar la selección al filtrar los resultados
+                selectedItemPosition = RecyclerView.NO_POSITION
                 notifyDataSetChanged()
             }
         }
+
+
     }
 }
