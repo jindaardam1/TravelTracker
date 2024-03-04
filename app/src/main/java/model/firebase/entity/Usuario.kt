@@ -1,7 +1,6 @@
 package model.firebase.entity
 
 import java.security.MessageDigest
-import java.util.Locale
 
 class Usuario(usuario: String, contra: String, email: String) {
     val usuario: String = usuario.trim().uppercase()

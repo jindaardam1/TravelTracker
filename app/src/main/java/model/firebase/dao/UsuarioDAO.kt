@@ -7,7 +7,7 @@ import model.firebase.entity.Usuario
 
 class UsuarioDAO {
 
-    private val db = FirebaseFirestore.getInstance()
+    internal val db = FirebaseFirestore.getInstance()
 
     suspend fun insertarUsuario(nombreUsuario: String, contra: String, email: String) {
         val usuario = Usuario(nombreUsuario, contra, email)
