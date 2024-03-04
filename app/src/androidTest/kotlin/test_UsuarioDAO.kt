@@ -20,7 +20,6 @@ class UsuarioDAOTest {
 
         // Assert
         // Verificar que el usuario se agregó a la base de datos
-        // Puedes usar un mock para verificar la interacción con la base de datos
     }
 
     @Test
@@ -54,7 +53,6 @@ class UsuarioDAOTest {
 
         // Assert
         // Verificar que el usuario no se agregó a la base de datos
-        // Puedes usar un mock para verificar la interacción con la base de datos
     }
 
     @Test
@@ -72,7 +70,6 @@ class UsuarioDAOTest {
 
         // Assert
         // Verificar que el usuario no se agregó a la base de datos
-        // Puedes usar un mock para verificar la interacción con la base de datos
     }
 
     @Test
@@ -90,6 +87,5 @@ class UsuarioDAOTest {
 
         // Assert
         // Verificar que el usuario no se agregó a la base de datos
-        // Puedes usar un mock para verificar la interacción con la base de datos
     }
 }
