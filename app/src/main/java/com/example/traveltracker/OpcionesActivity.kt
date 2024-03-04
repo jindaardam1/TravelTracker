@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.Switch
 import androidx.appcompat.app.AppCompatActivity
 
 class OpcionesActivity : AppCompatActivity() {
@@ -17,7 +18,6 @@ class OpcionesActivity : AppCompatActivity() {
 
         val btnSeleccionarColorPaisesVisitados: Button = findViewById(R.id.btnSeleccionarColorPaisesVisitados)
         val btnSeleccionarColorPaisesPorVisitar: Button = findViewById(R.id.btnSeleccionarColorPaisesPorVisitar)
-
         btnSeleccionarColorPaisesVisitados.setOnClickListener {
             showColorPickerDialog { color ->
                 colorPaisesVisitados = color
@@ -31,8 +31,16 @@ class OpcionesActivity : AppCompatActivity() {
                 // Aquí puedes hacer algo con el color seleccionado para PaisesPorVisitar
             }
         }
-    }
+        val switch: Switch = findViewById(R.id.switch1)
 
+        switch.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                window.decorView.setBackgroundColor(Color.BLACK)
+            } else {
+                window.decorView.setBackgroundColor(Color.WHITE)
+            }
+        }
+    }
     private fun showColorPickerDialog(listener: (color: Int) -> Unit) {
         /*
         ColorPickerDialogBuilder

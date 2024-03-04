@@ -1,10 +1,16 @@
 package com.example.traveltracker
 
+import android.graphics.Color
+import android.graphics.PorterDuff
+import android.graphics.drawable.VectorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.SearchView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,7 +25,8 @@ class MapaFragment : Fragment() {
     private lateinit var adapter: CountryAdapter
     private lateinit var countries: List<Country>
     private lateinit var searchView: SearchView
-
+    private var selectedCountryId: String? = null
+    private lateinit var button: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -35,6 +42,10 @@ class MapaFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_mapa, container, false)
 
+        button = view.findViewById(R.id.button5)
+        button.setOnClickListener {
+            cambiarColorElementoSVG()
+        }
         // Inicializar RecyclerView
         recyclerView = view.findViewById(R.id.paco)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -239,7 +250,11 @@ class MapaFragment : Fragment() {
         )
 
         // Inicializar adaptador y asignarlo al RecyclerView
-        adapter = CountryAdapter(countries)
+        adapter = CountryAdapter(countries){ countryId ->
+            // Aquí puedes hacer lo que quieras con el ID del país seleccionado
+            selectedCountryId = countryId
+            Log.d("MapaFragment", "Selected Country ID: $selectedCountryId") // Registro en Logcat
+        }
         recyclerView.adapter = adapter
 
         // Inicializar SearchView
@@ -266,6 +281,13 @@ class MapaFragment : Fragment() {
 
         return view
     }
+    private fun cambiarColorElementoSVG() {
+
+    }
+
+
+
+
 
     companion object {
         @JvmStatic
