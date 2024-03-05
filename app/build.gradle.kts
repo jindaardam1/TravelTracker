@@ -50,6 +50,8 @@ dependencies {
     implementation("com.google.firebase:firebase-firestore-ktx:24.10.2")
     implementation("com.google.firebase:firebase-common-ktx:20.4.2")
     implementation ("com.google.android.libraries.places:places:3.3.0")
+    implementation("com.google.android.material:material:1.4.0-alpha02")
+    implementation ("androidx.recyclerview:recyclerview:1.2.0")
 
 
 

@@ -38,7 +38,8 @@
         android:layout_gravity="center_horizontal"
         android:background="@drawable/border_background"/>
 
-    <ListView android:id="@+id/listView"
+    <ListView
+        android:id="@+id/listView"
         android:background="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -46,4 +47,14 @@
         android:divider="@color/backGroundBright"
         android:dividerHeight="10dp"
         android:layout_margin="25dp"/>
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/rvOfertas"-->
+<!--        android:background="@color/white"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_below="@id/searchView"-->
+<!--        android:divider="@color/backGroundBright"-->
+<!--        android:dividerHeight="10dp"-->
+<!--        android:layout_margin="25dp" />-->
 </LinearLayout>
