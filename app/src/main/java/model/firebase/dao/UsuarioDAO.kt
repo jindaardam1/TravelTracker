@@ -50,4 +50,38 @@ class UsuarioDAO {
             false
         }
     }
+
+    suspend fun comprobarSiUsuarioExiste(nombreUsuario: String): Boolean {
+        val usuario = Usuario(nombreUsuario, "", "")
+
+        return try {
+            val querySnapshot = db.collection("usuarios")
+                .whereEqualTo("usuario", usuario.usuario)
+                .get()
+                .await()
+
+            val usuarioExiste = !querySnapshot.isEmpty
+            usuarioExiste
+        } catch (e: Exception) {
+            Log.e("Error al comprobar usuario", "Error al comprobar usuario: $e")
+            false
+        }
+    }
+
+    suspend fun comprobarSiEmailEstaEnUso(email: String): Boolean {
+        val usuario = Usuario("", "", email)
+
+        return try {
+            val querySnapshot = db.collection("usuarios")
+                .whereEqualTo("email", usuario.email)
+                .get()
+                .await()
+
+            val emailEnUso = !querySnapshot.isEmpty
+            emailEnUso
+        } catch (e: Exception) {
+            Log.e("Error al comprobar email", "Error al comprobar email: $e")
+            false
+        }
+    }
 }
