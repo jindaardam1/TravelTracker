@@ -5,9 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:layoutDescription="@xml/register_scene"
-    android:background="@drawable/tren"
-    >
+    tools:layoutDescription="@xml/register_scene">
 
     <ImageView
         android:id="@+id/imageView"
