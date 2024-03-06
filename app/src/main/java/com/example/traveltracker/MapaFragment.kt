@@ -282,7 +282,7 @@ class MapaFragment : Fragment() {
         return view
     }
     private fun cambiarColorElementoSVG() {
-
+        
     }
 
 
