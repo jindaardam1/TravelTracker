@@ -1,4 +1,4 @@
-import android.content.Context
+
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -10,7 +10,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.ImageView
 import android.widget.ListView
 import android.widget.SearchView
 import androidx.fragment.app.Fragment
@@ -133,14 +132,5 @@ class OfertasFragment : Fragment() {
 
     private fun generarPrecio(): Int {
         return Random.nextInt(400, 1500)
-    }
-}
-
-class DrawableAdapter(context: Context, drawables: List<Drawable>) : ArrayAdapter<Drawable>(context, android.R.layout.simple_list_item_1, drawables) {
-
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        val imageView = ImageView(context)
-        imageView.setImageDrawable(getItem(position))
-        return imageView
     }
 }
