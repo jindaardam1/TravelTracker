@@ -61,4 +61,20 @@ class OpcionesActivity : AppCompatActivity() {
 
        */
     }
+
+    public fun getColorPaisesVisitados(): Int {
+        return colorPaisesVisitados
+    }
+
+    fun setColorPaisesVisitados(color: Int) {
+        colorPaisesVisitados = color
+    }
+
+    fun getColorPaisesPorVisitar(): Int {
+        return colorPaisesPorVisitar
+    }
+
+    fun setColorPaisesPorVisitar(color: Int) {
+        colorPaisesPorVisitar = color
+    }
 }
