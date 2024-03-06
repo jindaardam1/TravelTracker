@@ -10,4 +10,5 @@
     <color name="darkred">#D60000</color>
     <color name="selectedItemBackground">#FF4081</color>
     <color name="backGroundBright">#DAE6EF</color>
+    <color name="amarillo">#FFB947</color>
 </resources>

@@ -36,6 +36,9 @@ class MapaFragment : Fragment() {
     }
 
     override fun onCreateView(
+        //Añadir carga de valores en textos
+
+
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {

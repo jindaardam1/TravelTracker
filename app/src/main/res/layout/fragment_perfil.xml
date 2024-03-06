@@ -26,26 +26,16 @@
         android:gravity="center"
         android:text="Nombre usuario"
         android:textSize="25sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="250dp"
-        android:layout_height="36dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/nombreUsuario"
-        android:layout_marginTop="19dp"
-        android:gravity="center"
-        android:text="Cantidad puntos"
-        android:textSize="25sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        />
 
     <Button
         android:id="@+id/Cerrar_sesion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/Borrar_datos"
+        android:layout_below="@+id/btnSeleccionarColorPaisesVisitados"
         android:layout_centerInParent="true"
+        android:layout_marginTop="150dp"
         android:layout_marginBottom="10dp"
         android:backgroundTint="@color/blue"
         android:gravity="center"
@@ -53,19 +43,104 @@
         android:textSize="25sp"
         android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/Borrar_datos"
+    <TextView android:id="@+id/txtTema"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="100dp"
-        android:backgroundTint="@color/darkred"
-        android:gravity="center"
-        android:text="Borrar datos"
-        android:textColor="@android:color/white"
-        android:textSize="25sp"
+        android:text="@string/TemaText"
+        android:layout_below="@id/nombreUsuario"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        />
+
+    <TextView android:id="@+id/txtModoOscuro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ModoOscuroText"
+        android:textSize="20dp"
+        android:layout_below="@id/txtTema"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="50dp" />
+
+    <Switch android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/txtTema"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="50dp"
+        android:thumbTextPadding="10dp"
+        android:height="50dp"
+        android:width="60dp"
+        android:scaleX="2"
+        android:scaleY="2" />
+
+    <TextView android:id="@+id/txtOpcionesColoresMapa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textoOpcionesColores"
+        android:textSize="25dp"
+        android:layout_below="@id/txtModoOscuro"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="40dp"
         android:textStyle="bold" />
 
+    <TextView android:id="@+id/txtOpcionesPaisesVisitados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/PaisesVisitadosText"
+        android:textSize="20dp"
+        android:layout_below="@id/txtOpcionesColoresMapa"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="50dp" />
+    <TextView
 
+        android:id="@+id/txtVisitando"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Visitando"
+        android:textSize="20dp"
+        android:layout_below="@id/txtOpcionesPaisesVisitados"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="50dp" />
+    <TextView
+
+        android:id="@+id/txtVerificado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Verificado"
+        android:textSize="20dp"
+        android:layout_below="@id/txtVisitando"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="50dp" />
+    <Button android:id="@+id/btnSeleccionarColorPaisesVisitados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtOpcionesColoresMapa"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="30dp"
+        android:text="@string/txtBtnSeleccionarColorVisitados"
+        android:backgroundTint="@color/lightblue" />
+
+    <Button android:id="@+id/btnSeleccionarColorPaisesVisitando"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnSeleccionarColorPaisesVisitados"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="30dp"
+        android:text="@string/txtBtnSeleccionarColorVisitados"
+        android:backgroundTint="@color/lightblue" />
+
+    <Button android:id="@+id/btnPaisesVerificados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnSeleccionarColorPaisesVisitando"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="30dp"
+        android:text="@string/txtBtnSeleccionarColorVisitados"
+        android:backgroundTint="@color/lightblue" />
 </RelativeLayout>
