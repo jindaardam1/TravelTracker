@@ -132,6 +132,7 @@
     <string name="ModoOscuroText">Modo oscuro</string>
     <string name="textoOpcionesColores">Colores del mapa</string>
     <string name="PaisesVisitadosText">Países visitados</string>
+    <string name="Visitando">Visitando</string>
     <string name="txtBtnSeleccionarColorVisitados">Seleccionar color</string>
     <string name="TemaText">Tema</string>
     <string name="PaisesPorVisitarText">Países por visitar</string>
@@ -155,5 +156,6 @@
     <string name="correo_electr_nico">Correo electrónico</string>
     <string name="confirmar_pass">Confirmar contraseña</string>
     <string name="pa_s_en_el_que_vives">País en el que vives</string>
+    <string name="Verificado">Verificado\n</string>
 
 </resources>
