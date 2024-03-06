@@ -1,3 +1,5 @@
 package com.example.traveltracker
 
-data class Oferta(val nombre: String, val descripcion: String)
+import android.graphics.drawable.Drawable
+
+data class Oferta(val enlaceRedireccion: String, val aerolineaFoto: Drawable?, val destino: String, val precio: Int)

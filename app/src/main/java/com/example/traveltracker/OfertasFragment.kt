@@ -1,30 +1,38 @@
+package com.example.traveltracker
+
+import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.ListView
 import android.widget.SearchView
 import androidx.fragment.app.Fragment
-import com.example.traveltracker.R
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.io.InputStream
+import java.net.URL
+import kotlin.random.Random
 
-// Declaración de la clase Oferta
-data class Oferta(val nombre: String, val descripcion: String)
 
 class OfertasFragment : Fragment() {
 
     private lateinit var listView: ListView
     private lateinit var searchView: SearchView
     private lateinit var adapter: ArrayAdapter<Oferta>
-
-    private val ofertasList: MutableList<Oferta> = mutableListOf(
-        Oferta("Oferta 1", "Descripción de la oferta 1"),
-        Oferta("Oferta 2", "Descripción de la oferta 2"),
-        Oferta("Oferta 3", "Descripción de la oferta 3")
-        // Añade más ofertas según sea necesario
-    )
+    private var logoRyanair: Drawable? = null
+    private var logoIberia: Drawable? = null
+    private var logoAirEuropa: Drawable? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,14 +42,16 @@ class OfertasFragment : Fragment() {
 
         // Configurar el ListView y el adaptador
         listView = view.findViewById(R.id.listView)
-        adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, ofertasList)
+        adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, mutableListOf<Oferta>())
         listView.adapter = adapter
 
         // Manejar clics en elementos del ListView
         listView.setOnItemClickListener { _, _, position, _ ->
             // Aquí puedes manejar el clic en el elemento
-            val ofertaSeleccionada = ofertasList[position]
-            abrirPaginaWeb(ofertaSeleccionada)
+            val ofertaSeleccionada = adapter.getItem(position)
+            if (ofertaSeleccionada != null) {
+                abrirPaginaWeb(ofertaSeleccionada)
+            }
         }
 
         // Configurar el SearchView
@@ -57,154 +67,81 @@ class OfertasFragment : Fragment() {
             }
         })
 
-        return view
-    }
-
-    private fun abrirPaginaWeb(oferta: Oferta) {
-        // Puedes personalizar esta lógica para abrir la página web según la oferta
-        val intent = Intent(Intent.ACTION_VIEW)
-        intent.data = Uri.parse("https://www.iberia.com/es/buscador-vuelos/")
-        startActivity(intent)
-    }
-}
-
-/*
-import android.content.Intent
-import android.net.Uri
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Filter
-import android.widget.Filterable
-import android.widget.TextView
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.traveltracker.R
-import java.util.*
-
-// Declaración de la clase Oferta
-data class Oferta(val nombre: String, val descripcion: String)
-
-class OfertasFragment : Fragment() {
-
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var searchView: SearchView
-    private lateinit var adapter: OfertasAdapter
-
-    private val ofertasList: MutableList<Oferta> = mutableListOf(
-        Oferta("Oferta 1", "Descripción de la oferta 1"),
-        Oferta("Oferta 2", "Descripción de la oferta 2"),
-        Oferta("Oferta 3", "Descripción de la oferta 3")
-        // Añade más ofertas según sea necesario
-    )
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_ofertas, container, false)
-
-        // Configurar el RecyclerView y el adaptador
-        recyclerView = view.findViewById(R.id.rvOfertas)
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        adapter = OfertasAdapter(ofertasList)
-        recyclerView.adapter = adapter
-
-        // Manejar clics en elementos del RecyclerView
-        adapter.setOnItemClickListener { oferta ->
-            // Aquí puedes manejar el clic en el elemento
-            abrirPaginaWeb(oferta)
+        // Iniciar las corrutinas aquí para cargar las imágenes
+        lifecycleScope.launch {
+            cargarImagenes()
         }
-
-        // Configurar el SearchView
-        searchView = view.findViewById(R.id.searchView)
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                adapter.filter.filter(newText)
-                return true
-            }
-        })
 
         return view
     }
 
+    private suspend fun cargarImagenes() {
+        // Crear objetos de imagen para los logotipos de aerolíneas
+        logoRyanair = crearDrawableDesdeUrl("https://upload.wikimedia.org/wikipedia/commons/9/9d/Arpa_Ryanair.png")
+        logoIberia = crearDrawableDesdeUrl("https://grupo.iberia.com/contents/archives/475/109/images/thumb255x185_auto/iberia_47510965352123_thumb.png")
+        logoAirEuropa = crearDrawableDesdeUrl("https://www.bradutch.com/wp-content/uploads/2020/01/air-europa-logo-0.png")
+
+        // Crear lista de ofertas con imágenes cargadas
+        val ofertasList: MutableList<Oferta> = mutableListOf(
+            Oferta("https://www.ryanair.com/flights/es/es", logoRyanair, "Nueva York, Estados Unidos", generarPrecio()),
+            Oferta("https://www.iberia.com/es/", logoIberia, "París, Francia", generarPrecio()),
+            Oferta("https://www.iberia.com/es/", logoIberia, "Tokio, Japón", generarPrecio()),
+            Oferta("https://www.aireuropa.com/es/es/home", logoAirEuropa, "Roma, Italia", generarPrecio()),
+            Oferta("https://www.aireuropa.com/es/es/home", logoAirEuropa, "Sídney, Australia", generarPrecio()),
+            Oferta("https://www.ryanair.com/flights/es/es", logoRyanair, "Londres, Reino Unido", generarPrecio()),
+            Oferta("https://www.iberia.com/es/", logoIberia, "Río de Janeiro, Brasil", generarPrecio()),
+            Oferta("https://www.ryanair.com/flights/es/es", logoRyanair, "Dubái, Emiratos Árabes Unidos", generarPrecio()),
+            Oferta("https://www.iberia.com/es/", logoIberia, "Los Ángeles, Estados Unidos", generarPrecio()),
+            Oferta("https://www.iberia.com/es/", logoIberia, "Moscú, Rusia", generarPrecio()),
+            Oferta("https://www.aireuropa.com/es/es/home", logoAirEuropa, "Cancún, México", generarPrecio()),
+            Oferta("https://www.aireuropa.com/es/es/home", logoAirEuropa, "Hong Kong", generarPrecio()),
+            Oferta("https://www.iberia.com/es/", logoIberia, "Barcelona, España", generarPrecio()),
+            Oferta("https://www.iberia.com/es/", logoIberia, "Berlín, Alemania", generarPrecio()),
+            Oferta("https://www.aireuropa.com/es/es/home", logoAirEuropa, "Toronto, Canadá", generarPrecio()),
+            Oferta("https://www.ryanair.com/flights/es/es", logoRyanair, "Seúl, Corea del Sur", generarPrecio()),
+            Oferta("https://www.ryanair.com/flights/es/es", logoRyanair, "Bangkok, Tailandia", generarPrecio()),
+            Oferta("https://www.aireuropa.com/es/es/home", logoAirEuropa, "Buenos Aires, Argentina", generarPrecio()),
+            Oferta("https://www.aireuropa.com/es/es/home", logoAirEuropa, "Ámsterdam, Países Bajos", generarPrecio()),
+            Oferta("https://www.ryanair.com/flights/es/es", logoRyanair, "Estambul, Turquía", generarPrecio())
+        )
+
+        // Actualizar el adaptador con la lista de ofertas
+        adapter.clear()
+        adapter.addAll(ofertasList)
+        adapter.notifyDataSetChanged()
+    }
+
     private fun abrirPaginaWeb(oferta: Oferta) {
-        // Puedes personalizar esta lógica para abrir la página web según la oferta
         val intent = Intent(Intent.ACTION_VIEW)
-        intent.data = Uri.parse("https://www.iberia.com/es/buscador-vuelos/")
+        intent.data = Uri.parse(oferta.enlaceRedireccion)
         startActivity(intent)
     }
 
-    // Definición del adaptador
-    private class OfertasAdapter(private val ofertasList: List<Oferta>) :
-        RecyclerView.Adapter<OfertasAdapter.OfertaViewHolder>(), Filterable {
-
-        private var onItemClick: ((Oferta) -> Unit)? = null
-        private var filteredOfertasList: List<Oferta> = ofertasList.toMutableList()
-
-        inner class OfertaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            private val nombreTextView: TextView = itemView.findViewById(R.id.nombreTextView)
-            private val descripcionTextView: TextView = itemView.findViewById(R.id.descripcionTextView)
-
-            init {
-                itemView.setOnClickListener {
-                    onItemClick?.invoke(filteredOfertasList[adapterPosition])
-                }
+    private suspend fun crearDrawableDesdeUrl(url: String): Drawable? {
+        return try {
+            val inputStream: InputStream = withContext(Dispatchers.IO) {
+                URL(url).openStream()
             }
 
-            fun bind(oferta: Oferta) {
-                nombreTextView.text = oferta.nombre
-                descripcionTextView.text = oferta.descripcion
-            }
+            val bitmap: Bitmap = BitmapFactory.decodeStream(inputStream)
+
+            BitmapDrawable(bitmap)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
         }
+    }
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OfertaViewHolder {
-            val itemView = LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_oferta, parent, false)
-            return OfertaViewHolder(itemView)
-        }
-
-        override fun onBindViewHolder(holder: OfertaViewHolder, position: Int) {
-            holder.bind(filteredOfertasList[position])
-        }
-
-        override fun getItemCount(): Int {
-            return filteredOfertasList.size
-        }
-
-        fun setOnItemClickListener(listener: (Oferta) -> Unit) {
-            onItemClick = listener
-        }
-
-        override fun getFilter(): Filter {
-            return object : Filter() {
-                override fun performFiltering(constraint: CharSequence?): FilterResults {
-                    val charString = constraint.toString().toLowerCase(Locale.getDefault())
-                    filteredOfertasList = if (charString.isEmpty()) {
-                        ofertasList.toMutableList()
-                    } else {
-                        ofertasList.filter { it.nombre.toLowerCase(Locale.getDefault()).contains(charString) }
-                    }
-
-                    val filterResults = FilterResults()
-                    filterResults.values = filteredOfertasList
-                    return filterResults
-                }
-
-                @Suppress("UNCHECKED_CAST")
-                override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-                    filteredOfertasList = results?.values as List<Oferta>
-                    notifyDataSetChanged()
-                }
-            }
-        }
+    private fun generarPrecio(): Int {
+        return Random.nextInt(400, 1500)
     }
 }
 
-*/
+class DrawableAdapter(context: Context, drawables: List<Drawable>) : ArrayAdapter<Drawable>(context, android.R.layout.simple_list_item_1, drawables) {
+
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+        val imageView = ImageView(context)
+        imageView.setImageDrawable(getItem(position))
+        return imageView
+    }
+}

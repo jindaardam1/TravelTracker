@@ -52,6 +52,8 @@ dependencies {
     implementation ("com.google.android.libraries.places:places:3.3.0")
     implementation("com.google.android.material:material:1.4.0-alpha02")
     implementation ("androidx.recyclerview:recyclerview:1.2.0")
+    implementation("io.coil-kt:coil:1.4.0")
+
 
 
 
