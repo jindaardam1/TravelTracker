@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@mipmap/fondo_login2"
     tools:layoutDescription="@xml/register_scene">
 
     <ImageView
@@ -21,7 +22,8 @@
         android:layout_gravity="center"
         android:text="@string/registrarse"
         android:textSize="35sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="@color/white" /> <!-- Cambiado a blanco -->
 
     <EditText
         android:layout_width="300dp"
@@ -29,7 +31,10 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:id="@+id/usernameEdit"
-        android:hint="@string/nombre_de_usuario"/>
+        android:hint="@string/nombre_de_usuario"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/white" />
 
     <EditText
         android:layout_width="300dp"
@@ -37,7 +42,10 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:id="@+id/emailEdit"
-        android:hint="@string/correo_electr_nico"/>
+        android:hint="@string/correo_electr_nico"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:backgroundTint="@color/white" />
 
     <EditText
         android:id="@+id/passwordEdit"
@@ -46,8 +54,10 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:hint="@string/pass"
-        android:inputType="textPassword" />
-
+        android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:backgroundTint="@color/white" />
 
     <EditText
         android:layout_width="300dp"
@@ -56,8 +66,10 @@
         android:layout_marginTop="20dp"
         android:id="@+id/confirmEdit"
         android:hint="@string/confirmar_pass"
-        android:inputType="textPassword"/>
-
+        android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:backgroundTint="@color/white" />
 
     <AutoCompleteTextView
         android:id="@+id/autoCompleteTextViewCountry"
@@ -66,8 +78,9 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:hint="País"
-         />
-
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:backgroundTint="@color/white" />
 
     <Button
         android:id="@+id/button"
@@ -77,6 +90,6 @@
         android:layout_marginTop="25dp"
         android:text="@string/registrarse"
         android:backgroundTint="@color/lightblue"
-        />
+        android:textColor="@color/white" /> <!-- Cambiado a blanco -->
 
 </LinearLayout>

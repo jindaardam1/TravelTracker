@@ -8,8 +8,7 @@
     tools:context=".LoginActivity"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/bus"
-    android:scaleType="fitXY">
+    android:background="@mipmap/fondo_login2">
 
     <ImageView
         android:layout_width="200dp"

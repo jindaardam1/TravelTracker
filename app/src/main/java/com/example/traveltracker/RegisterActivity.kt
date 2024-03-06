@@ -1,15 +1,17 @@
 package com.example.traveltracker
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import model.firebase.dao.UsuarioDAO
 
@@ -60,25 +62,43 @@ class RegisterActivity : AppCompatActivity() {
             if (!countries.contains(selectedCountry)) {
                 Toast.makeText(this, "Seleccione un país válido de la lista", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
-            } else {
-                CoroutineScope(Dispatchers.Main).launch {
-                    val usuarioDao = UsuarioDAO()
-
-                    usuarioDao.insertarUsuario(username, password, email)
-                }
-
-                Toast.makeText(this, "Usuario registrado", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, MainActivity::class.java)
-                finish()
-                startActivity(intent)
             }
 
-            // Si la validación pasa, puedes proceder con el registro
-            // Agrega aquí la lógica para el registro (por ejemplo, enviar los datos a un servidor) TODO
+            CoroutineScope(Dispatchers.Main).launch {
+                val usuarioDao = UsuarioDAO()
 
-            // Una vez completado el registro, puedes navegar a otra actividad o realizar cualquier otra acción necesaria
+                val usuarioExiste = CoroutineScope(Dispatchers.IO).async {
+                    usuarioDao.comprobarSiUsuarioExiste(username)
+                }.await()
 
+                val emailEnUso = CoroutineScope(Dispatchers.IO).async {
+                    usuarioDao.comprobarSiEmailEstaEnUso(email)
+                }.await()
 
+                if (usuarioExiste) {
+
+                    Toast.makeText(this@RegisterActivity, "Nombre de usuario no disponible", Toast.LENGTH_SHORT).show()
+                    return@launch
+
+                }
+
+                if (emailEnUso) {
+
+                    Toast.makeText(this@RegisterActivity, "El email ya está en uso", Toast.LENGTH_SHORT).show()
+                    return@launch
+
+                } else {
+                    Log.i("Existen", usuarioExiste.toString() + emailEnUso.toString())
+                    CoroutineScope(Dispatchers.Main).launch {
+                        usuarioDao.insertarUsuario(username, password, email)
+                    }
+
+                    Toast.makeText(this@RegisterActivity, "Usuario registrado", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this@RegisterActivity, MainActivity::class.java)
+                    finish()
+                    startActivity(intent)
+                }
+            }
         }
     }
 }

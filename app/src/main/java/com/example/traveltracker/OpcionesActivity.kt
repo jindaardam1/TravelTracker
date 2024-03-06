@@ -41,6 +41,7 @@ class OpcionesActivity : AppCompatActivity() {
             }
         }
     }
+
     private fun showColorPickerDialog(listener: (color: Int) -> Unit) {
         /*
         ColorPickerDialogBuilder
