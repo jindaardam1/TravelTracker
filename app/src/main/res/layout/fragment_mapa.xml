@@ -39,11 +39,11 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/paco"
         android:layout_width="281dp"
-        android:layout_height="84dp"
+        android:layout_height="300dp"
         android:layout_below="@id/searchView"
         android:visibility="gone"
         android:layout_marginStart="65dp"
-        android:layout_marginTop="21dp"/>
+        android:background="@color/colorRecyclerViewPais"/>
 
     <Button
         android:id="@+id/button5"

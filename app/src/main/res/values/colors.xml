@@ -14,4 +14,5 @@
     <color name="verde">#317E00</color>
     <color name="colorOferta">#7EAAAAAA</color>
     <color name="transparente">#00AAAAAA</color>
+    <color name="colorRecyclerViewPais">#DDFFFFFF</color>
 </resources>
