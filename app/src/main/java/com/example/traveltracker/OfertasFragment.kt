@@ -1,4 +1,4 @@
-
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -10,8 +10,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.ListView
 import android.widget.SearchView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.traveltracker.Oferta
@@ -40,7 +42,7 @@ class OfertasFragment : Fragment() {
 
         // Configurar el ListView y el adaptador
         listView = view.findViewById(R.id.listView)
-        adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, mutableListOf<Oferta>())
+        adapter = OfertaAdapter(requireContext(), R.layout.item_oferta_grid, mutableListOf())
         listView.adapter = adapter
 
         // Manejar clics en elementos del ListView
@@ -132,5 +134,27 @@ class OfertasFragment : Fragment() {
 
     private fun generarPrecio(): Int {
         return Random.nextInt(400, 1500)
+    }
+
+    class OfertaAdapter(context: Context, resource: Int, objects: List<Oferta>) :
+        ArrayAdapter<Oferta>(context, resource, objects) {
+
+        override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+            val itemView = convertView ?: LayoutInflater.from(context).inflate(R.layout.item_oferta_grid, parent, false)
+
+            val oferta = getItem(position)
+
+            val imageViewLogo = itemView.findViewById<ImageView>(R.id.imageView_logo)
+            val textViewDestino = itemView.findViewById<TextView>(R.id.textView_destino)
+            val textViewPrecio = itemView.findViewById<TextView>(R.id.textView_precio)
+
+            oferta?.let {
+                imageViewLogo.setImageDrawable(it.aerolineaFoto)
+                textViewDestino.text = it.destino
+                textViewPrecio.text = "${it.precio}€"
+            }
+
+            return itemView
+        }
     }
 }
