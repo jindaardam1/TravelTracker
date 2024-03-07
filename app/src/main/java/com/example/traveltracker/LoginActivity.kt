@@ -1,5 +1,5 @@
 package com.example.traveltracker
-
+import androidx.lifecycle.ViewModel
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -16,6 +17,7 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var editTextUsername: EditText
     private lateinit var editTextPassword: EditText
+    var username: String? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -78,8 +80,13 @@ class LoginActivity : AppCompatActivity() {
                 CoroutineScope(Dispatchers.Main).launch {
                     autentic = usuarioDAO.comprobarUsuario(nombreUsuario, contra)
                     if (autentic) {
+                        // Crear un intent para iniciar la MainActivity
                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        // Pasar el nombre de usuario como extra
+                        intent.putExtra("username", nombreUsuario)
+                        // Iniciar la MainActivity
                         startActivity(intent)
+                        // Finalizar LoginActivity para que no se pueda volver atrás desde MainActivity
                         finish()
                     } else {
                         Toast.makeText(this@LoginActivity, "Usuario o contraseña inválidos.", Toast.LENGTH_LONG).show()
@@ -90,6 +97,7 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
+
 
     private fun iraRegistrar() {
             val intent = Intent(this, RegisterActivity::class.java)
