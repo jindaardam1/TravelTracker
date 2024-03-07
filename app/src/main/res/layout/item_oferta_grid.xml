@@ -2,10 +2,12 @@
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="130dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:columnCount="2"
     android:rowCount="2"
     android:orientation="horizontal"
     android:layout_gravity="center_horizontal"
+    android:background="@drawable/fondo_redondeado"
     android:padding="8dp">
 
     <ImageView
@@ -16,6 +18,7 @@
         android:layout_rowSpan="2"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
+        android:padding="10dp"
         android:src="@drawable/ic_launcher_background" />
 
     <TextView

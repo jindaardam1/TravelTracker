@@ -1,5 +1,5 @@
 <LinearLayout
-    android:background="@color/backGroundBright"
+    android:background="@mipmap/fondo_ofertas2"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -40,10 +40,10 @@
 
     <ListView
         android:id="@+id/listView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/searchView"
-        android:divider="@color/backGroundBright"
+        android:divider="@color/transparente"
         android:dividerHeight="10dp"
         android:layout_margin="25dp"/>
 
