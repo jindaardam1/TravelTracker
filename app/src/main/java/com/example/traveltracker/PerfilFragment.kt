@@ -2,6 +2,7 @@ package com.example.traveltracker
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,10 +39,26 @@ class PerfilFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_perfil, container, false)
 
         nombreUsuario = view.findViewById<TextView>(R.id.nombreUsuario)
-        editTextUsername = view.findViewById<EditText>(R.id.editTextUsername)
+        //editTextUsername = view.findViewById<EditText>(R.id.editTextUsername)
 
-        val username = activity?.intent?.getStringExtra("username")
-        nombreUsuario.text = username ?: ""
+
+
+
+
+
+
+        // Recuperar el Bundle de argumentos
+        val args = arguments
+
+        // Verificar si el Bundle no es nulo y si contiene el parámetro que necesitas
+        if (args != null && args.containsKey("username")) {
+            // Obtener el valor del parámetro "username" del Bundle
+            val username = args.getString("username")
+Log.e("CONTROL 2", "username2: " + username)
+            // Ahora puedes usar el valor del nombre de usuario como desees, por ejemplo, mostrarlo en un TextView
+            val textViewUsername = view.findViewById<TextView>(R.id.nombreUsuario)
+            textViewUsername.text = username
+        }
 
         val botonCerrarSesion = view.findViewById<Button>(R.id.Cerrar_sesion)
         botonCerrarSesion.setOnClickListener {

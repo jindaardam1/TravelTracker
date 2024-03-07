@@ -57,7 +57,12 @@ class MainActivity : AppCompatActivity() {
         }
         navigation_option4.setOnClickListener {
             changeColor(navigation_option4, R.color.lightblue)
-            loadFragment(PerfilFragment())
+            val username = intent.getStringExtra("username")
+            val perfilFragment = PerfilFragment()
+            val bundle = Bundle()
+            bundle.putString("username", username)
+            perfilFragment.arguments = bundle
+            loadFragment(perfilFragment)
         }
 
         // Cargar el fragmento inicial
