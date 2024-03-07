@@ -28,7 +28,7 @@
 
     <SearchView
         android:id="@+id/searchView"
-        android:layout_width="284dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="21dp"
@@ -39,7 +39,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/paco"
         android:layout_width="281dp"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/searchView"
         android:visibility="gone"
         android:layout_marginStart="65dp"
