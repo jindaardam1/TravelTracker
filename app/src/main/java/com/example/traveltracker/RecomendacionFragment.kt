@@ -22,10 +22,13 @@ class RecomendacionFragment : Fragment() {
         // Referenciar vistas
         val nombreTextView: TextView = view.findViewById(R.id.Nombre)
         val imageView: ImageView = view.findViewById(R.id.imageView3)
+        val descripcionTextView: TextView = view.findViewById(R.id.Descripcion)
 
-        // Obtener datos de la recomendación (nombre e imagen)
-        val nombreRecomendacion = "PLAYA DE VARADERO (CUBA)" // Cambiar por el nombre real
+        // Obtener datos de la recomendación (nombre, imagen y descripción)
+        val nombreRecomendacion = "Cuba" // Cambiar por el nombre real
         val imagenURL = "https://media.traveler.es/photos/61376e02c6202df7591601a1/master/w_1920%2Cc_limit/138178.jpg" // Cambiar por la URL real de la imagen
+        val descripcionRecomendacion = "Cuba, oficialmente la República de Cuba, es un país soberano insular del Caribe, asentado en un archipiélago del mar Caribe. Su capital y ciudad más poblada es La Habana." +
+                " Cuba es conocida por su rica historia, su cultura única, sus playas hermosas y su música vibrante, incluido el son cubano y la salsa. Explora la mezcla de arquitectura colonial española y la influencia caribeña en sus ciudades, como Trinidad y Santiago de Cuba."
 
         // Asignar el nombre a TextView
         nombreTextView.text = nombreRecomendacion
@@ -35,6 +38,10 @@ class RecomendacionFragment : Fragment() {
             .load(imagenURL)
             .into(imageView)
 
+        // Asignar la descripción a TextView
+        descripcionTextView.text = descripcionRecomendacion
+
         return view
     }
 }
+

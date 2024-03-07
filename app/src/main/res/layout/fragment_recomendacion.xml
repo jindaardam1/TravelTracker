@@ -32,28 +32,48 @@
         android:layout_below="@id/recomendacionTEXTO"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:text="Nombre"
         android:textSize="25sp"
+        android:textStyle="bold"
         android:gravity="center" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="333dp"
-        android:layout_height="324dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/Nombre"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="12dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/Interes"
+        android:id="@+id/Descripcion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/imageView3"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:textSize="17dp"
+        android:text="Descripción del sitio"
+        android:gravity="fill" />
+
+
+    <TextView
+        android:id="@+id/Interes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Descripcion"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
         android:text="SITIOS INTERES"
         android:gravity="center" />
+
+
+
+
 </RelativeLayout>

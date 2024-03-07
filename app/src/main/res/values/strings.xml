@@ -158,4 +158,9 @@
     <string name="pa_s_en_el_que_vives">País en el que vives</string>
     <string name="Verificado">Verificado\n</string>
 
+        <string name="recomendacion_mes">Recomendación del mes</string>
+        <string name="nombre_default">Nombre</string>
+        <string name="sitios_interes">SITIOS INTERES</string>
+
+
 </resources>

@@ -46,6 +46,11 @@ class RegisterActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            if (username.length < 6) {
+                Toast.makeText(this, "El nombre de usuario debe tener al menos 6 caracteres", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             if (password.length < 6) {
                 // Verificar que la contraseña tenga al menos 6 caracteres
                 Toast.makeText(this, "La contraseña debe tener al menos 6 caracteres", Toast.LENGTH_SHORT).show()

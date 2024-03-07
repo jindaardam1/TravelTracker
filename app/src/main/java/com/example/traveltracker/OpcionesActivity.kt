@@ -16,28 +16,12 @@ class OpcionesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_opciones)
 
-        val btnSeleccionarColorPaisesVisitados: Button = findViewById(R.id.btnSeleccionarColorPaisesVisitados)
         val btnSeleccionarColorPaisesPorVisitar: Button = findViewById(R.id.btnSeleccionarColorPaisesPorVisitar)
-        btnSeleccionarColorPaisesVisitados.setOnClickListener {
-            showColorPickerDialog { color ->
-                colorPaisesVisitados = color
-                // Aquí puedes hacer algo con el color seleccionado para PaisesVisitados
-            }
-        }
 
         btnSeleccionarColorPaisesPorVisitar.setOnClickListener {
             showColorPickerDialog { color ->
                 colorPaisesPorVisitar = color
                 // Aquí puedes hacer algo con el color seleccionado para PaisesPorVisitar
-            }
-        }
-        val switch: Switch = findViewById(R.id.switch1)
-
-        switch.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                window.decorView.setBackgroundColor(Color.BLACK)
-            } else {
-                window.decorView.setBackgroundColor(Color.WHITE)
             }
         }
     }
