@@ -98,6 +98,10 @@ class RegisterActivity : AppCompatActivity() {
                         usuarioDao.insertarUsuario(username, password, email)
                     }
 
+                    val intentResgister = Intent(this@RegisterActivity, MainActivity::class.java)
+                    intentResgister.putExtra("username", username)
+                    startActivity(intentResgister)
+
                     Toast.makeText(this@RegisterActivity, "Usuario registrado", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this@RegisterActivity, MainActivity::class.java)
                     finish()

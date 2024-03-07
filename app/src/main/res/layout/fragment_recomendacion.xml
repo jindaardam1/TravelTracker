@@ -59,7 +59,8 @@
         android:layout_marginRight="40dp"
         android:textSize="17dp"
         android:text="Descripción del sitio"
-        android:gravity="fill" />
+        android:gravity="fill_horizontal"
+        android:justificationMode="inter_word"/>
 
 
     <TextView
@@ -70,8 +71,13 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="20dp"
-        android:text="SITIOS INTERES"
+        android:text="Sitios de interés"
+        android:textStyle="bold"
         android:gravity="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 
 
