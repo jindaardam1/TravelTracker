@@ -54,7 +54,7 @@ class PerfilFragment : Fragment() {
         if (args != null && args.containsKey("username")) {
             // Obtener el valor del parámetro "username" del Bundle
             val username = args.getString("username")
-Log.e("CONTROL 2", "username2: " + username)
+        Log.e("CONTROL 2", "username2: " + username)
             // Ahora puedes usar el valor del nombre de usuario como desees, por ejemplo, mostrarlo en un TextView
             val textViewUsername = view.findViewById<TextView>(R.id.nombreUsuario)
             textViewUsername.text = username

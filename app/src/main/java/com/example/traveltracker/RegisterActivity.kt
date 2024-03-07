@@ -97,15 +97,21 @@ class RegisterActivity : AppCompatActivity() {
                     CoroutineScope(Dispatchers.Main).launch {
                         usuarioDao.insertarUsuario(username, password, email)
                     }
+                    val intentRegister = Intent(this@RegisterActivity, MainActivity::class.java)
+                    // Pasar el nombre de usuario como extra
+                    intentRegister.putExtra("username", username)
+                    // Iniciar la MainActivity
+                    startActivity(intentRegister)
 
                     val intentResgister = Intent(this@RegisterActivity, MainActivity::class.java)
                     intentResgister.putExtra("username", username)
-                    startActivity(intentResgister)
+
 
                     Toast.makeText(this@RegisterActivity, "Usuario registrado", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this@RegisterActivity, MainActivity::class.java)
                     finish()
                     startActivity(intent)
+                    startActivity(intentResgister)
                 }
             }
         }
