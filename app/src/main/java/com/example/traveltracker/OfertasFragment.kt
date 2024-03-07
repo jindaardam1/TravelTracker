@@ -22,7 +22,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.InputStream
-import java.net.URL
 import kotlin.random.Random
 
 class OfertasFragment : Fragment() {
@@ -67,19 +66,19 @@ class OfertasFragment : Fragment() {
             }
         })
 
-        // Iniciar las corrutinas aquí para cargar las imágenes
+        // Iniciar las corrutinas aquí para cargar las imágenes desde mipmap
         lifecycleScope.launch {
-            cargarImagenes()
+            cargarImagenesDesdeMipmap()
         }
 
         return view
     }
 
-    private suspend fun cargarImagenes() {
-        // Crear objetos de imagen para los logotipos de aerolíneas
-        logoRyanair = crearDrawableDesdeUrl("https://upload.wikimedia.org/wikipedia/commons/9/9d/Arpa_Ryanair.png")
-        logoIberia = crearDrawableDesdeUrl("https://grupo.iberia.com/contents/archives/475/109/images/thumb255x185_auto/iberia_47510965352123_thumb.png")
-        logoAirEuropa = crearDrawableDesdeUrl("https://www.bradutch.com/wp-content/uploads/2020/01/air-europa-logo-0.png")
+    private suspend fun cargarImagenesDesdeMipmap() {
+        // Crear objetos de imagen para los logotipos de aerolíneas desde mipmap
+        logoRyanair = crearDrawableDesdeMipmap(R.mipmap.logo_ryanair)
+        logoIberia = crearDrawableDesdeMipmap(R.mipmap.logo_iberia)
+        logoAirEuropa = crearDrawableDesdeMipmap(R.mipmap.logo_aireuropa)
 
         // Crear lista de ofertas con imágenes cargadas
         val ofertasList: MutableList<Oferta> = mutableListOf(
@@ -111,25 +110,21 @@ class OfertasFragment : Fragment() {
         adapter.notifyDataSetChanged()
     }
 
-    private fun abrirPaginaWeb(oferta: Oferta) {
-        val intent = Intent(Intent.ACTION_VIEW)
-        intent.data = Uri.parse(oferta.enlaceRedireccion)
-        startActivity(intent)
-    }
-
-    private suspend fun crearDrawableDesdeUrl(url: String): Drawable? {
+    private suspend fun crearDrawableDesdeMipmap(resourceId: Int): Drawable? {
         return try {
-            val inputStream: InputStream = withContext(Dispatchers.IO) {
-                URL(url).openStream()
-            }
-
-            val bitmap: Bitmap = BitmapFactory.decodeStream(inputStream)
+            val bitmap: Bitmap = BitmapFactory.decodeResource(resources, resourceId)
 
             BitmapDrawable(bitmap)
         } catch (e: Exception) {
             e.printStackTrace()
             null
         }
+    }
+
+    private fun abrirPaginaWeb(oferta: Oferta) {
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.data = Uri.parse(oferta.enlaceRedireccion)
+        startActivity(intent)
     }
 
     private fun generarPrecio(): Int {

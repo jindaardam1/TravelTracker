@@ -40,7 +40,6 @@
 
     <ListView
         android:id="@+id/listView"
-        android:background="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_below="@id/searchView"
