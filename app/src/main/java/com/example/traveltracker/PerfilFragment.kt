@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import androidx.fragment.app.Fragment
 
 
@@ -13,6 +14,8 @@ import androidx.fragment.app.Fragment
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
+private lateinit var TextViewUsername: EditText
+private lateinit var editTextUsername: EditText
 
 /**
  * A simple [Fragment] subclass.
@@ -20,6 +23,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class PerfilFragment : Fragment() {
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -29,6 +33,8 @@ class PerfilFragment : Fragment() {
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
+            val editTextUsername = view?.findViewById<EditText>(R.id.editTextUsername)
+            val TextViewUsername = editTextUsername;
         }
 
     }
