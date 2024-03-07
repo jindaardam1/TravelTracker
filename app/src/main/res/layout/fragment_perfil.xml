@@ -35,57 +35,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnSeleccionarColorPaisesVisitados"
+        android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
-        android:layout_marginTop="150dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="230dp"
+        android:layout_marginBottom="15dp"
         android:backgroundTint="@color/blue"
         android:gravity="center"
         android:text="Cerrar sesión"
         android:textSize="25sp"
         android:textStyle="bold" />
 
-    <TextView android:id="@+id/txtTema"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/TemaText"
-        android:layout_below="@id/nombreUsuario"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="40dp"
-        android:textStyle="bold"
-        android:textSize="25dp"
-        />
-
-    <TextView android:id="@+id/txtModoOscuro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ModoOscuroText"
-        android:textSize="20dp"
-        android:layout_below="@id/txtTema"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="50dp" />
-
-    <Switch android:id="@+id/switch1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@id/txtTema"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="50dp"
-        android:thumbTextPadding="10dp"
-        android:height="50dp"
-        android:width="60dp"
-        android:scaleX="2"
-        android:scaleY="2" />
 
     <TextView android:id="@+id/txtOpcionesColoresMapa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/textoOpcionesColores"
+        android:text="@string/nombre_de_usuario"
         android:textSize="25dp"
-        android:layout_below="@id/txtModoOscuro"
+        android:layout_below="@id/nombreUsuario"
         android:layout_marginTop="40dp"
         android:layout_marginLeft="40dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_marginBottom="25dp"/>
 
     <TextView
         android:layout_toLeftOf="@id/btnSeleccionarColorPaisesVisitados"
