@@ -1,75 +1,92 @@
 package com.example.traveltracker
-import androidx.lifecycle.ViewModel
+
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import model.firebase.dao.UsuarioDAO
 
+/**
+ * Actividad que maneja el inicio de sesión de los usuarios.
+ */
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var editTextUsername: EditText
     private lateinit var editTextPassword: EditText
-    var username: String? = null
 
-
+    /**
+     * Método que se llama cuando se crea la actividad.
+     * @param savedInstanceState Estado de la instancia anterior de la actividad.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         try {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_login)
 
-            // Inicialización del EditText después de inflar la vista
+            checkCameraPermission()
+
+            checkLocationPermission()
+
             editTextUsername = findViewById(R.id.editTextUsername)
             editTextPassword = findViewById(R.id.editTextPassword)
-            //   var buttonLogin = findViewById(R.id.buttonLogin)
-            // Llamar a la función iniciarSesion al hacer clic en un botón, por ejemplo
-            // (asegúrate de tener un botón en tu layout y definir el evento onClick en XML o programáticamente)
-            // Por simplicidad, aquí asumiremos que tienes un botón con ID "buttonLogin"
+
             findViewById<Button>(R.id.buttonLogin).setOnClickListener {
                 iniciarSesion()
             }
 
             val botonRegistrarse = findViewById<Button>(R.id.registrarseButton)
 
-            botonRegistrarse.setOnClickListener(){
+            botonRegistrarse.setOnClickListener {
                 iraRegistrar()
             }
         } catch (e: Exception) {
             Log.e("Error to loco ahí", e.toString())
         }
     }
+
+    /**
+     * Verifica si el nombre de usuario cumple con los requisitos.
+     * @return true si el nombre de usuario es válido, false de lo contrario.
+     */
     private fun user(): Boolean {
         val username = editTextUsername.text.toString()
-        //Aquí (en el if) hay que hacer una consulta a la base de datos la cual no sé como hacer "where user == user en la base de datos" o algo así
-        //por el momento he puesto estas condiciones para que no de error
-        if (username.length < 6 && username.length < 20) {
-            Toast.makeText(this, "El nombre de usuario tiene que tener entre 6 y 20 caracteres", Toast.LENGTH_SHORT).show()
-            return false;
-        }
-        else
-            return  true;
 
+        return if (username.length < 6 && username.length < 20) {
+            Toast.makeText(this, "El nombre de usuario tiene que tener entre 6 y 20 caracteres", Toast.LENGTH_SHORT).show()
+            false
+        } else
+            true
     }
-    private fun Contrasena(): Boolean {
+
+    /**
+     * Verifica si la contraseña cumple con los requisitos.
+     * @return true si la contraseña es válida, false de lo contrario.
+     */
+    private fun contrasena(): Boolean {
         val contra = editTextPassword.text.toString()
-        //Aquí (en el if) hay que hacer una consulta a la base de datos la cual no sé como hacer "where contra == contraenlabase de datos" o algo así
-        //por el momento he puesto estas condiciones para que no de error
-        if (contra.length < 6) {
+
+        return if (contra.length < 6) {
             Toast.makeText(this, "La contraseña tiene que tener más de 6 caracteres", Toast.LENGTH_SHORT).show()
-            return false;
-        }
-        else
-            return  true;
+            false
+        } else
+            true
     }
+
+    /**
+     * Inicia sesión en la aplicación.
+     */
     private fun iniciarSesion() {
-        if (Contrasena() && user()) {
+        if (contrasena() && user()) {
             try {
                 val usuarioDAO = UsuarioDAO()
                 val contra = editTextPassword.text.toString()
@@ -80,13 +97,13 @@ class LoginActivity : AppCompatActivity() {
                 CoroutineScope(Dispatchers.Main).launch {
                     autentic = usuarioDAO.comprobarUsuario(nombreUsuario, contra)
                     if (autentic) {
-                        // Crear un intent para iniciar la MainActivity
+
                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                        // Pasar el nombre de usuario como extra
+
                         intent.putExtra("username", nombreUsuario)
-                        // Iniciar la MainActivity
+
                         startActivity(intent)
-                        // Finalizar LoginActivity para que no se pueda volver atrás desde MainActivity
+
                         finish()
                     } else {
                         Toast.makeText(this@LoginActivity, "Usuario o contraseña inválidos.", Toast.LENGTH_LONG).show()
@@ -98,10 +115,88 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-
+    /**
+     * Navega a la pantalla de registro de usuario.
+     */
     private fun iraRegistrar() {
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
-            finish()
+        val intent = Intent(this, RegisterActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    private val CAMERA_PERMISSION_REQUEST_CODE = 1001
+    private val LOCATION_PERMISSION_REQUEST_CODE = 1002
+
+    /**
+     * Verifica si se tiene el permiso de ubicación y solicita permisos si es necesario.
+     */
+    private fun checkLocationPermission() {
+        if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED ||
+            ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION
+                ),
+                LOCATION_PERMISSION_REQUEST_CODE
+            )
+        }
+    }
+
+    /**
+     * Verifica si se tiene el permiso de cámara y solicita permisos si es necesario.
+     */
+    private fun checkCameraPermission() {
+        if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.CAMERA
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.CAMERA),
+                CAMERA_PERMISSION_REQUEST_CODE
+            )
+        } else {
+            checkLocationPermission()
+        }
+    }
+
+    /**
+     * Se llama cuando se obtiene el resultado de la solicitud de permisos.
+     * @param requestCode Código de solicitud.
+     * @param permissions Arreglo de permisos solicitados.
+     * @param grantResults Arreglo de resultados de los permisos solicitados.
+     */
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when (requestCode) {
+            CAMERA_PERMISSION_REQUEST_CODE -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    checkLocationPermission()
+                } else {
+                    Toast.makeText(this@LoginActivity, "El permiso es necesario para el correcto funcionamiento", Toast.LENGTH_LONG).show()
+                }
+            }
+            LOCATION_PERMISSION_REQUEST_CODE -> {
+                if (grantResults.isNotEmpty() && grantResults.all { it == PackageManager.PERMISSION_GRANTED }) {
+                    // No es necesario hacer nada
+                } else {
+                    Toast.makeText(this@LoginActivity, "El permiso es necesario para el correcto funcionamiento", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
     }
 }
