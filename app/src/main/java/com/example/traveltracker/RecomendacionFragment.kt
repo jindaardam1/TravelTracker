@@ -57,12 +57,10 @@ class RecomendacionFragment : Fragment() {
     //ASIGNAR ACTIVIDADES DE INTERES
     private fun generarSitiosInteres(): List<SitioInteres> {
         return listOf(
-            SitioInteres("Nombre del Sitio 1", R.mipmap.habana_vieja, "https://havanavieja.com/"),
-//            SitioInteres("Restaurante La Habana Vieja", R.mipmap.habana_vieja, "https://havanavieja.com/"),
-//            SitioInteres("Museo Nacional de Bellas Artes", R.mipmap.museo_bellas_artes, "https://www.bellasartes.cult.cu/"),
-//            SitioInteres("Plaza de la Revolución", R.mipmap.plaza_revolucion, "https://www.cuba.com/plaza-de-la-revolucion"),
-//            SitioInteres("Malecón de La Habana", R.mipmap.malecon, "https://www.cuba.com/malecon-de-la-habana"),
-//            SitioInteres("Habana Vieja", R.mipmap.habana_vieja, "https://www.habanavieja.com/")
+            SitioInteres("Restaurante: La Habana Vieja", R.mipmap.habana_vieja, "https://havanavieja.com/"),
+            SitioInteres("Lugar: Plaza de la Revolución", R.mipmap.plaza_revolucion, "https://www.visitarcuba.org/plaza-de-la-revolucion"),
+          SitioInteres("Lugar: Malecón de La Habana", R.mipmap.malecon, "https://www.visitarcuba.org/el-malecon-de-la-habana"),
+           SitioInteres("Hotel: Hotel Vedado", R.mipmap.hotel, "https://www.grancaribehotels.com/hoteles-y-destinos/la-habana/hotel-vedado")
         )
     }
 
