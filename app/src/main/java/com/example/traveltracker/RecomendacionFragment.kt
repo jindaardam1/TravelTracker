@@ -24,27 +24,23 @@ class RecomendacionFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_recomendacion, container, false)
 
-        // Referenciar vistas
         val nombreTextView: TextView = view.findViewById(R.id.Nombre)
         val imageView: ImageView = view.findViewById(R.id.imageView3)
         val descripcionTextView: TextView = view.findViewById(R.id.Descripcion)
         val recyclerViewSitiosInteres: RecyclerView = view.findViewById(R.id.recyclerViewSitiosInteres)
 
-        // Obtener datos de la recomendación (nombre, imagen y descripción)
-        val nombreRecomendacion = "Cuba" // Cambiar por el nombre real
+        val emoji = "\uD83C\uDFD6"
+        val nombreRecomendacion = "CUBA $emoji"
         val imagenURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Flag_of_Cuba.svg/800px-Flag_of_Cuba.svg.png"
 
 
-        // Dar nombre (Cuba)
         nombreTextView.text = nombreRecomendacion
 
-        // Cargar imagen desde internet con la URL usando Glide
         Glide.with(requireContext())
             .load(imagenURL)
             .into(imageView)
 
 
-        // Configurar RecyclerView de sitios de interés
         val sitiosInteres = generarSitiosInteres()
         val adapter = SitioInteresAdapter(requireContext(), sitiosInteres)
         recyclerViewSitiosInteres.layoutManager = LinearLayoutManager(requireContext())
@@ -65,8 +61,8 @@ class RecomendacionFragment : Fragment() {
         return listOf(
             SitioInteres("Restaurante: La Habana Vieja", R.mipmap.habana_vieja, "https://havanavieja.com/"),
             SitioInteres("Lugar: Plaza de la Revolución", R.mipmap.plaza_revolucion, "https://www.visitarcuba.org/plaza-de-la-revolucion"),
-          SitioInteres("Lugar: Malecón de La Habana", R.mipmap.malecon, "https://www.visitarcuba.org/el-malecon-de-la-habana"),
-           SitioInteres("Hotel: Hotel Vedado", R.mipmap.hotel, "https://www.grancaribehotels.com/hoteles-y-destinos/la-habana/hotel-vedado")
+            SitioInteres("Lugar: Malecón de La Habana", R.mipmap.malecon, "https://www.visitarcuba.org/el-malecon-de-la-habana"),
+            SitioInteres("Hotel: Hotel Vedado", R.mipmap.hotel, "https://www.grancaribehotels.com/hoteles-y-destinos/la-habana/hotel-vedado")
         )
     }
 
