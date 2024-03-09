@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutDescription="@xml/fragment_recomendacion_scene"
-    tools:context=".RecomendacionFragment">
+    tools:context=".RecomendacionFragment"
+    android:background="@mipmap/fondo_ofertas2">
 
     <TextView
         android:id="@+id/recomendacionTEXTO"
@@ -68,6 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/Descripcion"
         android:layout_alignParentStart="true"
+        android:textColor="@color/white"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="20dp"
         android:textSize="20dp"

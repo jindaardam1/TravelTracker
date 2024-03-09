@@ -62,7 +62,15 @@ class RecomendacionFragment : Fragment() {
             SitioInteres("Restaurante: La Habana Vieja", R.mipmap.habana_vieja, "https://havanavieja.com/"),
             SitioInteres("Lugar: Plaza de la Revolución", R.mipmap.plaza_revolucion, "https://www.visitarcuba.org/plaza-de-la-revolucion"),
             SitioInteres("Lugar: Malecón de La Habana", R.mipmap.malecon, "https://www.visitarcuba.org/el-malecon-de-la-habana"),
-            SitioInteres("Hotel: Hotel Vedado", R.mipmap.hotel, "https://www.grancaribehotels.com/hoteles-y-destinos/la-habana/hotel-vedado")
+            SitioInteres("Hotel: Hotel Vedado", R.mipmap.hotel, "https://www.grancaribehotels.com/hoteles-y-destinos/la-habana/hotel-vedado"),
+
+            SitioInteres("Lugar: Playa Varadero", R.mipmap.playa_varadero, "https://www.meliacuba.com/es/destinos/varadero/guia"),
+            SitioInteres("Restaurante: La Carretera", R.mipmap.la_carretera, "http://www.carretacubana.com/"),
+            SitioInteres("INFO: Descubre sobre la historia de Cuba", R.mipmap.info, "https://viajes.nationalgeographic.com.es/p/cuba"),
+
+
+
+
         )
     }
 
