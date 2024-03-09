@@ -58,7 +58,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:textSize="17dp"
-        android:text="Descripción del sitio"
+        android:text=""
         android:gravity="fill_horizontal"
         android:justificationMode="inter_word"/>
 
@@ -77,6 +77,9 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewSitiosInteres"
+        android:background="@drawable/fondo_redondeado"
+        android:divider="@color/transparente"
+        android:dividerHeight="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/Interes"

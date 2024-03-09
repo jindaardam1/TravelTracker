@@ -30,8 +30,7 @@ class RecomendacionFragment : Fragment() {
 
         // Obtener datos de la recomendación (nombre, imagen y descripción)
         val nombreRecomendacion = "Cuba" // Cambiar por el nombre real
-        val imagenURL = "https://media.traveler.es/photos/61376e02c6202df7591601a1/master/w_1920%2Cc_limit/138178.jpg"
-        val descripcionRecomendacion = "Cuba, oficialmente la República de Cuba, es un país soberano insular del Caribe, asentado en un archipiélago del mar Caribe. Su capital y ciudad más poblada es La Habana."
+        val imagenURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Flag_of_Cuba.svg/800px-Flag_of_Cuba.svg.png"
 
 
         // Dar nombre (Cuba)
@@ -42,8 +41,6 @@ class RecomendacionFragment : Fragment() {
             .load(imagenURL)
             .into(imageView)
 
-        // Asignar la descripción a TextView (Textaco)
-        descripcionTextView.text = descripcionRecomendacion
 
 
         // Configurar RecyclerView de sitios de interés
