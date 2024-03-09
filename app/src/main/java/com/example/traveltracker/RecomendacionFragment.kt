@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.traveltracker.R
 
@@ -23,6 +25,7 @@ class RecomendacionFragment : Fragment() {
         val nombreTextView: TextView = view.findViewById(R.id.Nombre)
         val imageView: ImageView = view.findViewById(R.id.imageView3)
         val descripcionTextView: TextView = view.findViewById(R.id.Descripcion)
+        val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
 
         // Obtener datos de la recomendación (nombre, imagen y descripción)
         val nombreRecomendacion = "Cuba" // Cambiar por el nombre real
@@ -40,7 +43,16 @@ class RecomendacionFragment : Fragment() {
         // Asignar la descripción a TextView
         descripcionTextView.text = descripcionRecomendacion
 
+        // Configurar RecyclerView
+        val sitiosInteres = listOf("Hotel 1", "Actividad 1", "Restaurante 1", "Playa 1") // Lista de sitios de interés (puedes cambiarlos según tus necesidades)
+        val adapter = SitioInteresAdapter(sitiosInteres)
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
         return view
     }
 }
+
+
+
 
