@@ -12,47 +12,58 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.traveltracker.R
 
+
 class RecomendacionFragment : Fragment() {
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_recomendacion, container, false)
 
         // Referenciar vistas
         val nombreTextView: TextView = view.findViewById(R.id.Nombre)
         val imageView: ImageView = view.findViewById(R.id.imageView3)
         val descripcionTextView: TextView = view.findViewById(R.id.Descripcion)
-        val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
+        val recyclerViewSitiosInteres: RecyclerView = view.findViewById(R.id.recyclerViewSitiosInteres)
 
         // Obtener datos de la recomendación (nombre, imagen y descripción)
         val nombreRecomendacion = "Cuba" // Cambiar por el nombre real
-        val imagenURL = "https://media.traveler.es/photos/61376e02c6202df7591601a1/master/w_1920%2Cc_limit/138178.jpg" // Cambiar por la URL real de la imagen
+        val imagenURL = "https://media.traveler.es/photos/61376e02c6202df7591601a1/master/w_1920%2Cc_limit/138178.jpg"
         val descripcionRecomendacion = "Cuba, oficialmente la República de Cuba, es un país soberano insular del Caribe, asentado en un archipiélago del mar Caribe. Su capital y ciudad más poblada es La Habana."
 
-        // Asignar el nombre a TextView
+
+        // Dar nombre (Cuba)
         nombreTextView.text = nombreRecomendacion
 
-        // Cargar imagen desde la URL usando Glide
+        // Cargar imagen desde internet con la URL usando Glide
         Glide.with(requireContext())
             .load(imagenURL)
             .into(imageView)
 
-        // Asignar la descripción a TextView
+        // Asignar la descripción a TextView (Textaco)
         descripcionTextView.text = descripcionRecomendacion
 
-        // Configurar RecyclerView
-        val sitiosInteres = listOf("Hotel 1", "Actividad 1", "Restaurante 1", "Playa 1") // Lista de sitios de interés (puedes cambiarlos según tus necesidades)
-        val adapter = SitioInteresAdapter(sitiosInteres)
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
+        // Configurar RecyclerView de sitios de interés
+        val sitiosInteres = generarSitiosInteres()
+        val adapter = SitioInteresAdapter(requireContext(), sitiosInteres)
+        recyclerViewSitiosInteres.layoutManager = LinearLayoutManager(requireContext())
+        recyclerViewSitiosInteres.adapter = adapter
         return view
     }
+
+    //ASIGNAR ACTIVIDADES DE INTERES
+    private fun generarSitiosInteres(): List<SitioInteres> {
+        return listOf(
+            SitioInteres("Nombre del Sitio 1", R.mipmap.habana_vieja, "https://havanavieja.com/"),
+//            SitioInteres("Restaurante La Habana Vieja", R.mipmap.habana_vieja, "https://havanavieja.com/"),
+//            SitioInteres("Museo Nacional de Bellas Artes", R.mipmap.museo_bellas_artes, "https://www.bellasartes.cult.cu/"),
+//            SitioInteres("Plaza de la Revolución", R.mipmap.plaza_revolucion, "https://www.cuba.com/plaza-de-la-revolucion"),
+//            SitioInteres("Malecón de La Habana", R.mipmap.malecon, "https://www.cuba.com/malecon-de-la-habana"),
+//            SitioInteres("Habana Vieja", R.mipmap.habana_vieja, "https://www.habanavieja.com/")
+        )
+    }
+
 }
-
-
-
-

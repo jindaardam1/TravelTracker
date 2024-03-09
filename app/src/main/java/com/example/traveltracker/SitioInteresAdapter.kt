@@ -1,32 +1,50 @@
 package com.example.traveltracker
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.traveltracker.R
 
-class SitioInteresAdapter(private val sitiosInteres: List<String>) : RecyclerView.Adapter<SitioInteresAdapter.SitioInteresViewHolder>() {
+class SitioInteresAdapter(private val context: Context, private val sitiosInteres: List<SitioInteres>) :
+    RecyclerView.Adapter<SitioInteresAdapter.SitioInteresViewHolder>() {
+
+    inner class SitioInteresViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val imageSitio: ImageView = itemView.findViewById(R.id.imageSitioInteres)
+        val textNombreSitio: TextView = itemView.findViewById(R.id.textNombreSitio)
+        val enlaceSitioTextView: TextView = itemView.findViewById(R.id.enlaceSitioTextView)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SitioInteresViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_sitio_interes, parent, false)
-        return SitioInteresViewHolder(view)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_sitio_interes, parent, false)
+        return SitioInteresViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: SitioInteresViewHolder, position: Int) {
-        val sitioInteres = sitiosInteres[position]
-        holder.bind(sitioInteres)
-    }
+        val currentItem = sitiosInteres[position]
 
-    override fun getItemCount(): Int {
-        return sitiosInteres.size
-    }
+        // Asignar la imagen del sitio
+        holder.imageSitio.setImageResource(currentItem.imagenResource)
 
-    inner class SitioInteresViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val nombreSitioTextView: TextView = itemView.findViewById(R.id.nombreSitioTextView)
+        // Asignar el nombre del sitio
+        holder.textNombreSitio.text = currentItem.nombre
 
-        fun bind(sitioInteres: String) {
-            nombreSitioTextView.text = sitioInteres
+        // Abrir enlace al presionar
+        holder.itemView.setOnClickListener {
+            abrirEnlaceWeb(currentItem.enlace)
         }
     }
+    override fun getItemCount() = sitiosInteres.size
+
+    private fun abrirEnlaceWeb(enlace: String) {
+        val uri = Uri.parse(enlace)
+        val intent = Intent(Intent.ACTION_VIEW, uri)
+        context.startActivity(intent)
+    }
 }
+
