@@ -91,7 +91,10 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/fondo_redondeado"
         android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        >
 
         <TextView
             android:id="@+id/paisesVisitados"
