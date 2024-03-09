@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -42,12 +44,19 @@ class RecomendacionFragment : Fragment() {
             .into(imageView)
 
 
-
         // Configurar RecyclerView de sitios de interés
         val sitiosInteres = generarSitiosInteres()
         val adapter = SitioInteresAdapter(requireContext(), sitiosInteres)
         recyclerViewSitiosInteres.layoutManager = LinearLayoutManager(requireContext())
         recyclerViewSitiosInteres.adapter = adapter
+
+        val dividerItemDecoration = DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL)
+        val drawable = ContextCompat.getDrawable(requireContext(), R.drawable.divider)
+        drawable?.let {
+            dividerItemDecoration.setDrawable(it)
+        }
+        recyclerViewSitiosInteres.addItemDecoration(dividerItemDecoration)
+
         return view
     }
 

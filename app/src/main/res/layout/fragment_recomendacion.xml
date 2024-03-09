@@ -77,12 +77,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewSitiosInteres"
-        android:background="@drawable/fondo_redondeado"
         android:divider="@color/transparente"
         android:dividerHeight="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/Interes"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="8dp"
+        android:layout_margin="20dp"/>
 
 </RelativeLayout>
