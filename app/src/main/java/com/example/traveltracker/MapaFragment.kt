@@ -15,6 +15,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import controlers.GuardarFotoController
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import model.local.database.LocalDatabase
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -62,13 +66,20 @@ class MapaFragment : Fragment() {
             crearXML(requireContext())
             //mostrarXMLenTextView(requireContext(), view.findViewById(R.id.textView39))
             paisesVisitados(selectedCountryId, countries)
+
+            val miDatabase = LocalDatabase.getInstance(requireContext())
+            val estadoPaisDAO = miDatabase.estadoPaisDao()
+
+            CoroutineScope(Dispatchers.Main).launch {
+                estadoPaisDAO.updateHaEstado(selectedCountryId.toString(), true)
+            }
         }
 
         buttonVerificar = view.findViewById(R.id.button7)
         buttonVerificar.setOnClickListener {
-            val gfc = GuardarFotoController()
+            val gfc = GuardarFotoController(requireContext())
 
-            gfc.getPhotoAndSaveOnDb(requireContext())
+            gfc.getPhotoAndSaveOnDb()
         }
         // Inicializar RecyclerView
         recyclerView = view.findViewById(R.id.paco)
