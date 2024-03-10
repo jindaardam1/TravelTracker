@@ -134,6 +134,8 @@
     <string name="PaisesVisitadosText">Países visitados</string>
     <string name="Visitando">Visitando</string>
     <string name="txtBtnSeleccionarColorVisitados">Seleccionar color</string>
+    <string name="txtAceptar">Aceptar</string>
+    <string name="txtCancelar">Cancelar</string>
     <string name="TemaText">Tema</string>
     <string name="PaisesPorVisitarText">Países por visitar</string>
     <!-- TODO: Remove or change this placeholder text -->
