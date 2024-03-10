@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/bus">
+    android:background="@drawable/tren2">
 
     <ImageView
         android:id="@+id/imageView4"

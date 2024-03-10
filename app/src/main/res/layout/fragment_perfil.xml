@@ -6,13 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutDescription="@xml/activity_perfil_scene"
+    android:background="@drawable/tren2"
     tools:context=".PerfilFragment">
 
     <TextView android:id="@+id/textoVisitados"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="@string/color_de_los_paises_visitados"
+        android:text="Color de los países visitados."
         android:textSize="25dp"
         android:layout_above="@id/colorPickerView"
         android:layout_marginTop="40dp"
@@ -26,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="@string/pais_visitando"
+        android:text="Color del país que estás visitando."
         android:textSize="25dp"
         android:layout_above="@id/colorPickerView"
         android:layout_marginTop="40dp"
@@ -41,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="@string/color_de_los_paises_que_has_visitado_y_verificado"
+        android:text="Color de los países que has visitado y verificado."
         android:textSize="25dp"
         android:layout_above="@id/colorPickerView"
         android:layout_marginTop="40dp"
@@ -59,6 +60,7 @@
         android:layout_centerVertical="true"
         android:visibility="gone"
         />
+
     <Button
         android:id="@+id/btnAceptar"
         android:layout_width="wrap_content"
@@ -99,6 +101,7 @@
             android:layout_marginBottom="20dp"
             android:gravity="center"
             android:text="@string/nombre_usuario"
+            android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="bold" />
     </LinearLayout>
@@ -126,7 +129,12 @@
         android:layout_marginTop="40dp"
         android:layout_marginLeft="40dp"
         android:textStyle="bold"
-        android:layout_marginBottom="25dp"/>
+        android:textColor="@color/white"
+        android:layout_marginBottom="25dp"
+        android:shadowColor="#000000"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="1.6" />
 
     <TextView
         android:layout_toLeftOf="@id/btnSeleccionarColorPaisesVisitados"
@@ -138,9 +146,15 @@
         android:layout_below="@id/txtOpcionesColoresMapa"
         android:layout_marginTop="12dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginRight="30dp"/>
-    <TextView
+        android:textColor="@color/white"
+        android:layout_marginRight="30dp"
+        android:shadowColor="#000000"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="1.6" />
 
+    <TextView
+        android:textColor="@color/white"
         android:id="@+id/txtVisitando"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -148,7 +162,12 @@
         android:textSize="20dp"
         android:layout_below="@id/txtOpcionesPaisesVisitados"
         android:layout_marginTop="18.5dp"
-        android:layout_marginLeft="50dp" />
+        android:layout_marginLeft="50dp"
+        android:shadowColor="#000000"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="1.6" />
+
     <TextView
         android:layout_marginRight="30dp"
         android:id="@+id/txtVerificado"
@@ -158,7 +177,13 @@
         android:textSize="20dp"
         android:layout_below="@id/txtVisitando"
         android:layout_marginTop="28dp"
-        android:layout_marginLeft="50dp" />
+        android:textColor="@color/white"
+        android:layout_marginLeft="50dp"
+        android:shadowColor="#000000"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="1.6" />
+
     <Button android:id="@+id/btnSeleccionarColorPaisesVisitados"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
