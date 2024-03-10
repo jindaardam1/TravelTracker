@@ -14,6 +14,9 @@ interface EstadoPaisDAO {
     @Query("SELECT * FROM estado_paises")
     fun getAll(): List<EstadoPais>
 
+    @Query("SELECT * FROM estado_paises WHERE ha_estado = 1")
+    fun getPaisesVisitados(): List<EstadoPais>
+
     @Query("UPDATE estado_paises SET visitando = :visitando WHERE nombre_pais = :nombrePais")
     suspend fun updateVisitando(nombrePais: String, visitando: Boolean)
 

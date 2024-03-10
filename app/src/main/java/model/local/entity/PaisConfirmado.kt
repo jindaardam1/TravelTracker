@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "paises_confirmados",
     foreignKeys = [ForeignKey(
         entity = EstadoPais::class,
-        parentColumns = ["cod_pais"],
+        parentColumns = ["nombre_pais"],
         childColumns = ["cod_pais"],
         onDelete = ForeignKey.CASCADE
     )]
@@ -19,8 +19,8 @@ data class PaisConfirmado(
     val codConfirmado: Int = 0,
 
     @ColumnInfo(name = "foto")
-    val foto: ByteArray,
+    val foto: ByteArray?,
 
     @ColumnInfo(name = "cod_pais")
-    val codPais: Int
+    val codPais: String
 )

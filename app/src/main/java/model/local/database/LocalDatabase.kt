@@ -11,6 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import model.local.dao.EstadoPaisDAO
+import model.local.dao.PaisConfirmadoDAO
 import model.local.entity.EstadoPais
 import model.local.entity.PaisConfirmado
 
@@ -18,6 +19,7 @@ import model.local.entity.PaisConfirmado
 abstract class LocalDatabase : RoomDatabase() {
 
     abstract fun estadoPaisDao(): EstadoPaisDAO
+    abstract fun paisConfirmadoDAO(): PaisConfirmadoDAO
 
     companion object {
         private const val DB = "TravelTracker.db"
