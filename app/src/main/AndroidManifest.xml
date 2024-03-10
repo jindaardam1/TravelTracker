@@ -27,11 +27,13 @@
 
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="locked"/>
 
         <activity
         android:name=".LoginActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="locked">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
@@ -43,10 +45,10 @@
 <!--        AQUI PARA CAMBIAR LO QUE SE PINTA-->
         <activity
             android:name=".RegisterActivity"
-            android:exported="false">
+            android:exported="false"
+            android:screenOrientation="locked">
         </activity>
 
-        <activity android:name="ColorPickerFragment"/>
 
     </application>
 
