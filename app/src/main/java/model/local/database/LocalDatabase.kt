@@ -1,7 +1,5 @@
 package model.local.database
 
-import model.local.entity.EstadoPais
-import model.local.entity.PaisConfirmado
 import android.content.Context
 import android.util.Log
 import androidx.room.Database
@@ -13,6 +11,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import model.local.dao.EstadoPaisDAO
+import model.local.entity.EstadoPais
+import model.local.entity.PaisConfirmado
 
 @Database(entities = [EstadoPais::class, PaisConfirmado::class], version = 1)
 abstract class LocalDatabase : RoomDatabase() {
@@ -93,8 +93,6 @@ abstract class LocalDatabase : RoomDatabase() {
 
                 Log.i("Inserts", "Inserts creados con éxito. ($c)")
             }
-
         }
-
     }
 }

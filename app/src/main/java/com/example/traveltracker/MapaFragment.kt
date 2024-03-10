@@ -1,8 +1,5 @@
 package com.example.traveltracker
 
-import android.graphics.Color
-import android.graphics.PorterDuff
-import android.graphics.drawable.VectorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,10 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.SearchView
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import controlers.GuardarFotoController
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -27,6 +24,7 @@ class MapaFragment : Fragment() {
     private lateinit var searchView: SearchView
     private var selectedCountryId: String? = null
     private lateinit var button: Button
+    private lateinit var buttonVerificar: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -48,6 +46,13 @@ class MapaFragment : Fragment() {
         button = view.findViewById(R.id.button5)
         button.setOnClickListener {
             cambiarColorElementoSVG()
+        }
+
+        buttonVerificar = view.findViewById(R.id.button7)
+        buttonVerificar.setOnClickListener {
+            val gfc = GuardarFotoController()
+
+            gfc.getPhotoAndSaveOnDb(requireContext())
         }
         // Inicializar RecyclerView
         recyclerView = view.findViewById(R.id.paco)
