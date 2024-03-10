@@ -12,7 +12,8 @@
     <color name="backGroundBright">#DAE6EF</color>
     <color name="amarillo">#FFB947</color>
     <color name="verde">#317E00</color>
-    <color name="colorOferta">#7EAAAAAA</color>
+    <color name="colorOferta">#B4AAAAAA</color>
     <color name="transparente">#00AAAAAA</color>
     <color name="colorRecyclerViewPais">#DDFFFFFF</color>
+    <color name="fondoMapa">#D0254E63</color>
 </resources>

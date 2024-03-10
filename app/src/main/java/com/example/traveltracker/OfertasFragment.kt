@@ -55,6 +55,7 @@ class OfertasFragment : Fragment() {
 
         // Configurar el SearchView
         searchView = view.findViewById(R.id.searchView)
+        searchView.queryHint = "Busca un país...";
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false

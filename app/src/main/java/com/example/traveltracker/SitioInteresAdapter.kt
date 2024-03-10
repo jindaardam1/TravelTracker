@@ -17,7 +17,6 @@ class SitioInteresAdapter(private val context: Context, private val sitiosIntere
     inner class SitioInteresViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageSitio: ImageView = itemView.findViewById(R.id.imageSitioInteres)
         val textNombreSitio: TextView = itemView.findViewById(R.id.textNombreSitio)
-        val enlaceSitioTextView: TextView = itemView.findViewById(R.id.enlaceSitioTextView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SitioInteresViewHolder {

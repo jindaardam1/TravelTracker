@@ -262,6 +262,7 @@ class MapaFragment : Fragment() {
 
         // Inicializar SearchView
         searchView = view.findViewById(R.id.searchView)
+        searchView.queryHint = "Busca un país...";
 
         // Configurar el Listener para el SearchView
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {

@@ -53,7 +53,6 @@ dependencies {
     implementation ("androidx.recyclerview:recyclerview:1.2.0")
     implementation("io.coil-kt:coil:1.4.0")
     implementation ("com.github.bumptech.glide:glide:4.12.0")
-    implementation ("com.github.bumptech.glide:glide:4.16.0")
 
 
 

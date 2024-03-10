@@ -26,11 +26,10 @@ class RecomendacionFragment : Fragment() {
 
         val nombreTextView: TextView = view.findViewById(R.id.Nombre)
         val imageView: ImageView = view.findViewById(R.id.imageView3)
-        val descripcionTextView: TextView = view.findViewById(R.id.Descripcion)
         val recyclerViewSitiosInteres: RecyclerView = view.findViewById(R.id.recyclerViewSitiosInteres)
 
         val emoji = "\uD83C\uDFD6"
-        val nombreRecomendacion = "CUBA $emoji"
+        val nombreRecomendacion = "$emoji CUBA $emoji"
         val imagenURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Flag_of_Cuba.svg/800px-Flag_of_Cuba.svg.png"
 
 
