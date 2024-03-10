@@ -8,27 +8,34 @@
     app:layoutDescription="@xml/activity_perfil_scene"
     tools:context=".PerfilFragment">
 
-    <ImageView
-        android:layout_marginRight="30dp"
-        android:id="@+id/imageView2"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:src="@drawable/icono_perfil" />
-
-    <TextView
-        android:id="@+id/nombreUsuario"
-        android:layout_width="250dp"
-        android:layout_height="36dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/imageView2"
-        android:layout_marginTop="41dp"
+    <LinearLayout
+        android:id="@+id/layoutArriba"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:background="@drawable/fondo_perfil"
         android:gravity="center"
-        android:text="Nombre usuario"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        />
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/icono_perfil" />
+
+        <TextView
+            android:id="@+id/nombreUsuario"
+            android:layout_width="250dp"
+            android:layout_height="36dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="Nombre usuario"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/Cerrar_sesion"
@@ -36,8 +43,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
-        android:layout_marginBottom="10dp"
-        android:backgroundTint="@color/blue"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/darkred"
         android:gravity="center"
         android:text="Cerrar sesión"
         android:textSize="25sp"
@@ -49,7 +56,7 @@
         android:layout_height="wrap_content"
         android:text="Opciones"
         android:textSize="25dp"
-        android:layout_below="@id/nombreUsuario"
+        android:layout_below="@id/layoutArriba"
         android:layout_marginTop="40dp"
         android:layout_marginLeft="40dp"
         android:textStyle="bold"
