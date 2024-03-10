@@ -1,5 +1,8 @@
 package com.example.traveltracker
 
+import CountryAdapter
+import VisitedCountriesAdapter
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,10 +10,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.SearchView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import controlers.GuardarFotoController
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -25,6 +32,12 @@ class MapaFragment : Fragment() {
     private var selectedCountryId: String? = null
     private lateinit var button: Button
     private lateinit var buttonVerificar: Button
+    val countriesVisitados = mutableListOf<Country>()
+    private lateinit var visitedCountriesAdapter: VisitedCountriesAdapter
+    val mapasHash = hashMapOf<String, MapaHash>(
+        "NL" to MapaHash("#3DDC84", "@string/Paises_Bajos", "M844,301.1h3v6c-0.7,2.3 -1,4.6 -1,7 -5.5,0.6 -8.9,-1.8 -10,-7 1.8,-3.2 4.5,-5.2 8,-6Z"),
+        "ES" to MapaHash("#727473", "@string/España", "M778,403.1c-0.5,-6.4 0.8,-12.4 4,-18 0.2,-2.4 -0.4,-4.4 -2,-6 -3.1,-1 -6.5,-1.3 -10,-1v-6c-0,-2 1,-3 3,-3 3,0.9 6,1.8 9,2.5 8,0.3 16,0.7 24,1 6.3,4.2 13.3,6.3 21,6.5 -9.8,5.5 -15.6,13.8 -17.5,25 -6.9,5.7 -14.9,9 -24,10 -2,-0.2 -3.8,-0.9 -5.5,-2 -0.9,-3 -1.5,-6 -2,-9Z")
+    )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -45,7 +58,10 @@ class MapaFragment : Fragment() {
 
         button = view.findViewById(R.id.button5)
         button.setOnClickListener {
-            cambiarColorElementoSVG()
+            mapasHash[selectedCountryId]?.color = "#3DDC84"
+            crearXML(requireContext())
+            //mostrarXMLenTextView(requireContext(), view.findViewById(R.id.textView39))
+            paisesVisitados(selectedCountryId, countries)
         }
 
         buttonVerificar = view.findViewById(R.id.button7)
@@ -58,7 +74,7 @@ class MapaFragment : Fragment() {
         recyclerView = view.findViewById(R.id.paco)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        // Configurar datos para el RecyclerView
+
         countries = listOf(
             Country("Afganistán ", "\uD83C\uDDE6\uD83C\uDDEB","AF"),
             Country("Albania ", "\uD83C\uDDE6\uD83C\uDDF1", "AL"),
@@ -257,6 +273,11 @@ class MapaFragment : Fragment() {
             // Agregar más países según sea necesario
         )
 
+        val visitedCountriesRecyclerView: RecyclerView = view.findViewById(R.id.imageView4)
+        visitedCountriesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        visitedCountriesAdapter = VisitedCountriesAdapter(countriesVisitados)
+        visitedCountriesRecyclerView.adapter = visitedCountriesAdapter
+
         // Inicializar adaptador y asignarlo al RecyclerView
         adapter = CountryAdapter(countries){ countryId ->
             // Aquí puedes hacer lo que quieras con el ID del país seleccionado
@@ -264,6 +285,7 @@ class MapaFragment : Fragment() {
             Log.d("MapaFragment", "Selected Country ID: $selectedCountryId") // Registro en Logcat
         }
         recyclerView.adapter = adapter
+
 
         // Inicializar SearchView
         searchView = view.findViewById(R.id.searchView)
@@ -290,12 +312,86 @@ class MapaFragment : Fragment() {
 
         return view
     }
-    private fun cambiarColorElementoSVG() {
-        
+
+    fun paisesVisitados(selectedcountryID: String?, countries: List<Country>) {
+        selectedcountryID?.let { id ->
+            for (country in countries) {
+                if (country.id == id) {
+                    countriesVisitados.add(country)
+                    break
+                }
+            }
+        }
+        // Notificar al adaptador del RecyclerView asociado al ImageView4 que los datos han cambiado
+        visitedCountriesAdapter.notifyDataSetChanged()
+
+        for (visitedCountry in countriesVisitados) {
+            Log.d(
+                "PaisesVisitados",
+                "ID: ${visitedCountry.id}, Nombre: ${visitedCountry.name}, Emoji de bandera: ${visitedCountry.flagEmoji}"
+            )
+        }
     }
 
 
+    fun crearXML(context: Context) {
+        val xmlBuilder = StringBuilder("<vector xmlns:android=\"http://schemas.android.com/apk/res/android\" android:width=\"1726.7799dp\" android:height=\"960dp\"\n" +
+                "    android:viewportWidth=\"1726.6\" android:viewportHeight=\"959.9\">\n")
 
+        // Suponiendo que `mapasHash` es una variable que contiene los datos necesarios
+        for ((clave, valor) in mapasHash) {
+            xmlBuilder.append("    <path android:id=\"@+id/${clave}\" android:fillColor=\"${valor.color}\" android:fillType=\"evenOdd\" android:name=\"${valor.nombre}\"\n" +
+                    "        android:pathData=\"${valor.data}\" android:strokeWidth=\"0\"/>\n")
+        }
+
+        xmlBuilder.append("</vector>")
+
+        val xmlString = xmlBuilder.toString()
+
+        // Guardar el XML en la memoria interna del dispositivo
+        val filename = "mapa2d_nuevo_test.xml"
+        val fileContents = xmlString.toByteArray()
+        val file = File(context.filesDir, filename)
+
+        // Borra el archivo XML existente, si lo hay
+        if (file.exists()) {
+            file.delete()
+        }
+
+        // Escribe el nuevo contenido en el archivo
+        FileOutputStream(file).use {
+            it.write(fileContents)
+        }
+
+        // Comprobar si se guardó correctamente
+        if (file.exists()) {
+            Log.d("XML_GUARDADO", "El archivo XML se ha guardado en la memoria interna en: ${file.absolutePath}")
+
+            // Leer el contenido del archivo y mostrarlo en el log
+            val xmlContent = file.readText()
+            Log.d("XML_CONTENIDO", "Contenido del archivo XML:\n$xmlContent")
+        } else {
+            Log.e("ERROR", "No se pudo guardar el archivo XML en la memoria interna")
+        }
+    }
+
+    fun mostrarXMLenTextView(context: Context, textView: TextView) {
+        val filename = "mapa2d_nuevo_test.xml"
+        val file = File(context.filesDir, filename)
+
+        if (file.exists()) {
+            try {
+                val xmlContent = file.readText()
+                textView.text = xmlContent
+                Log.d("XML_MOSTRADO", "El contenido del archivo XML se ha mostrado en el TextView")
+            } catch (e: IOException) {
+                e.printStackTrace()
+                Log.e("ERROR", "No se pudo leer el contenido del archivo XML")
+            }
+        } else {
+            Log.e("ERROR", "El archivo XML no existe en la memoria interna")
+        }
+    }
 
 
     companion object {

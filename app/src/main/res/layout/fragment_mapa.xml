@@ -7,19 +7,29 @@
     tools:context=".MainActivity"
     android:background="@drawable/tren2">
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/imageView4"
         android:layout_width="match_parent"
         android:layout_height="279dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/mapa_2d"
+
         android:layout_below="@id/searchView"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="15dp"
         android:layout_marginStart="20dp"
         android:padding="15dp"
-        android:background="@drawable/fondo_mapa"/>
-
+        android:src="@drawable/mapa_2d"
+        android:background="@drawable/fondo_mapa"/>-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/imageView4"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        android:layout_width="281dp"
+        android:visibility="visible"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/searchView"
+        android:layout_marginStart="65dp"
+        android:background="@color/colorRecyclerViewPais"/>
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
@@ -34,6 +44,24 @@
         android:shadowDy="3"
         android:shadowRadius="1.6"
         android:textSize="30sp" />
+    <!--<TextView
+        android:id="@+id/textView39"
+        android:layout_width="match_parent"
+        android:layout_height="279dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/searchView"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginStart="20dp"
+        android:padding="15dp"
+        android:text=""
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:shadowColor="#000000"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="1.6"
+        android:textSize="30sp" /-->
 
     <SearchView
         android:id="@+id/searchView"
