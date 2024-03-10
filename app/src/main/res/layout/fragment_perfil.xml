@@ -22,6 +22,7 @@
         android:layout_marginBottom="25dp"
         android:visibility="gone"
         android:gravity="center"
+        android:textColor="@color/white"
         />
     <TextView android:id="@+id/textoVisitando"
         android:layout_width="wrap_content"
@@ -36,6 +37,7 @@
         android:layout_marginBottom="25dp"
         android:visibility="gone"
         android:gravity="center"
+        android:textColor="@color/white"
         />
 
     <TextView android:id="@+id/textoVerificados"
@@ -50,7 +52,8 @@
         android:textStyle="bold"
         android:layout_marginBottom="25dp"
         android:visibility="gone"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:textColor="@color/white"/>
 
     <com.skydoves.colorpickerview.ColorPickerView
         android:id="@+id/colorPickerView"
@@ -71,7 +74,8 @@
         android:backgroundTint="@color/lightblue"
         android:text="@string/txtAceptar"
         android:visibility="gone"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"/>
 <RelativeLayout
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
@@ -116,6 +120,7 @@
         android:backgroundTint="@color/darkred"
         android:gravity="center"
         android:text="@string/cerrar_sesion"
+        android:textColor="@color/white"
         android:textSize="25sp"
         android:textStyle="bold" />
 
@@ -203,7 +208,8 @@
             android:layout_alignParentEnd="true"
             android:layout_marginRight="30dp"
             android:text="@string/txtBtnSeleccionarColorVisitados"
-            android:backgroundTint="@color/lightblue" />
+            android:backgroundTint="@color/lightblue"
+            android:textColor="@color/white"/>
 
         <Button
             android:id="@+id/btnSeleccionarColorPaisesVisitando"
@@ -214,7 +220,8 @@
             android:layout_alignParentEnd="true"
             android:layout_marginRight="30dp"
             android:text="@string/txtBtnSeleccionarColorVisitados"
-            android:backgroundTint="@color/lightblue" />
+            android:backgroundTint="@color/lightblue"
+            android:textColor="@color/white"/>
 
         <Button
             android:id="@+id/btnPaisesVerificados"
@@ -226,7 +233,8 @@
             android:layout_marginRight="30dp"
             android:layout_marginBottom="30dp"
             android:text="@string/txtBtnSeleccionarColorVisitados"
-            android:backgroundTint="@color/lightblue" />
+            android:backgroundTint="@color/lightblue"
+            android:textColor="@color/white"/>
     </RelativeLayout>
 
 </RelativeLayout>

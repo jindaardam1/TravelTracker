@@ -95,9 +95,9 @@ class MapaFragment : Fragment() {
 
         buttonVerificar = view.findViewById(R.id.button7)
         buttonVerificar.setOnClickListener {
-            val gfc = GuardarFotoController(requireContext())
+       //     val gfc = GuardarFotoController(requireContext())
 
-            gfc.getPhotoAndSaveOnDb()
+         //   gfc.getPhotoAndSaveOnDb()
         }
         // Inicializar RecyclerView
         recyclerView = view.findViewById(R.id.paco)

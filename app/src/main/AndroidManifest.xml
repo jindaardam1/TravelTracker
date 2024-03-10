@@ -18,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TravelTracker"
         tools:targetApi="31">
+        <activity
+            android:name=".OpcionesActivity"
+            android:exported="false" />
 
 <!--        <activity-->
 <!--            android:name=".RegisterActivity"-->
@@ -27,13 +30,11 @@
 
         <activity
             android:name=".MainActivity"
-            android:exported="true"
-            android:screenOrientation="locked"/>
+            android:exported="true" />
 
         <activity
         android:name=".LoginActivity"
-            android:exported="true"
-            android:screenOrientation="locked">
+            android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
@@ -45,10 +46,10 @@
 <!--        AQUI PARA CAMBIAR LO QUE SE PINTA-->
         <activity
             android:name=".RegisterActivity"
-            android:exported="false"
-            android:screenOrientation="locked">
+            android:exported="false">
         </activity>
 
+        <activity android:name="ColorPickerFragment"/>
 
     </application>
 
