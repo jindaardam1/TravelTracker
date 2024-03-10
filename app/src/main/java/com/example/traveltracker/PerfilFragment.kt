@@ -7,12 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
-
 
 class PerfilFragment : Fragment() {
 
@@ -39,20 +42,28 @@ class PerfilFragment : Fragment() {
         val botonVisitando = view.findViewById<Button>(R.id.btnSeleccionarColorPaisesVisitando)
         val  botonVerificado = view.findViewById<Button>(R.id.btnPaisesVerificados)
         val botonCerrarSesion = view.findViewById<Button>(R.id.Cerrar_sesion)
+        val colorPickerView = view.findViewById<com.skydoves.colorpickerview.ColorPickerView>(R.id.colorPickerView)
+        val relativeLayout = view.findViewById<RelativeLayout>(R.id.relativeLayout)
+        val btnAceptar = view.findViewById<Button>(R.id.btnAceptar)
+        btnAceptar.setOnClickListener {
+            relativeLayout.visibility = View.VISIBLE;
+            colorPickerView.visibility = View.GONE
+            btnAceptar.visibility = View.GONE
+        }
         botonVisitados.setOnClickListener {
-            val intent = Intent(activity, ColorPickerActivity::class.java)
-            startActivity(intent)
-            requireActivity().finish()
+            relativeLayout.visibility = View.GONE;
+            colorPickerView.visibility = View.VISIBLE
+            btnAceptar.visibility = View.VISIBLE
         }
         botonVisitando.setOnClickListener {
-            val intent = Intent(activity, ColorPickerActivity::class.java)
-            startActivity(intent)
-            requireActivity().finish()
+            relativeLayout.visibility = View.GONE;
+            colorPickerView.visibility = View.VISIBLE
+            btnAceptar.visibility = View.VISIBLE
         }
         botonVerificado.setOnClickListener {
-            val intent = Intent(activity, ColorPickerActivity::class.java)
-            startActivity(intent)
-            requireActivity().finish()
+            relativeLayout.visibility = View.GONE;
+            colorPickerView.visibility = View.VISIBLE
+            btnAceptar.visibility = View.VISIBLE
         }
         botonCerrarSesion.setOnClickListener {
             val intent = Intent(activity, LoginActivity::class.java)

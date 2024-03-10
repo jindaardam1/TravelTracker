@@ -7,7 +7,29 @@
     android:layout_height="match_parent"
     app:layoutDescription="@xml/activity_perfil_scene"
     tools:context=".PerfilFragment">
-
+    <com.skydoves.colorpickerview.ColorPickerView
+        android:id="@+id/colorPickerView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone"
+        />
+    <Button
+        android:id="@+id/btnAceptar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/colorPickerView"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="22dp"
+        android:backgroundTint="@color/lightblue"
+        android:text="@string/txtAceptar"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"/>
+<RelativeLayout
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <LinearLayout
         android:id="@+id/layoutArriba"
         android:layout_width="match_parent"
@@ -103,6 +125,7 @@
         android:text="@string/txtBtnSeleccionarColorVisitados"
         android:backgroundTint="@color/lightblue" />
 
+
     <Button android:id="@+id/btnSeleccionarColorPaisesVisitando"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -122,4 +145,5 @@
         android:layout_marginRight="30dp"
         android:text="@string/txtBtnSeleccionarColorVisitados"
         android:backgroundTint="@color/lightblue" />
+</RelativeLayout>
 </RelativeLayout>
