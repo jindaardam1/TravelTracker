@@ -120,99 +120,114 @@
         android:textStyle="bold" />
 
 
-    <TextView android:id="@+id/txtOpcionesColoresMapa"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/opciones"
-        android:textSize="25dp"
         android:layout_below="@id/layoutArriba"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="40dp"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:layout_marginBottom="25dp"
-        android:shadowColor="#000000"
-        android:shadowDx="3"
-        android:shadowDy="3"
-        android:shadowRadius="1.6" />
+        android:layout_marginTop="20dp"
+        android:background="@color/colorOferta">
 
-    <TextView
-        android:layout_toLeftOf="@id/btnSeleccionarColorPaisesVisitados"
-        android:id="@+id/txtOpcionesPaisesVisitados"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/PaisesVisitadosText"
-        android:textSize="20dp"
-        android:layout_below="@id/txtOpcionesColoresMapa"
-        android:layout_marginTop="12dp"
-        android:layout_marginLeft="50dp"
-        android:textColor="@color/white"
-        android:layout_marginRight="30dp"
-        android:shadowColor="#000000"
-        android:shadowDx="3"
-        android:shadowDy="3"
-        android:shadowRadius="1.6" />
+        <!-- Añadir los elementos TextView y Button dentro del RelativeLayout -->
 
-    <TextView
-        android:textColor="@color/white"
-        android:id="@+id/txtVisitando"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Visitando"
-        android:textSize="20dp"
-        android:layout_below="@id/txtOpcionesPaisesVisitados"
-        android:layout_marginTop="18.5dp"
-        android:layout_marginLeft="50dp"
-        android:shadowColor="#000000"
-        android:shadowDx="3"
-        android:shadowDy="3"
-        android:shadowRadius="1.6" />
+        <TextView
+            android:id="@+id/txtOpcionesColoresMapa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/opciones"
+            android:textSize="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="40dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_marginBottom="25dp"
+            android:shadowColor="#000000"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowRadius="1.6" />
 
-    <TextView
-        android:layout_marginRight="30dp"
-        android:id="@+id/txtVerificado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Verificado"
-        android:textSize="20dp"
-        android:layout_below="@id/txtVisitando"
-        android:layout_marginTop="28dp"
-        android:textColor="@color/white"
-        android:layout_marginLeft="50dp"
-        android:shadowColor="#000000"
-        android:shadowDx="3"
-        android:shadowDy="3"
-        android:shadowRadius="1.6" />
+        <TextView
+            android:layout_toLeftOf="@id/btnSeleccionarColorPaisesVisitados"
+            android:id="@+id/txtOpcionesPaisesVisitados"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/PaisesVisitadosText"
+            android:textSize="20dp"
+            android:layout_below="@id/txtOpcionesColoresMapa"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="50dp"
+            android:textColor="@color/white"
+            android:layout_marginRight="30dp"
+            android:shadowColor="#000000"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowRadius="1.6" />
 
-    <Button android:id="@+id/btnSeleccionarColorPaisesVisitados"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/txtOpcionesColoresMapa"
-        android:layout_marginTop="10dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="30dp"
-        android:text="@string/txtBtnSeleccionarColorVisitados"
-        android:backgroundTint="@color/lightblue" />
+        <TextView
+            android:textColor="@color/white"
+            android:id="@+id/txtVisitando"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Visitando"
+            android:textSize="20dp"
+            android:layout_below="@id/txtOpcionesPaisesVisitados"
+            android:layout_marginTop="18.5dp"
+            android:layout_marginLeft="50dp"
+            android:shadowColor="#000000"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowRadius="1.6" />
 
+        <TextView
+            android:layout_marginRight="30dp"
+            android:id="@+id/txtVerificado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Verificado"
+            android:textSize="20dp"
+            android:layout_below="@id/txtVisitando"
+            android:layout_marginTop="28dp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="50dp"
+            android:shadowColor="#000000"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowRadius="1.6" />
 
-    <Button android:id="@+id/btnSeleccionarColorPaisesVisitando"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btnSeleccionarColorPaisesVisitados"
-        android:layout_marginTop="10dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="30dp"
-        android:text="@string/txtBtnSeleccionarColorVisitados"
-        android:backgroundTint="@color/lightblue" />
+        <Button
+            android:id="@+id/btnSeleccionarColorPaisesVisitados"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtOpcionesColoresMapa"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="30dp"
+            android:text="@string/txtBtnSeleccionarColorVisitados"
+            android:backgroundTint="@color/lightblue" />
 
-    <Button android:id="@+id/btnPaisesVerificados"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btnSeleccionarColorPaisesVisitando"
-        android:layout_marginTop="10dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="30dp"
-        android:text="@string/txtBtnSeleccionarColorVisitados"
-        android:backgroundTint="@color/lightblue" />
+        <Button
+            android:id="@+id/btnSeleccionarColorPaisesVisitando"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnSeleccionarColorPaisesVisitados"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="30dp"
+            android:text="@string/txtBtnSeleccionarColorVisitados"
+            android:backgroundTint="@color/lightblue" />
+
+        <Button
+            android:id="@+id/btnPaisesVerificados"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnSeleccionarColorPaisesVisitando"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
+            android:text="@string/txtBtnSeleccionarColorVisitados"
+            android:backgroundTint="@color/lightblue" />
+    </RelativeLayout>
+
 </RelativeLayout>
 </RelativeLayout>

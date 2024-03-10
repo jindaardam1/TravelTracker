@@ -89,7 +89,7 @@
         android:layout_below="@id/imageView4"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:text="@string/visitando"
+        android:text="@string/eliminar"
         android:backgroundTint="@color/lightblue"/>
 
     <Button
