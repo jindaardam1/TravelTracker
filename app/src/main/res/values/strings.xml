@@ -183,6 +183,7 @@
     <string name="recomendaciones_en_la_zona">Recomendaciones en la zona:</string>
     <string name="destino">Destino</string>
     <string name="precio">Precio</string>
+    <string name="eliminar">Eliminar</string>
 
 
 </resources>
