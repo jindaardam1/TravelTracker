@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Color de los países visitados."
+        android:text="@string/color_de_los_paises_visitados"
         android:textSize="25dp"
         android:layout_above="@id/colorPickerView"
         android:layout_marginTop="40dp"
@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Color del país que estás visitando."
+        android:text="@string/pais_visitando"
         android:textSize="25dp"
         android:layout_above="@id/colorPickerView"
         android:layout_marginTop="40dp"
@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Color de los países que has visitado y verificado."
+        android:text="@string/color_de_los_paises_que_has_visitado_y_verificado"
         android:textSize="25dp"
         android:layout_above="@id/colorPickerView"
         android:layout_marginTop="40dp"
@@ -98,7 +98,7 @@
             android:layout_height="36dp"
             android:layout_marginBottom="20dp"
             android:gravity="center"
-            android:text="Nombre usuario"
+            android:text="@string/nombre_usuario"
             android:textSize="25sp"
             android:textStyle="bold" />
     </LinearLayout>
@@ -112,7 +112,7 @@
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/darkred"
         android:gravity="center"
-        android:text="Cerrar sesión"
+        android:text="@string/cerrar_sesion"
         android:textSize="25sp"
         android:textStyle="bold" />
 
@@ -120,7 +120,7 @@
     <TextView android:id="@+id/txtOpcionesColoresMapa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Opciones"
+        android:text="@string/opciones"
         android:textSize="25dp"
         android:layout_below="@id/layoutArriba"
         android:layout_marginTop="40dp"

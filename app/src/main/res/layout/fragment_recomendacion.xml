@@ -14,7 +14,7 @@
         android:layout_centerHorizontal="true"
         android:textColor="@color/white"
         android:layout_marginTop="30dp"
-        android:text="RECOMENDACIÓN DEL MES"
+        android:text="@string/recomendacion_del_mes"
         android:textStyle="bold"
         android:textAlignment="center"
         android:textSize="30sp"
@@ -40,7 +40,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="25dp"
         android:layout_marginBottom="25dp"
-        android:text="Nombre"
+        android:text="@string/nombre"
         android:textColor="@color/white"
         android:textSize="25sp"
         android:textStyle="bold"
@@ -66,7 +66,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="20dp"
         android:textSize="20dp"
-        android:text="Recomendaciones en la zona:"
+        android:text="@string/recomendaciones_en_la_zona"
         android:textStyle="bold"
         android:gravity="center" />
 

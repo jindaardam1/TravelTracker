@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:text="TravelTracker"
+        android:text="@string/traveltracker"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:shadowColor="#000000"
@@ -61,7 +61,7 @@
         android:layout_below="@id/imageView4"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:text="Visitando"
+        android:text="@string/visitando"
         android:backgroundTint="@color/lightblue"/>
 
     <Button
@@ -72,7 +72,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:text="Visitado"
+        android:text="@string/visitado"
         android:backgroundTint="@color/lightblue"/>
 
     <Button
@@ -82,7 +82,7 @@
         android:layout_below="@id/imageView4"
         android:layout_alignParentRight="true"
         android:layout_marginEnd="20dp"
-        android:text="Verificar"
+        android:text="@string/verificar"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:backgroundTint="@color/amarillo"/>
@@ -109,7 +109,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:padding="5dp"
-            android:text="Países visitados: "
+            android:text="@string/paises_visitados"
             android:textSize="20sp" />
 
         <TextView
@@ -118,7 +118,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/paisesVisitados"
             android:layout_centerHorizontal="true"
-            android:text="0"
+            android:text="@string/_0"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -129,7 +129,7 @@
             android:layout_below="@id/numPaisesVisitados"
             android:layout_centerHorizontal="true"
             android:padding="5dp"
-            android:text="Países confirmados: "
+            android:text="@string/paises_confirmados"
             android:textSize="20sp" />
 
         <TextView
@@ -139,7 +139,7 @@
             android:layout_below="@id/paisesConfirmados"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="10dp"
-            android:text="0"
+            android:text="@string/_0"
             android:textSize="20sp"
             android:textStyle="bold" />
     </LinearLayout>

@@ -163,6 +163,26 @@
         <string name="recomendacion_mes">Recomendación del mes</string>
         <string name="nombre_default">Nombre</string>
         <string name="sitios_interes">SITIOS INTERES</string>
+    <string name="cerrar_sesion">Cerrar sesión</string>
+    <string name="color_de_los_paises_visitados">Color de los países visitados.</string>
+    <string name="pais_visitando">Color del país que estas visitando.</string>
+    <string name="color_de_los_paises_que_has_visitado_y_verificado">Color de los países que has visitado y verificado.</string>
+    <string name="opciones">Opciones</string>
+    <string name="nombre_usuario">Nombre usuario</string>
+    <string name="traveltracker">TravelTracker</string>
+    <string name="visitando">Visitando</string>
+    <string name="visitado">Visitado</string>
+    <string name="verificar">Verificar</string>
+    <string name="paises_visitados">Países visitados:</string>
+    <string name="_0">0</string>
+    <string name="paises_confirmados">Países confirmados:</string>
+    <string name="ofertas">OFERTAS</string>
+    <string name="explora_las_mejores_ofertas_de_vuelos">Explora las mejores ofertas de vuelos ✈️</string>
+    <string name="recomendacion_del_mes">RECOMENDACIÓN DEL MES</string>
+    <string name="nombre">Nombre</string>
+    <string name="recomendaciones_en_la_zona">Recomendaciones en la zona:</string>
+    <string name="destino">Destino</string>
+    <string name="precio">Precio</string>
 
 
 </resources>

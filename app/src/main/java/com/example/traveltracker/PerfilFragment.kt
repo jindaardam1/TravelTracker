@@ -49,7 +49,7 @@ class PerfilFragment : Fragment() {
         val txtVerificados = view.findViewById<TextView>(R.id.textoVerificados)
         val txtVisitando = view.findViewById<TextView>(R.id.textoVisitando)
         btnAceptar.setOnClickListener {
-            relativeLayout.visibility = View.VISIBLE;
+            relativeLayout.visibility = View.VISIBLE
             colorPickerView.visibility = View.GONE
             btnAceptar.visibility = View.GONE
             txtVisitados.visibility = View.GONE
@@ -57,19 +57,19 @@ class PerfilFragment : Fragment() {
             txtVisitando.visibility = View.GONE
         }
         botonVisitados.setOnClickListener {
-            relativeLayout.visibility = View.GONE;
+            relativeLayout.visibility = View.GONE
             colorPickerView.visibility = View.VISIBLE
             btnAceptar.visibility = View.VISIBLE
             txtVisitados.visibility = View.VISIBLE
         }
         botonVisitando.setOnClickListener {
-            relativeLayout.visibility = View.GONE;
+            relativeLayout.visibility = View.GONE
             colorPickerView.visibility = View.VISIBLE
             btnAceptar.visibility = View.VISIBLE
             txtVisitando.visibility = View.VISIBLE
         }
         botonVerificado.setOnClickListener {
-            relativeLayout.visibility = View.GONE;
+            relativeLayout.visibility = View.GONE
             colorPickerView.visibility = View.VISIBLE
             btnAceptar.visibility = View.VISIBLE
             txtVerificados.visibility = View.VISIBLE
