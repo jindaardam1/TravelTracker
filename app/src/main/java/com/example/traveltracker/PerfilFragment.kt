@@ -45,25 +45,34 @@ class PerfilFragment : Fragment() {
         val colorPickerView = view.findViewById<com.skydoves.colorpickerview.ColorPickerView>(R.id.colorPickerView)
         val relativeLayout = view.findViewById<RelativeLayout>(R.id.relativeLayout)
         val btnAceptar = view.findViewById<Button>(R.id.btnAceptar)
+        val txtVisitados = view.findViewById<TextView>(R.id.textoVisitados)
+        val txtVerificados = view.findViewById<TextView>(R.id.textoVerificados)
+        val txtVisitando = view.findViewById<TextView>(R.id.textoVisitando)
         btnAceptar.setOnClickListener {
             relativeLayout.visibility = View.VISIBLE;
             colorPickerView.visibility = View.GONE
             btnAceptar.visibility = View.GONE
+            txtVisitados.visibility = View.GONE
+            txtVerificados.visibility = View.GONE
+            txtVisitando.visibility = View.GONE
         }
         botonVisitados.setOnClickListener {
             relativeLayout.visibility = View.GONE;
             colorPickerView.visibility = View.VISIBLE
             btnAceptar.visibility = View.VISIBLE
+            txtVisitados.visibility = View.VISIBLE
         }
         botonVisitando.setOnClickListener {
             relativeLayout.visibility = View.GONE;
             colorPickerView.visibility = View.VISIBLE
             btnAceptar.visibility = View.VISIBLE
+            txtVisitando.visibility = View.VISIBLE
         }
         botonVerificado.setOnClickListener {
             relativeLayout.visibility = View.GONE;
             colorPickerView.visibility = View.VISIBLE
             btnAceptar.visibility = View.VISIBLE
+            txtVerificados.visibility = View.VISIBLE
         }
         botonCerrarSesion.setOnClickListener {
             val intent = Intent(activity, LoginActivity::class.java)
