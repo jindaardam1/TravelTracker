@@ -18,7 +18,9 @@ import controlers.GuardarFotoController
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import model.local.database.LocalDatabase
+import model.local.entity.EstadoPais
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -47,6 +49,22 @@ class MapaFragment : Fragment() {
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
+        }
+
+        CoroutineScope(Dispatchers.Main).launch {
+            val miDatabase = LocalDatabase.getInstance(requireContext())
+            val estadoPaisDAO = miDatabase.estadoPaisDao()
+
+            val paisesVisitados: List<EstadoPais> = withContext(Dispatchers.IO) {
+                estadoPaisDAO.getPaisesVisitados()
+            }
+
+            for (pais in paisesVisitados) {
+                countriesVisitados.add(getCountryById(pais.nombrePais))
+                Log.i("País añadido", "El país ${pais.codPais} se ha añadido.")
+            }
+
+            visitedCountriesAdapter.notifyDataSetChanged()
         }
     }
 
@@ -324,6 +342,10 @@ class MapaFragment : Fragment() {
         return view
     }
 
+    fun getCountryById(id: String): Country {
+        return countries.find { it.id == id }!!
+    }
+
     fun paisesVisitados(selectedcountryID: String?, countries: List<Country>) {
         selectedcountryID?.let { id ->
             for (country in countries) {
@@ -333,6 +355,7 @@ class MapaFragment : Fragment() {
                 }
             }
         }
+
         // Notificar al adaptador del RecyclerView asociado al ImageView4 que los datos han cambiado
         visitedCountriesAdapter.notifyDataSetChanged()
 
@@ -343,6 +366,7 @@ class MapaFragment : Fragment() {
             )
         }
     }
+
 
 
     fun crearXML(context: Context) {
