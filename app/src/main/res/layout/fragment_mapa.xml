@@ -22,14 +22,14 @@
         android:background="@drawable/fondo_mapa"/>-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/imageView4"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_below="@id/searchView"
+        android:layout_centerInParent="true"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="50dp"
-        android:layout_width="281dp"
-        android:visibility="visible"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/searchView"
-        android:layout_marginStart="65dp"
-        android:background="@color/colorRecyclerViewPais"/>
+        android:background="@color/transparente"
+        android:visibility="visible" />
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
@@ -90,7 +90,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:text="@string/eliminar"
-        android:backgroundTint="@color/lightblue"/>
+        android:backgroundTint="@color/darkred"/>
 
     <Button
         android:id="@+id/button6"
