@@ -33,7 +33,7 @@
             android:exported="true" />
 
         <activity
-        android:name=".LoginActivity"
+        android:name="LoginyRegister.LoginActivity"
             android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -45,7 +45,7 @@
 
 <!--        AQUI PARA CAMBIAR LO QUE SE PINTA-->
         <activity
-            android:name=".RegisterActivity"
+            android:name="LoginyRegister.RegisterActivity"
             android:exported="false">
         </activity>
 

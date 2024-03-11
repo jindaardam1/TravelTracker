@@ -1,4 +1,4 @@
-package com.example.traveltracker
+package Recomendacion
 
 import android.content.Context
 import android.content.Intent

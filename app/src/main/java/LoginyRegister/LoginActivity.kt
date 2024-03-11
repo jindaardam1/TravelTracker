@@ -1,4 +1,4 @@
-package com.example.traveltracker
+package LoginyRegister
 
 import android.Manifest
 import android.content.Intent
@@ -11,6 +11,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.example.traveltracker.MainActivity
+import com.example.traveltracker.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

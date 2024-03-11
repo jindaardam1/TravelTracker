@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutDescription="@xml/fragment_recomendacion_scene"
-    tools:context=".RecomendacionFragment"
+    tools:context="Recomendacion.RecomendacionFragment"
     android:background="@mipmap/fondo_ofertas2">
 
     <TextView

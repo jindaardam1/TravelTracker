@@ -1,3 +1,5 @@
+package Ofertas
+
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
@@ -16,12 +18,8 @@ import android.widget.SearchView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import com.example.traveltracker.Oferta
 import com.example.traveltracker.R
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import java.io.InputStream
 import kotlin.random.Random
 
 class OfertasFragment : Fragment() {

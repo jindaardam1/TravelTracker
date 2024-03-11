@@ -4,7 +4,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.example.traveltracker.Country
+import Mapa.Country
 import com.example.traveltracker.MapaFragment
 import com.example.traveltracker.R
 

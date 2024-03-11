@@ -1,4 +1,4 @@
-package com.example.traveltracker
+package Mapa
 
 data class MapaHash(
     var color: String,

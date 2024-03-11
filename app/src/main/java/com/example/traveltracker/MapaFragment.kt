@@ -1,6 +1,8 @@
 package com.example.traveltracker
 
-import CountryAdapter
+import Mapa.CountryAdapter
+import Mapa.Country
+import Mapa.MapaHash
 import VisitedCountriesAdapter
 import android.content.Context
 import android.os.Bundle
@@ -476,15 +478,6 @@ class MapaFragment : Fragment() {
     }
 
 
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            MapaFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
+
 }
 

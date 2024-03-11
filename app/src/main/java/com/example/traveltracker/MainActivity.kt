@@ -1,6 +1,7 @@
 package com.example.traveltracker
 
-import OfertasFragment
+import Ofertas.OfertasFragment
+import Recomendacion.RecomendacionFragment
 import android.graphics.PorterDuff
 import android.os.Bundle
 import android.util.Log
