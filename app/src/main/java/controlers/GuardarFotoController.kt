@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationManager
 import android.util.Log
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -44,7 +45,7 @@ class GuardarFotoController(val context: Context) {
 
                 val paisConfirmado = PaisConfirmado(
                     codConfirmado = 0,
-                    foto = null,
+                    foto = fotoEnBytes,
                     codPais = codigoPais
                 )
 
@@ -59,6 +60,9 @@ class GuardarFotoController(val context: Context) {
 
     private fun getFotoEnBytes(): ByteArray? {
         val confirmarPais = ConfirmarPais(context)
+
+        Toast.makeText(context, "Foto para recap en el futuro", Toast.LENGTH_LONG).show()
+
         confirmarPais.openCamera()
 
         return null
