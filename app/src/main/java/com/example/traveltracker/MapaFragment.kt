@@ -40,7 +40,7 @@ class MapaFragment : Fragment() {
     private lateinit var buttonVerificar: Button
     private var contadorVistados: Int = 0
     private var contadorConfirmados:Int = 0
-    val countriesVisitados = mutableListOf<Country>()
+    private val countriesVisitados = mutableListOf<Country>()
     var colorPais: Int = android.R.color.transparent
     private lateinit var visitedCountriesAdapter: VisitedCountriesAdapter
     val mapasHash = hashMapOf<String, MapaHash>(
@@ -88,19 +88,21 @@ class MapaFragment : Fragment() {
         button.setOnClickListener {
             mapasHash[selectedCountryId]?.color = "#3DDC84"
             crearXML(requireContext())
-            paisesVisitados(selectedCountryId, countries)
 
-            val miDatabase = LocalDatabase.getInstance(requireContext())
-            val estadoPaisDAO = miDatabase.estadoPaisDao()
 
-            CoroutineScope(Dispatchers.Main).launch {
-                estadoPaisDAO.updateHaEstado(selectedCountryId.toString(), true)
-            }
-            colorPais = R.color.visitado
-            contadorVistados += 1
-            val textView = view.findViewById<TextView>(R.id.numPaisesVisitados)
-            textView.text = contadorVistados.toString()
-            Log.d( "contador", "$contadorVistados")
+                    paisesVisitados(selectedCountryId, countries)
+                    val miDatabase = LocalDatabase.getInstance(requireContext())
+                    val estadoPaisDAO = miDatabase.estadoPaisDao()
+
+                    CoroutineScope(Dispatchers.Main).launch {
+                        estadoPaisDAO.updateHaEstado(selectedCountryId.toString(), true)
+                    }
+                    colorPais = R.color.visitado
+                    contadorVistados += 1
+                    val textView = view.findViewById<TextView>(R.id.numPaisesVisitados)
+                    textView.text = contadorVistados.toString()
+                    Log.d( "contador", "$contadorVistados")
+
 
         }
         button = view.findViewById(R.id.button5)
@@ -485,3 +487,4 @@ class MapaFragment : Fragment() {
             }
     }
 }
+
