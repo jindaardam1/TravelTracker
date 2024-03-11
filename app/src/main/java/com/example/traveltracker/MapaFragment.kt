@@ -38,8 +38,8 @@ class MapaFragment : Fragment() {
     private var selectedCountryId: String? = null
     private lateinit var button: Button
     private lateinit var buttonVerificar: Button
-    val contadorVistados: Int = 0
-    val contadorConfirmados:Int = 0
+    private var contadorVistados: Int = 0
+    private var contadorConfirmados:Int = 0
     val countriesVisitados = mutableListOf<Country>()
     var colorPais: Int = android.R.color.transparent
     private lateinit var visitedCountriesAdapter: VisitedCountriesAdapter
@@ -67,6 +67,11 @@ class MapaFragment : Fragment() {
                 Log.i("País añadido", "El país ${pais.codPais} se ha añadido.")
             }
 
+            contadorVistados = paisesVisitados.count().toInt()
+            val textView = view?.findViewById<TextView>(R.id.numPaisesVisitados)
+            if (textView != null) {
+                textView.text = contadorVistados.toString()
+            }
             visitedCountriesAdapter.notifyDataSetChanged()
         }
     }
@@ -92,7 +97,11 @@ class MapaFragment : Fragment() {
                 estadoPaisDAO.updateHaEstado(selectedCountryId.toString(), true)
             }
             colorPais = R.color.visitado
-            contadorVistados + 1
+            contadorVistados += 1
+            val textView = view.findViewById<TextView>(R.id.numPaisesVisitados)
+            textView.text = contadorVistados.toString()
+            Log.d( "contador", "$contadorVistados")
+
         }
         button = view.findViewById(R.id.button5)
         button.setOnClickListener {
@@ -104,18 +113,14 @@ class MapaFragment : Fragment() {
                 estadoPaisDAO.updateHaEstado(selectedCountryId.toString(), false)
             }
             eliminarPaisesVisitados(selectedCountryId, countries)
-            contadorVistados - 1
-        }
-        button = view.findViewById(R.id.button7)
-        button.setOnClickListener {
-
-            val miDatabase = LocalDatabase.getInstance(requireContext())
-            val estadoPaisDAO = miDatabase.estadoPaisDao()
-            CoroutineScope(Dispatchers.Main).launch {
-                estadoPaisDAO.updateHaEstado(selectedCountryId.toString(), true)
+            if (contadorVistados == 0) {
+                contadorVistados = 0
+            }else{
+                contadorVistados -= 1
             }
-            colorPais = R.color.confirmado
-            contadorConfirmados + 1
+
+            val textView = view.findViewById<TextView>(R.id.numPaisesVisitados)
+            textView.text = contadorVistados.toString()
         }
 
 
@@ -125,6 +130,9 @@ class MapaFragment : Fragment() {
             val gfc = GuardarFotoController(requireContext())
 
             gfc.getPhotoAndSaveOnDb()
+            contadorConfirmados += 1
+            val textView = view.findViewById<TextView>(R.id.numPaisesConfirmados)
+            textView.text = contadorConfirmados.toString()
         }
         recyclerView = view.findViewById(R.id.paco)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
