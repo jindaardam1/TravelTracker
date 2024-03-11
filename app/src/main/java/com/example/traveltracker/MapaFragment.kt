@@ -38,7 +38,10 @@ class MapaFragment : Fragment() {
     private var selectedCountryId: String? = null
     private lateinit var button: Button
     private lateinit var buttonVerificar: Button
+    val contadorVistados: Int = 0
+    val contadorConfirmados:Int = 0
     val countriesVisitados = mutableListOf<Country>()
+    var colorPais: Int = android.R.color.transparent
     private lateinit var visitedCountriesAdapter: VisitedCountriesAdapter
     val mapasHash = hashMapOf<String, MapaHash>(
         "NL" to MapaHash("#3DDC84", "@string/Paises_Bajos", "M844,301.1h3v6c-0.7,2.3 -1,4.6 -1,7 -5.5,0.6 -8.9,-1.8 -10,-7 1.8,-3.2 4.5,-5.2 8,-6Z"),
@@ -88,6 +91,8 @@ class MapaFragment : Fragment() {
             CoroutineScope(Dispatchers.Main).launch {
                 estadoPaisDAO.updateHaEstado(selectedCountryId.toString(), true)
             }
+            colorPais = R.color.visitado
+            contadorVistados + 1
         }
         button = view.findViewById(R.id.button5)
         button.setOnClickListener {
@@ -99,8 +104,20 @@ class MapaFragment : Fragment() {
                 estadoPaisDAO.updateHaEstado(selectedCountryId.toString(), false)
             }
             eliminarPaisesVisitados(selectedCountryId, countries)
-
+            contadorVistados - 1
         }
+        button = view.findViewById(R.id.button7)
+        button.setOnClickListener {
+
+            val miDatabase = LocalDatabase.getInstance(requireContext())
+            val estadoPaisDAO = miDatabase.estadoPaisDao()
+            CoroutineScope(Dispatchers.Main).launch {
+                estadoPaisDAO.updateHaEstado(selectedCountryId.toString(), true)
+            }
+            colorPais = R.color.confirmado
+            contadorConfirmados + 1
+        }
+
 
 
         buttonVerificar = view.findViewById(R.id.button7)
@@ -312,10 +329,11 @@ class MapaFragment : Fragment() {
 
         val visitedCountriesRecyclerView: RecyclerView = view.findViewById(R.id.imageView4)
         visitedCountriesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        visitedCountriesAdapter = VisitedCountriesAdapter(countriesVisitados){ countryId ->
+        visitedCountriesAdapter = VisitedCountriesAdapter(countriesVisitados, { countryId ->
             selectedCountryId = countryId
             Log.d("MapaFragment", "Selected Country ID: $selectedCountryId") // Registro en Logcat
-        }
+        }, this) // Pasa una instancia válida de MapaFragment al adaptador
+
         visitedCountriesRecyclerView.adapter = visitedCountriesAdapter
 
         adapter = CountryAdapter(countries){ countryId ->

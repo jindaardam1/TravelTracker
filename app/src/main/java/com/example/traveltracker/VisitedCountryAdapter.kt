@@ -5,9 +5,12 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.traveltracker.Country
+import com.example.traveltracker.MapaFragment
 import com.example.traveltracker.R
 
-class VisitedCountriesAdapter(private val countries: List<Country>, private val onItemClickListener: (String) -> Unit) :
+class VisitedCountriesAdapter(private val countries: List<Country>,
+                              private val onItemClickListener: (String) -> Unit,
+                              private val mapaFragment: MapaFragment) :
     RecyclerView.Adapter<VisitedCountriesAdapter.ViewHolder>() {
     private var selectedItemPosition: Int = RecyclerView.NO_POSITION
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -27,7 +30,7 @@ class VisitedCountriesAdapter(private val countries: List<Country>, private val 
         val country = countries[position]
         holder.nameTextView.text = country.name
         holder.flagEmojiTextView.text = country.flagEmoji
-        //holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.context, selectedColor))
+        holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.context, mapaFragment.colorPais))
         holder.itemView.setOnClickListener {
             selectedItemPosition = holder.adapterPosition
             notifyDataSetChanged()
