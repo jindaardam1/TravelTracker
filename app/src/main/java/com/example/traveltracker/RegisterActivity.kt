@@ -28,20 +28,17 @@ class RegisterActivity : AppCompatActivity() {
 
         val button = findViewById<Button>(R.id.button)
         button.setOnClickListener {
-            // Realizar la validación de entrada y la lógica de registro aquí
             val username = findViewById<EditText>(R.id.usernameEdit).text.toString()
             val email = findViewById<EditText>(R.id.emailEdit).text.toString()
             val password = findViewById<EditText>(R.id.passwordEdit).text.toString()
             val confirmPassword = findViewById<EditText>(R.id.confirmEdit).text.toString()
             val selectedCountry = autoCompleteTextView.text.toString()
 
-            // Validar la entrada aquí (por ejemplo, verificar si los campos están vacíos o si la contraseña coincide)
             if (username.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || selectedCountry.isEmpty()) {
                 Toast.makeText(this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                // Verificar el formato del correo electrónico usando una expresión regular predefinida
                 Toast.makeText(this, "Formato de correo electrónico inválido", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
@@ -52,18 +49,15 @@ class RegisterActivity : AppCompatActivity() {
             }
 
             if (password.length < 6) {
-                // Verificar que la contraseña tenga al menos 6 caracteres
                 Toast.makeText(this, "La contraseña debe tener al menos 6 caracteres", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             if (password != confirmPassword) {
-                // Verificar si la contraseña y su confirmación coinciden
                 Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            // Verificar si el país seleccionado está en la lista de países
             if (!countries.contains(selectedCountry)) {
                 Toast.makeText(this, "Seleccione un país válido de la lista", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -98,9 +92,7 @@ class RegisterActivity : AppCompatActivity() {
                         usuarioDao.insertarUsuario(username, password, email)
                     }
                     val intentRegister = Intent(this@RegisterActivity, MainActivity::class.java)
-                    // Pasar el nombre de usuario como extra
                     intentRegister.putExtra("username", username)
-                    // Iniciar la MainActivity
                     startActivity(intentRegister)
 
                     val intentResgister = Intent(this@RegisterActivity, MainActivity::class.java)

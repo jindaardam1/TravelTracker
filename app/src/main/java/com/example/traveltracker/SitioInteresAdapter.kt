@@ -27,13 +27,10 @@ class SitioInteresAdapter(private val context: Context, private val sitiosIntere
     override fun onBindViewHolder(holder: SitioInteresViewHolder, position: Int) {
         val currentItem = sitiosInteres[position]
 
-        // Asignar la imagen del sitio
         holder.imageSitio.setImageResource(currentItem.imagenResource)
 
-        // Asignar el nombre del sitio
         holder.textNombreSitio.text = currentItem.nombre
 
-        // Abrir enlace al presionar
         holder.itemView.setOnClickListener {
             abrirEnlaceWeb(currentItem.enlace)
         }

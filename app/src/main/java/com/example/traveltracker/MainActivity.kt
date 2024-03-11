@@ -32,17 +32,14 @@ class MainActivity : AppCompatActivity() {
             Log.e("Error", e.toString())
         }
 
-        // Encontrar vistas por ID
         myImageView = findViewById(R.id.navigation_option1) // Cambiar al ID correcto si es diferente
         navigation_option1 = findViewById(R.id.navigation_option1)
         navigation_option2 = findViewById(R.id.navigation_option2)
         navigation_option3 = findViewById(R.id.navigation_option3)
         navigation_option4 = findViewById(R.id.navigation_option4)
 
-        // Cambiar color de navigation_option1 por defecto
         changeColor(navigation_option1, R.color.lightblue)
 
-        // Establecer controladores de clic para cada ImageView
         navigation_option1.setOnClickListener {
             changeColor(navigation_option1, R.color.lightblue)
             loadFragment(MapaFragment())
@@ -65,7 +62,6 @@ class MainActivity : AppCompatActivity() {
             loadFragment(perfilFragment)
         }
 
-        // Cargar el fragmento inicial
         loadFragment(MapaFragment())
     }
 
@@ -76,13 +72,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun changeColor(imageView: ImageView, colorResourceId: Int) {
-        // Restablecer el color de todos los botones
         navigation_option1.setColorFilter(resources.getColor(R.color.black), PorterDuff.Mode.SRC_IN)
         navigation_option2.setColorFilter(resources.getColor(R.color.black), PorterDuff.Mode.SRC_IN)
         navigation_option3.setColorFilter(resources.getColor(R.color.black), PorterDuff.Mode.SRC_IN)
         navigation_option4.setColorFilter(resources.getColor(R.color.black), PorterDuff.Mode.SRC_IN)
 
-        // Cambiar el color del botón pulsado
         imageView.setColorFilter(resources.getColor(colorResourceId), PorterDuff.Mode.SRC_IN)
     }
 }

@@ -69,20 +69,17 @@ class MapaFragment : Fragment() {
     }
 
     override fun onCreateView(
-        //Añadir carga de valores en textos
 
 
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_mapa, container, false)
 
         button = view.findViewById(R.id.button6)
         button.setOnClickListener {
             mapasHash[selectedCountryId]?.color = "#3DDC84"
             crearXML(requireContext())
-            //mostrarXMLenTextView(requireContext(), view.findViewById(R.id.textView39))
             paisesVisitados(selectedCountryId, countries)
 
             val miDatabase = LocalDatabase.getInstance(requireContext())
@@ -112,7 +109,6 @@ class MapaFragment : Fragment() {
 
             gfc.getPhotoAndSaveOnDb()
         }
-        // Inicializar RecyclerView
         recyclerView = view.findViewById(R.id.paco)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
@@ -312,21 +308,17 @@ class MapaFragment : Fragment() {
             Country("Santa Sede ", "\uD83C\uDDFB\uD83C\uDDE6", "VA"),
             Country("Palestina ", "\uD83C\uDDF5\uD83C\uDDF8", "PS"),
             Country("España ", "\uD83C\uDDEA\uD83C\uDDF8", "ES"),
-            // Agregar más países según sea necesario
         )
 
         val visitedCountriesRecyclerView: RecyclerView = view.findViewById(R.id.imageView4)
         visitedCountriesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         visitedCountriesAdapter = VisitedCountriesAdapter(countriesVisitados){ countryId ->
-            // Aquí puedes hacer lo que quieras con el ID del país seleccionado
             selectedCountryId = countryId
             Log.d("MapaFragment", "Selected Country ID: $selectedCountryId") // Registro en Logcat
         }
         visitedCountriesRecyclerView.adapter = visitedCountriesAdapter
 
-        // Inicializar adaptador y asignarlo al RecyclerView
         adapter = CountryAdapter(countries){ countryId ->
-            // Aquí puedes hacer lo que quieras con el ID del país seleccionado
             selectedCountryId = countryId
             Log.d("MapaFragment", "Selected Country ID: $selectedCountryId") // Registro en Logcat
         }
@@ -334,22 +326,17 @@ class MapaFragment : Fragment() {
 
 
 
-        // Inicializar SearchView
         searchView = view.findViewById(R.id.searchView)
         searchView.queryHint = "Busca un país...";
 
-        // Configurar el Listener para el SearchView
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                // Acción a realizar cuando se envía una consulta de búsqueda (si es necesario)
                 return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                // Filtrar los datos del RecyclerView según el texto de búsqueda
                 adapter.filter.filter(newText)
 
-                // Hacer visible/invisible el RecyclerView según si hay texto en el SearchView
                 recyclerView.visibility = if (newText.isNullOrEmpty()) View.GONE else View.VISIBLE
 
                 return false
@@ -374,7 +361,7 @@ class MapaFragment : Fragment() {
             }
         }
 
-        // Notificar al adaptador del RecyclerView asociado al ImageView4 que los datos han cambiado
+
         visitedCountriesAdapter.notifyDataSetChanged()
 
         for (visitedCountry in countriesVisitados) {
@@ -394,7 +381,6 @@ class MapaFragment : Fragment() {
             }
         }
 
-        // Notificar al adaptador del RecyclerView asociado al ImageView4 que los datos han cambiado
         visitedCountriesAdapter.notifyDataSetChanged()
 
         for (visitedCountry in countriesVisitados) {
@@ -412,7 +398,6 @@ class MapaFragment : Fragment() {
         val xmlBuilder = StringBuilder("<vector xmlns:android=\"http://schemas.android.com/apk/res/android\" android:width=\"1726.7799dp\" android:height=\"960dp\"\n" +
                 "    android:viewportWidth=\"1726.6\" android:viewportHeight=\"959.9\">\n")
 
-        // Suponiendo que `mapasHash` es una variable que contiene los datos necesarios
         for ((clave, valor) in mapasHash) {
             xmlBuilder.append("    <path android:id=\"@+id/${clave}\" android:fillColor=\"${valor.color}\" android:fillType=\"evenOdd\" android:name=\"${valor.nombre}\"\n" +
                     "        android:pathData=\"${valor.data}\" android:strokeWidth=\"0\"/>\n")
@@ -422,26 +407,21 @@ class MapaFragment : Fragment() {
 
         val xmlString = xmlBuilder.toString()
 
-        // Guardar el XML en la memoria interna del dispositivo
         val filename = "mapa2d_nuevo_test.xml"
         val fileContents = xmlString.toByteArray()
         val file = File(context.filesDir, filename)
 
-        // Borra el archivo XML existente, si lo hay
         if (file.exists()) {
             file.delete()
         }
 
-        // Escribe el nuevo contenido en el archivo
         FileOutputStream(file).use {
             it.write(fileContents)
         }
 
-        // Comprobar si se guardó correctamente
         if (file.exists()) {
             Log.d("XML_GUARDADO", "El archivo XML se ha guardado en la memoria interna en: ${file.absolutePath}")
 
-            // Leer el contenido del archivo y mostrarlo en el log
             val xmlContent = file.readText()
             Log.d("XML_CONTENIDO", "Contenido del archivo XML:\n$xmlContent")
         } else {

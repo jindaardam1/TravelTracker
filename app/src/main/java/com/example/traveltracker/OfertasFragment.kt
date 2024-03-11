@@ -39,21 +39,17 @@ class OfertasFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_ofertas, container, false)
 
-        // Configurar el ListView y el adaptador
         listView = view.findViewById(R.id.listView)
         adapter = OfertaAdapter(requireContext(), R.layout.item_oferta_grid, mutableListOf())
         listView.adapter = adapter
 
-        // Manejar clics en elementos del ListView
         listView.setOnItemClickListener { _, _, position, _ ->
-            // Aquí puedes manejar el clic en el elemento
             val ofertaSeleccionada = adapter.getItem(position)
             if (ofertaSeleccionada != null) {
                 abrirPaginaWeb(ofertaSeleccionada)
             }
         }
 
-        // Configurar el SearchView
         searchView = view.findViewById(R.id.searchView)
         searchView.queryHint = "Busca un país...";
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -67,7 +63,6 @@ class OfertasFragment : Fragment() {
             }
         })
 
-        // Iniciar las corrutinas aquí para cargar las imágenes desde mipmap
         lifecycleScope.launch {
             cargarImagenesDesdeMipmap()
         }
@@ -76,12 +71,10 @@ class OfertasFragment : Fragment() {
     }
 
     private suspend fun cargarImagenesDesdeMipmap() {
-        // Crear objetos de imagen para los logotipos de aerolíneas desde mipmap
         logoRyanair = crearDrawableDesdeMipmap(R.mipmap.logo_ryanair)
         logoIberia = crearDrawableDesdeMipmap(R.mipmap.logo_iberia)
         logoAirEuropa = crearDrawableDesdeMipmap(R.mipmap.logo_aireuropa)
 
-        // Crear lista de ofertas con imágenes cargadas
         val ofertasList: MutableList<Oferta> = mutableListOf(
             Oferta("https://www.ryanair.com/flights/es/es", logoRyanair, "Nueva York, Estados Unidos", generarPrecio()),
             Oferta("https://www.iberia.com/es/", logoIberia, "París, Francia", generarPrecio()),
@@ -105,7 +98,6 @@ class OfertasFragment : Fragment() {
             Oferta("https://www.ryanair.com/flights/es/es", logoRyanair, "Estambul, Turquía", generarPrecio())
         )
 
-        // Actualizar el adaptador con la lista de ofertas
         adapter.clear()
         adapter.addAll(ofertasList)
         adapter.notifyDataSetChanged()

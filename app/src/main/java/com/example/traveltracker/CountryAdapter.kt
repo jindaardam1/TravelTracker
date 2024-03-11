@@ -31,7 +31,6 @@ class CountryAdapter(private val countries: List<Country>, private val onItemCli
         holder.nameTextView.text = country.name
         holder.flagEmojiTextView.text = country.flagEmoji
 
-        // Cambiar el color de fondo del elemento seleccionado
         if (position == selectedItemPosition) {
             holder.itemView.setBackgroundResource(R.color.selectedItemBackground)
         } else {
@@ -39,7 +38,6 @@ class CountryAdapter(private val countries: List<Country>, private val onItemCli
             selectedItemPosition = -1
         }
 
-        // Establecer el listener de clic en el elemento
         holder.itemView.setOnClickListener {
             selectedItemPosition = holder.adapterPosition
             notifyDataSetChanged()
