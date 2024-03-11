@@ -14,6 +14,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import controlers.GuardarFotoController
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -77,7 +78,7 @@ class MapaFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_mapa, container, false)
 
-        button = view.findViewById(R.id.button5)
+        button = view.findViewById(R.id.button6)
         button.setOnClickListener {
             mapasHash[selectedCountryId]?.color = "#3DDC84"
             crearXML(requireContext())
@@ -91,12 +92,25 @@ class MapaFragment : Fragment() {
                 estadoPaisDAO.updateHaEstado(selectedCountryId.toString(), true)
             }
         }
+        button = view.findViewById(R.id.button5)
+        button.setOnClickListener {
+
+
+            val miDatabase = LocalDatabase.getInstance(requireContext())
+            val estadoPaisDAO = miDatabase.estadoPaisDao()
+            CoroutineScope(Dispatchers.Main).launch {
+                estadoPaisDAO.updateHaEstado(selectedCountryId.toString(), false)
+            }
+            eliminarPaisesVisitados(selectedCountryId, countries)
+
+        }
+
 
         buttonVerificar = view.findViewById(R.id.button7)
         buttonVerificar.setOnClickListener {
-       //     val gfc = GuardarFotoController(requireContext())
+            val gfc = GuardarFotoController(requireContext())
 
-         //   gfc.getPhotoAndSaveOnDb()
+            gfc.getPhotoAndSaveOnDb()
         }
         // Inicializar RecyclerView
         recyclerView = view.findViewById(R.id.paco)
@@ -303,7 +317,11 @@ class MapaFragment : Fragment() {
 
         val visitedCountriesRecyclerView: RecyclerView = view.findViewById(R.id.imageView4)
         visitedCountriesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        visitedCountriesAdapter = VisitedCountriesAdapter(countriesVisitados)
+        visitedCountriesAdapter = VisitedCountriesAdapter(countriesVisitados){ countryId ->
+            // Aquí puedes hacer lo que quieras con el ID del país seleccionado
+            selectedCountryId = countryId
+            Log.d("MapaFragment", "Selected Country ID: $selectedCountryId") // Registro en Logcat
+        }
         visitedCountriesRecyclerView.adapter = visitedCountriesAdapter
 
         // Inicializar adaptador y asignarlo al RecyclerView
@@ -313,6 +331,7 @@ class MapaFragment : Fragment() {
             Log.d("MapaFragment", "Selected Country ID: $selectedCountryId") // Registro en Logcat
         }
         recyclerView.adapter = adapter
+
 
 
         // Inicializar SearchView
@@ -365,6 +384,27 @@ class MapaFragment : Fragment() {
             )
         }
     }
+    fun eliminarPaisesVisitados(selectedcountryID: String?, countries: List<Country>) {
+        selectedcountryID?.let { id ->
+            for (country in countries) {
+                if (country.id == id) {
+                    countriesVisitados.remove(country)
+                    break
+                }
+            }
+        }
+
+        // Notificar al adaptador del RecyclerView asociado al ImageView4 que los datos han cambiado
+        visitedCountriesAdapter.notifyDataSetChanged()
+
+        for (visitedCountry in countriesVisitados) {
+            Log.d(
+                "PaisesVisitados",
+                "ID: ${visitedCountry.id}, Nombre: ${visitedCountry.name}, Emoji de bandera: ${visitedCountry.flagEmoji}"
+            )
+        }
+    }
+
 
 
 
