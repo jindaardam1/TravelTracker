@@ -75,12 +75,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/paco"
-        android:layout_width="300dp"
-        android:layout_height="200dp"
+        android:layout_width="299dp"
+        android:layout_height="48dp"
         android:layout_below="@id/searchView"
         android:layout_centerHorizontal="true"
-        android:visibility="gone"
-        android:background="@color/colorRecyclerViewPais"/>
+        android:background="@color/colorRecyclerViewPais"
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/button5"
