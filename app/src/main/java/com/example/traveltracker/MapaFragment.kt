@@ -30,6 +30,9 @@ import java.io.IOException
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
+/**
+ * Fragmento que muestra un mapa interactivo con información sobre países.
+ */
 class MapaFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
@@ -49,6 +52,12 @@ class MapaFragment : Fragment() {
         "NL" to MapaHash("#3DDC84", "@string/Paises_Bajos", "M844,301.1h3v6c-0.7,2.3 -1,4.6 -1,7 -5.5,0.6 -8.9,-1.8 -10,-7 1.8,-3.2 4.5,-5.2 8,-6Z"),
         "ES" to MapaHash("#727473", "@string/España", "M778,403.1c-0.5,-6.4 0.8,-12.4 4,-18 0.2,-2.4 -0.4,-4.4 -2,-6 -3.1,-1 -6.5,-1.3 -10,-1v-6c-0,-2 1,-3 3,-3 3,0.9 6,1.8 9,2.5 8,0.3 16,0.7 24,1 6.3,4.2 13.3,6.3 21,6.5 -9.8,5.5 -15.6,13.8 -17.5,25 -6.9,5.7 -14.9,9 -24,10 -2,-0.2 -3.8,-0.9 -5.5,-2 -0.9,-3 -1.5,-6 -2,-9Z")
     )
+
+    /**
+     * Método llamado cuando el fragmento está siendo creado.
+     *
+     * @param savedInstanceState Si no es nulo, este fragmento está siendo reconstruido a partir de un estado guardado.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -78,12 +87,15 @@ class MapaFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(
-
-
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    /**
+     * Infla el diseño del fragmento y configura las interacciones de los elementos de la interfaz de usuario.
+     *
+     * @param inflater El inflador utilizado para inflar el diseño.
+     * @param container El contenedor padre en el que se debe colocar el diseño inflado.
+     * @param savedInstanceState El estado previamente guardado del fragmento.
+     * @return La vista inflada para el fragmento o nulo si se produce un error.
+     */
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_mapa, container, false)
 
         button = view.findViewById(R.id.button6)
@@ -377,10 +389,23 @@ class MapaFragment : Fragment() {
         return view
     }
 
+    /**
+     * Obtiene un país según su ID.
+     *
+     * @param id El ID del país a buscar.
+     * @return El país correspondiente al ID proporcionado.
+     * @throws NoSuchElementException Si no se encuentra un país con el ID especificado.
+     */
     fun getCountryById(id: String): Country {
         return countries.find { it.id == id }!!
     }
 
+    /**
+     * Agrega un país a la lista de países visitados.
+     *
+     * @param selectedCountryID El ID del país seleccionado.
+     * @param countries La lista de todos los países disponibles.
+     */
     fun paisesVisitados(selectedcountryID: String?, countries: List<Country>) {
         selectedcountryID?.let { id ->
             for (country in countries) {
@@ -401,6 +426,13 @@ class MapaFragment : Fragment() {
             )
         }
     }
+
+    /**
+     * Elimina un país de la lista de países visitados.
+     *
+     * @param selectedCountryID El ID del país seleccionado.
+     * @param countries La lista de todos los países disponibles.
+     */
     fun eliminarPaisesVisitados(selectedcountryID: String?, countries: List<Country>) {
         selectedcountryID?.let { id ->
             for (country in countries) {
@@ -421,9 +453,11 @@ class MapaFragment : Fragment() {
         }
     }
 
-
-
-
+    /**
+     * Crea un archivo XML con la información de los países y lo guarda en la memoria interna.
+     *
+     * @param context El contexto de la aplicación.
+     */
     fun crearXML(context: Context) {
         val xmlBuilder = StringBuilder("<vector xmlns:android=\"http://schemas.android.com/apk/res/android\" android:width=\"1726.7799dp\" android:height=\"960dp\"\n" +
                 "    android:viewportWidth=\"1726.6\" android:viewportHeight=\"959.9\">\n")
@@ -459,6 +493,12 @@ class MapaFragment : Fragment() {
         }
     }
 
+    /**
+     * Muestra el contenido de un archivo XML en un TextView.
+     *
+     * @param context El contexto de la aplicación.
+     * @param textView El TextView donde se mostrará el contenido del archivo XML.
+     */
     fun mostrarXMLenTextView(context: Context, textView: TextView) {
         val filename = "mapa2d_nuevo_test.xml"
         val file = File(context.filesDir, filename)
@@ -477,7 +517,4 @@ class MapaFragment : Fragment() {
         }
     }
 
-
-
 }
-

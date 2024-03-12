@@ -3,6 +3,11 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt") // Cambiado a la forma más común de declarar el plugin Kotlin Kapt
     id("com.google.gms.google-services") version "4.4.1"
+    id("org.jetbrains.dokka") version "1.9.10"
+}
+
+subprojects {
+    apply(plugin = "org.jetbrains.dokka") // Aplicar el plugin Dokka a todos los subproyectos
 }
 
 android {
@@ -36,6 +41,8 @@ android {
         jvmTarget = "1.8"
     }
 
+
+
 }
 
 dependencies {
@@ -68,7 +75,7 @@ dependencies {
     testImplementation("org.testng:testng:6.9.6")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-
+    dokkaPlugin("org.jetbrains.dokka:android-documentation-plugin:1.9.10")
     val roomVersion = "2.6.1"
 
     // Dependencia Room
@@ -81,3 +88,4 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:32.7.2"))
 
 }
+
