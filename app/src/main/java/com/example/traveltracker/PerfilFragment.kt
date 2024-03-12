@@ -12,6 +12,9 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 
+/**
+ * Fragmento que representa la pantalla de perfil de usuario.
+ */
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
@@ -21,6 +24,14 @@ class PerfilFragment : Fragment() {
     private var param2: String? = null
     private lateinit var nombreUsuario: TextView
 
+    /**
+     * Método llamado para crear la vista del fragmento.
+     *
+     * @param inflater El inflador utilizado para inflar el diseño.
+     * @param container El contenedor padre en el que se debe colocar el diseño inflado.
+     * @param savedInstanceState El estado previamente guardado del fragmento.
+     * @return La vista inflada para el fragmento.
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,7 +49,7 @@ class PerfilFragment : Fragment() {
 
         val botonVisitados = view.findViewById<Button>(R.id.btnSeleccionarColorPaisesVisitados)
         val botonVisitando = view.findViewById<Button>(R.id.btnSeleccionarColorPaisesVisitando)
-        val  botonVerificado = view.findViewById<Button>(R.id.btnPaisesVerificados)
+        val botonVerificado = view.findViewById<Button>(R.id.btnPaisesVerificados)
         val botonCerrarSesion = view.findViewById<Button>(R.id.Cerrar_sesion)
         val colorPickerView = view.findViewById<com.skydoves.colorpickerview.ColorPickerView>(R.id.colorPickerView)
         val relativeLayout = view.findViewById<RelativeLayout>(R.id.relativeLayout)
@@ -80,5 +91,4 @@ class PerfilFragment : Fragment() {
 
         return view
     }
-
 }

@@ -22,6 +22,14 @@ import com.example.traveltracker.R
 import kotlinx.coroutines.launch
 import kotlin.random.Random
 
+/**
+ * Fragmento que muestra una lista de ofertas de viaje en la aplicación TravelTracker.
+ *
+ * Este fragmento permite a los usuarios explorar ofertas de diferentes destinos de viaje. Incluye una barra de búsqueda
+ * para filtrar las ofertas y un listado de ofertas con información como la aerolínea, destino y precio.
+ *
+ * @constructor Crea una instancia del fragmento OfertasFragment.
+ */
 class OfertasFragment : Fragment() {
 
     private lateinit var listView: ListView
@@ -31,6 +39,14 @@ class OfertasFragment : Fragment() {
     private var logoIberia: Drawable? = null
     private var logoAirEuropa: Drawable? = null
 
+    /**
+     * Método llamado al crear la vista del fragmento.
+     *
+     * @param inflater El objeto LayoutInflater que infla la vista.
+     * @param container El contenedor de la vista.
+     * @param savedInstanceState El estado previamente guardado de la instancia.
+     * @return La vista creada.
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -68,6 +84,9 @@ class OfertasFragment : Fragment() {
         return view
     }
 
+    /**
+     * Carga las imágenes de las aerolíneas desde los recursos Mipmap.
+     */
     private suspend fun cargarImagenesDesdeMipmap() {
         logoRyanair = crearDrawableDesdeMipmap(R.mipmap.logo_ryanair)
         logoIberia = crearDrawableDesdeMipmap(R.mipmap.logo_iberia)
@@ -101,6 +120,12 @@ class OfertasFragment : Fragment() {
         adapter.notifyDataSetChanged()
     }
 
+    /**
+     * Crea un objeto Drawable a partir de un recurso Mipmap.
+     *
+     * @param resourceId El ID del recurso Mipmap.
+     * @return El objeto Drawable creado.
+     */
     private suspend fun crearDrawableDesdeMipmap(resourceId: Int): Drawable? {
         return try {
             val bitmap: Bitmap = BitmapFactory.decodeResource(resources, resourceId)
@@ -112,19 +137,44 @@ class OfertasFragment : Fragment() {
         }
     }
 
+    /**
+     * Abre la página web asociada a la oferta en el navegador.
+     *
+     * @param oferta La oferta seleccionada.
+     */
     private fun abrirPaginaWeb(oferta: Oferta) {
         val intent = Intent(Intent.ACTION_VIEW)
         intent.data = Uri.parse(oferta.enlaceRedireccion)
         startActivity(intent)
     }
 
+    /**
+     * Genera un precio aleatorio entre 400 y 1500 euros.
+     *
+     * @return El precio generado.
+     */
     private fun generarPrecio(): Int {
         return Random.nextInt(400, 1500)
     }
 
+    /**
+     * Adaptador personalizado para la lista de ofertas.
+     *
+     * @param context El contexto de la aplicación.
+     * @param resource El ID del recurso de diseño de la celda de la lista.
+     * @param objects La lista de ofertas.
+     */
     class OfertaAdapter(context: Context, resource: Int, objects: List<Oferta>) :
         ArrayAdapter<Oferta>(context, resource, objects) {
 
+        /**
+         * Obtiene la vista que representa un elemento de la lista.
+         *
+         * @param position La posición del elemento en la lista.
+         * @param convertView La vista que se puede reciclar.
+         * @param parent El grupo al que pertenece la vista.
+         * @return La vista del elemento de la lista.
+         */
         override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
             val itemView = convertView ?: LayoutInflater.from(context).inflate(R.layout.item_oferta_grid, parent, false)
 

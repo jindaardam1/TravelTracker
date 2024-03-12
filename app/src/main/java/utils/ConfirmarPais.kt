@@ -13,10 +13,18 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import java.io.ByteArrayOutputStream
 
+/**
+ * Clase utilitaria para gestionar la confirmación de un país mediante la captura de fotos.
+ *
+ * @property context El contexto de la aplicación.
+ */
 class ConfirmarPais(private val context: Context) {
     private val CAMERA_REQUEST_CODE = 1003
     private val CAMERA_PERMISSION_REQUEST_CODE = 1004
 
+    /**
+     * Abre la cámara para capturar una foto del país.
+     */
     fun openCamera() {
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
             val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
@@ -33,6 +41,13 @@ class ConfirmarPais(private val context: Context) {
         }
     }
 
+    /**
+     * Método llamado en el método `onActivityResult` de la actividad para procesar la imagen capturada.
+     *
+     * @param requestCode El código de solicitud.
+     * @param resultCode El código de resultado.
+     * @param data La intención que contiene los datos de la imagen capturada.
+     */
     fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == CAMERA_REQUEST_CODE && resultCode == AppCompatActivity.RESULT_OK) {
 
@@ -44,6 +59,12 @@ class ConfirmarPais(private val context: Context) {
         }
     }
 
+    /**
+     * Convierte un objeto [Bitmap] a un array de bytes ([ByteArray]).
+     *
+     * @param bitmap La imagen a convertir.
+     * @return El array de bytes que representa la imagen.
+     */
     private fun bitmapToByteArray(bitmap: Bitmap): ByteArray {
         val outputStream = ByteArrayOutputStream()
 
@@ -52,6 +73,11 @@ class ConfirmarPais(private val context: Context) {
         return outputStream.toByteArray()
     }
 
+    /**
+     * Muestra la cantidad de bits de la foto y registra la cadena de bits en los registros.
+     *
+     * @param photoBytes El array de bytes que representa la imagen.
+     */
     private fun getPhotoToBits(photoBytes: ByteArray) {
         Toast.makeText(context, "Cantidad de bits de la foto: " + photoBytes.size, Toast.LENGTH_LONG).show()
 

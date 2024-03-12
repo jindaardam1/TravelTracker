@@ -15,16 +15,43 @@ import model.local.dao.PaisConfirmadoDAO
 import model.local.entity.EstadoPais
 import model.local.entity.PaisConfirmado
 
+/**
+ * Base de datos local para la aplicación TravelTracker.
+ *
+ * Esta base de datos utiliza la biblioteca Room y contiene las tablas EstadoPais y PaisConfirmado.
+ * Proporciona métodos de acceso a datos (DAO) para realizar operaciones CRUD (Create, Read, Update, Delete)
+ * en estas tablas.
+ */
 @Database(entities = [EstadoPais::class, PaisConfirmado::class], version = 1)
 abstract class LocalDatabase : RoomDatabase() {
 
+    /**
+     * Obtiene el DAO para la entidad EstadoPais.
+     *
+     * @return EstadoPaisDAO para realizar operaciones en la tabla estado_paises.
+     */
     abstract fun estadoPaisDao(): EstadoPaisDAO
+
+    /**
+     * Obtiene el DAO para la entidad PaisConfirmado.
+     *
+     * @return PaisConfirmadoDAO para realizar operaciones en la tabla paises_confirmados.
+     */
     abstract fun paisConfirmadoDAO(): PaisConfirmadoDAO
 
     companion object {
         private const val DB = "TravelTracker.db"
         private var INSTANCE: LocalDatabase? = null
 
+        /**
+         * Obtiene una instancia única de la base de datos local.
+         *
+         * Si no existe una instancia previa, crea una nueva instancia utilizando Room Database Builder
+         * y realiza operaciones de inserción inicial mediante un callback.
+         *
+         * @param context Contexto de la aplicación.
+         * @return Instancia de la base de datos local.
+         */
         fun getInstance(context: Context): LocalDatabase {
             synchronized(this) {
                 var instance = INSTANCE
@@ -50,6 +77,11 @@ abstract class LocalDatabase : RoomDatabase() {
             }
         }
 
+        /**
+         * Realiza las primeras inserciones necesarias en la tabla EstadoPais al crear la base de datos.
+         *
+         * @param context Contexto de la aplicación.
+         */
         @OptIn(DelicateCoroutinesApi::class)
         private fun primerasInsercionesNecesarias(context: Context) {
 

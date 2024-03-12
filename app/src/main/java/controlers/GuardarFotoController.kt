@@ -19,9 +19,16 @@ import model.local.entity.PaisConfirmado
 import utils.ConfirmarPais
 import utils.Localizacion
 
-
+/**
+ * Controlador para la funcionalidad de guardar foto y confirmar país.
+ *
+ * @property context El contexto de la aplicación.
+ */
 class GuardarFotoController(val context: Context) {
 
+    /**
+     * Obtiene la foto en bytes, la ubicación actual y confirma el país en la base de datos.
+     */
     fun getPhotoAndSaveOnDb() {
         val fotoEnBytes = getFotoEnBytes()
 
@@ -58,6 +65,11 @@ class GuardarFotoController(val context: Context) {
         }
     }
 
+    /**
+     * Obtiene la foto en bytes, mostrando un mensaje de aviso temporal.
+     *
+     * @return La foto en bytes.
+     */
     private fun getFotoEnBytes(): ByteArray? {
         val confirmarPais = ConfirmarPais(context)
 
@@ -68,6 +80,11 @@ class GuardarFotoController(val context: Context) {
         return null
     }
 
+    /**
+     * Obtiene la ubicación actual del dispositivo.
+     *
+     * @return La ubicación actual del dispositivo.
+     */
     private fun getCurrentLocation(): Location? {
         val locationManager = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
 

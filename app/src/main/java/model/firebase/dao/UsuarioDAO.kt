@@ -5,10 +5,22 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
 import model.firebase.entity.Usuario
 
+/**
+ * Clase de acceso a datos (DAO) para la gestión de usuarios en Firebase Firestore.
+ *
+ * @property db Instancia de FirebaseFirestore para la comunicación con Firestore.
+ */
 class UsuarioDAO {
 
     internal val db = FirebaseFirestore.getInstance()
 
+    /**
+     * Inserta un nuevo usuario en la colección "usuarios" de Firestore.
+     *
+     * @param nombreUsuario Nombre de usuario del nuevo usuario.
+     * @param contra Contraseña del nuevo usuario.
+     * @param email Dirección de correo electrónico del nuevo usuario.
+     */
     suspend fun insertarUsuario(nombreUsuario: String, contra: String, email: String) {
         val usuario = Usuario(nombreUsuario, contra, email)
 
@@ -28,6 +40,13 @@ class UsuarioDAO {
         }
     }
 
+    /**
+     * Comprueba si las credenciales de un usuario son válidas.
+     *
+     * @param nombreUsuario Nombre de usuario a verificar.
+     * @param contra Contraseña a verificar.
+     * @return true si las credenciales son válidas, false de lo contrario.
+     */
     suspend fun comprobarUsuario(nombreUsuario: String, contra: String): Boolean {
         val usuario = Usuario(nombreUsuario, contra, "")
 
@@ -51,6 +70,12 @@ class UsuarioDAO {
         }
     }
 
+    /**
+     * Comprueba si un nombre de usuario ya existe en la colección "usuarios".
+     *
+     * @param nombreUsuario Nombre de usuario a verificar.
+     * @return true si el nombre de usuario ya existe, false de lo contrario.
+     */
     suspend fun comprobarSiUsuarioExiste(nombreUsuario: String): Boolean {
         val usuario = Usuario(nombreUsuario, "", "")
 
@@ -68,6 +93,12 @@ class UsuarioDAO {
         }
     }
 
+    /**
+     * Comprueba si una dirección de correo electrónico ya está en uso.
+     *
+     * @param email Dirección de correo electrónico a verificar.
+     * @return true si el email está en uso, false de lo contrario.
+     */
     suspend fun comprobarSiEmailEstaEnUso(email: String): Boolean {
         val usuario = Usuario("", "", email)
 

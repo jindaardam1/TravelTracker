@@ -20,6 +20,8 @@ import model.firebase.dao.UsuarioDAO
 
 /**
  * Actividad que maneja el inicio de sesión de los usuarios.
+ *
+ * Esta actividad permite a los usuarios iniciar sesión en la aplicación.
  */
 class LoginActivity : AppCompatActivity() {
 
@@ -28,6 +30,7 @@ class LoginActivity : AppCompatActivity() {
 
     /**
      * Método que se llama cuando se crea la actividad.
+     *
      * @param savedInstanceState Estado de la instancia anterior de la actividad.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,6 +61,7 @@ class LoginActivity : AppCompatActivity() {
 
     /**
      * Verifica si el nombre de usuario cumple con los requisitos.
+     *
      * @return true si el nombre de usuario es válido, false de lo contrario.
      */
     private fun user(): Boolean {
@@ -72,6 +76,7 @@ class LoginActivity : AppCompatActivity() {
 
     /**
      * Verifica si la contraseña cumple con los requisitos.
+     *
      * @return true si la contraseña es válida, false de lo contrario.
      */
     private fun contrasena(): Boolean {
@@ -174,6 +179,7 @@ class LoginActivity : AppCompatActivity() {
 
     /**
      * Se llama cuando se obtiene el resultado de la solicitud de permisos.
+     *
      * @param requestCode Código de solicitud.
      * @param permissions Arreglo de permisos solicitados.
      * @param grantResults Arreglo de resultados de los permisos solicitados.

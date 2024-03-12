@@ -12,7 +12,7 @@ import com.google.firebase.FirebaseApp
 import model.local.database.LocalDatabase
 
 /**
- * MainActivity representa la interfaz de usuario principal de la aplicación.
+ * `MainActivity` representa la interfaz de usuario principal de la aplicación.
  */
 class MainActivity : AppCompatActivity() {
 
@@ -22,6 +22,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navigation_option3: ImageView
     private lateinit var navigation_option4: ImageView
 
+    /**
+     * Realiza la inicialización de la actividad, incluida la configuración de Firebase y la carga del fragmento inicial.
+     *
+     * @param savedInstanceState El estado de la instancia guardado.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
