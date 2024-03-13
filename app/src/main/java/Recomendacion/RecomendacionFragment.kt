@@ -14,25 +14,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.traveltracker.R
 
-/**
- * Fragmento que muestra recomendaciones de lugares de interés en la aplicación TravelTracker.
- *
- * Este fragmento proporciona información sobre una recomendación específica, como el nombre del lugar,
- * una imagen representativa y una lista de sitios de interés relacionados. Utiliza un diseño de tarjeta
- * para mostrar la información de la recomendación y una lista de RecyclerView para los sitios de interés.
- *
- * @constructor Crea una instancia del fragmento RecomendacionFragment.
- */
+
 class RecomendacionFragment : Fragment() {
 
-    /**
-     * Método llamado al crear la vista del fragmento.
-     *
-     * @param inflater El objeto LayoutInflater que infla la vista.
-     * @param container El contenedor de la vista.
-     * @param savedInstanceState El estado previamente guardado de la instancia.
-     * @return La vista creada.
-     */
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -70,12 +55,8 @@ class RecomendacionFragment : Fragment() {
         return view
     }
 
-    /**
-     * Genera una lista de sitios de interés para la recomendación.
-     *
-     * @return Lista de sitios de interés.
-     */
-    private fun generarSitiosInteres(): List<SitioInteres> {
+    //ASIGNAR ACTIVIDADES DE INTERES
+    fun generarSitiosInteres(): List<SitioInteres> {
         return listOf(
             SitioInteres("Restaurante: La Habana Vieja", R.mipmap.habana_vieja, "https://havanavieja.com/"),
             SitioInteres("Lugar: Plaza de la Revolución", R.mipmap.plaza_revolucion, "https://www.visitarcuba.org/plaza-de-la-revolucion"),
@@ -85,6 +66,7 @@ class RecomendacionFragment : Fragment() {
             SitioInteres("Lugar: Playa Varadero", R.mipmap.playa_varadero, "https://www.meliacuba.com/es/destinos/varadero/guia"),
             SitioInteres("Restaurante: La Carretera", R.mipmap.la_carretera, "http://www.carretacubana.com/"),
             SitioInteres("INFO: Descubre sobre la historia de Cuba", R.mipmap.info, "https://viajes.nationalgeographic.com.es/p/cuba"),
+
         )
     }
 

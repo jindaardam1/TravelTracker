@@ -17,17 +17,8 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import model.firebase.dao.UsuarioDAO
 
-/**
- * Actividad para el registro de usuarios.
- */
 class RegisterActivity : AppCompatActivity() {
-
-    /**
-     * Método llamado cuando la actividad se está iniciando.
-     *
-     * @param savedInstanceState Datos de la instancia previa si la actividad está siendo reiniciada.
-     */
-    override fun onCreate(savedInstanceState: Bundle?) {
+    public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
