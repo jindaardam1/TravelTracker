@@ -26,16 +26,12 @@ class RecomendacionFragmentTest {
             e.printStackTrace()
         }
     }
-
     @Test
     fun testFragmentNotNull() {
         // Inicializar el contexto simulado utilizando Mockito
         context = mock(Context::class.java)
-
         val fragment = RecomendacionFragment()
-
         setFragmentContext(fragment, context)
-
         assertNotNull(fragment)
     }
 
