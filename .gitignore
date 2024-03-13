@@ -8,3 +8,9 @@
 .externalNativeBuild
 .cxx
 local.properties
+/app/build/generated/
+/app/build/intermediates/
+/app/build/kotlin/
+/app/build/outputs/
+/app/build/tmp/
+/app/build/gmpAppId.txt

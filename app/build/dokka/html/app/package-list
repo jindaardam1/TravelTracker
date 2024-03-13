@@ -1,0 +1,157 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:////PointingToDeclaration/app/[root]/index.html
+$dokka.location:/VisitedCountriesAdapter.ViewHolder///PointingToDeclaration/app/[root]/-visited-countries-adapter/-view-holder/index.html
+$dokka.location:/VisitedCountriesAdapter.ViewHolder/ViewHolder/#android.view.View/PointingToDeclaration/app/[root]/-visited-countries-adapter/-view-holder/-view-holder.html
+$dokka.location:/VisitedCountriesAdapter.ViewHolder/flagEmojiTextView/#/PointingToDeclaration/app/[root]/-visited-countries-adapter/-view-holder/flag-emoji-text-view.html
+$dokka.location:/VisitedCountriesAdapter.ViewHolder/nameTextView/#/PointingToDeclaration/app/[root]/-visited-countries-adapter/-view-holder/name-text-view.html
+$dokka.location:/VisitedCountriesAdapter///PointingToDeclaration/app/[root]/-visited-countries-adapter/index.html
+$dokka.location:/VisitedCountriesAdapter/VisitedCountriesAdapter/#kotlin.collections.List[Mapa.Country]#kotlin.Function1[kotlin.String,kotlin.Unit]#com.example.traveltracker.MapaFragment/PointingToDeclaration/app/[root]/-visited-countries-adapter/-visited-countries-adapter.html
+$dokka.location:/VisitedCountriesAdapter/getItemCount/#/PointingToDeclaration/app/[root]/-visited-countries-adapter/get-item-count.html
+$dokka.location:/VisitedCountriesAdapter/onBindViewHolder/#VisitedCountriesAdapter.ViewHolder#kotlin.Int/PointingToDeclaration/app/[root]/-visited-countries-adapter/on-bind-view-holder.html
+$dokka.location:/VisitedCountriesAdapter/onCreateViewHolder/#android.view.ViewGroup#kotlin.Int/PointingToDeclaration/app/[root]/-visited-countries-adapter/on-create-view-holder.html
+$dokka.location:LoginyRegister////PointingToDeclaration/app/LoginyRegister/index.html
+$dokka.location:LoginyRegister/LoginActivity///PointingToDeclaration/app/LoginyRegister/-login-activity/index.html
+$dokka.location:LoginyRegister/LoginActivity/LoginActivity/#/PointingToDeclaration/app/LoginyRegister/-login-activity/-login-activity.html
+$dokka.location:LoginyRegister/LoginActivity/onRequestPermissionsResult/#kotlin.Int#kotlin.Array[kotlin.String]#kotlin.IntArray/PointingToDeclaration/app/LoginyRegister/-login-activity/on-request-permissions-result.html
+$dokka.location:LoginyRegister/RegisterActivity///PointingToDeclaration/app/LoginyRegister/-register-activity/index.html
+$dokka.location:LoginyRegister/RegisterActivity/RegisterActivity/#/PointingToDeclaration/app/LoginyRegister/-register-activity/-register-activity.html
+$dokka.location:Mapa////PointingToDeclaration/app/Mapa/index.html
+$dokka.location:Mapa/Country///PointingToDeclaration/app/Mapa/-country/index.html
+$dokka.location:Mapa/Country/Country/#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/app/Mapa/-country/-country.html
+$dokka.location:Mapa/Country/flagEmoji/#/PointingToDeclaration/app/Mapa/-country/flag-emoji.html
+$dokka.location:Mapa/Country/id/#/PointingToDeclaration/app/Mapa/-country/id.html
+$dokka.location:Mapa/Country/name/#/PointingToDeclaration/app/Mapa/-country/name.html
+$dokka.location:Mapa/CountryAdapter.ViewHolder///PointingToDeclaration/app/Mapa/-country-adapter/-view-holder/index.html
+$dokka.location:Mapa/CountryAdapter.ViewHolder/ViewHolder/#android.view.View/PointingToDeclaration/app/Mapa/-country-adapter/-view-holder/-view-holder.html
+$dokka.location:Mapa/CountryAdapter.ViewHolder/flagEmojiTextView/#/PointingToDeclaration/app/Mapa/-country-adapter/-view-holder/flag-emoji-text-view.html
+$dokka.location:Mapa/CountryAdapter.ViewHolder/nameTextView/#/PointingToDeclaration/app/Mapa/-country-adapter/-view-holder/name-text-view.html
+$dokka.location:Mapa/CountryAdapter///PointingToDeclaration/app/Mapa/-country-adapter/index.html
+$dokka.location:Mapa/CountryAdapter/CountryAdapter/#kotlin.collections.List[Mapa.Country]#kotlin.Function1[kotlin.String,kotlin.Unit]/PointingToDeclaration/app/Mapa/-country-adapter/-country-adapter.html
+$dokka.location:Mapa/CountryAdapter/getFilter/#/PointingToDeclaration/app/Mapa/-country-adapter/get-filter.html
+$dokka.location:Mapa/CountryAdapter/getItemCount/#/PointingToDeclaration/app/Mapa/-country-adapter/get-item-count.html
+$dokka.location:Mapa/CountryAdapter/onBindViewHolder/#Mapa.CountryAdapter.ViewHolder#kotlin.Int/PointingToDeclaration/app/Mapa/-country-adapter/on-bind-view-holder.html
+$dokka.location:Mapa/CountryAdapter/onCreateViewHolder/#android.view.ViewGroup#kotlin.Int/PointingToDeclaration/app/Mapa/-country-adapter/on-create-view-holder.html
+$dokka.location:Mapa/MapaHash///PointingToDeclaration/app/Mapa/-mapa-hash/index.html
+$dokka.location:Mapa/MapaHash/MapaHash/#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/app/Mapa/-mapa-hash/-mapa-hash.html
+$dokka.location:Mapa/MapaHash/color/#/PointingToDeclaration/app/Mapa/-mapa-hash/color.html
+$dokka.location:Mapa/MapaHash/data/#/PointingToDeclaration/app/Mapa/-mapa-hash/data.html
+$dokka.location:Mapa/MapaHash/nombre/#/PointingToDeclaration/app/Mapa/-mapa-hash/nombre.html
+$dokka.location:Ofertas////PointingToDeclaration/app/Ofertas/index.html
+$dokka.location:Ofertas/Oferta///PointingToDeclaration/app/Ofertas/-oferta/index.html
+$dokka.location:Ofertas/Oferta/Oferta/#kotlin.String#android.graphics.drawable.Drawable?#kotlin.String#kotlin.Int/PointingToDeclaration/app/Ofertas/-oferta/-oferta.html
+$dokka.location:Ofertas/Oferta/aerolineaFoto/#/PointingToDeclaration/app/Ofertas/-oferta/aerolinea-foto.html
+$dokka.location:Ofertas/Oferta/destino/#/PointingToDeclaration/app/Ofertas/-oferta/destino.html
+$dokka.location:Ofertas/Oferta/enlaceRedireccion/#/PointingToDeclaration/app/Ofertas/-oferta/enlace-redireccion.html
+$dokka.location:Ofertas/Oferta/precio/#/PointingToDeclaration/app/Ofertas/-oferta/precio.html
+$dokka.location:Ofertas/OfertasFragment.OfertaAdapter///PointingToDeclaration/app/Ofertas/-ofertas-fragment/-oferta-adapter/index.html
+$dokka.location:Ofertas/OfertasFragment.OfertaAdapter/OfertaAdapter/#android.content.Context#kotlin.Int#kotlin.collections.List[Ofertas.Oferta]/PointingToDeclaration/app/Ofertas/-ofertas-fragment/-oferta-adapter/-oferta-adapter.html
+$dokka.location:Ofertas/OfertasFragment.OfertaAdapter/getView/#kotlin.Int#android.view.View?#android.view.ViewGroup/PointingToDeclaration/app/Ofertas/-ofertas-fragment/-oferta-adapter/get-view.html
+$dokka.location:Ofertas/OfertasFragment///PointingToDeclaration/app/Ofertas/-ofertas-fragment/index.html
+$dokka.location:Ofertas/OfertasFragment/OfertasFragment/#/PointingToDeclaration/app/Ofertas/-ofertas-fragment/-ofertas-fragment.html
+$dokka.location:Ofertas/OfertasFragment/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/app/Ofertas/-ofertas-fragment/on-create-view.html
+$dokka.location:Recomendacion////PointingToDeclaration/app/Recomendacion/index.html
+$dokka.location:Recomendacion/RecomendacionFragment///PointingToDeclaration/app/Recomendacion/-recomendacion-fragment/index.html
+$dokka.location:Recomendacion/RecomendacionFragment/RecomendacionFragment/#/PointingToDeclaration/app/Recomendacion/-recomendacion-fragment/-recomendacion-fragment.html
+$dokka.location:Recomendacion/RecomendacionFragment/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/app/Recomendacion/-recomendacion-fragment/on-create-view.html
+$dokka.location:Recomendacion/SitioInteres///PointingToDeclaration/app/Recomendacion/-sitio-interes/index.html
+$dokka.location:Recomendacion/SitioInteres/SitioInteres/#kotlin.String#kotlin.Int#kotlin.String/PointingToDeclaration/app/Recomendacion/-sitio-interes/-sitio-interes.html
+$dokka.location:Recomendacion/SitioInteres/enlace/#/PointingToDeclaration/app/Recomendacion/-sitio-interes/enlace.html
+$dokka.location:Recomendacion/SitioInteres/imagenResource/#/PointingToDeclaration/app/Recomendacion/-sitio-interes/imagen-resource.html
+$dokka.location:Recomendacion/SitioInteres/nombre/#/PointingToDeclaration/app/Recomendacion/-sitio-interes/nombre.html
+$dokka.location:Recomendacion/SitioInteresAdapter.SitioInteresViewHolder///PointingToDeclaration/app/Recomendacion/-sitio-interes-adapter/-sitio-interes-view-holder/index.html
+$dokka.location:Recomendacion/SitioInteresAdapter.SitioInteresViewHolder/SitioInteresViewHolder/#android.view.View/PointingToDeclaration/app/Recomendacion/-sitio-interes-adapter/-sitio-interes-view-holder/-sitio-interes-view-holder.html
+$dokka.location:Recomendacion/SitioInteresAdapter.SitioInteresViewHolder/imageSitio/#/PointingToDeclaration/app/Recomendacion/-sitio-interes-adapter/-sitio-interes-view-holder/image-sitio.html
+$dokka.location:Recomendacion/SitioInteresAdapter.SitioInteresViewHolder/textNombreSitio/#/PointingToDeclaration/app/Recomendacion/-sitio-interes-adapter/-sitio-interes-view-holder/text-nombre-sitio.html
+$dokka.location:Recomendacion/SitioInteresAdapter///PointingToDeclaration/app/Recomendacion/-sitio-interes-adapter/index.html
+$dokka.location:Recomendacion/SitioInteresAdapter/SitioInteresAdapter/#android.content.Context#kotlin.collections.List[Recomendacion.SitioInteres]/PointingToDeclaration/app/Recomendacion/-sitio-interes-adapter/-sitio-interes-adapter.html
+$dokka.location:Recomendacion/SitioInteresAdapter/getItemCount/#/PointingToDeclaration/app/Recomendacion/-sitio-interes-adapter/get-item-count.html
+$dokka.location:Recomendacion/SitioInteresAdapter/onBindViewHolder/#Recomendacion.SitioInteresAdapter.SitioInteresViewHolder#kotlin.Int/PointingToDeclaration/app/Recomendacion/-sitio-interes-adapter/on-bind-view-holder.html
+$dokka.location:Recomendacion/SitioInteresAdapter/onCreateViewHolder/#android.view.ViewGroup#kotlin.Int/PointingToDeclaration/app/Recomendacion/-sitio-interes-adapter/on-create-view-holder.html
+$dokka.location:com.example.traveltracker////PointingToDeclaration/app/com.example.traveltracker/index.html
+$dokka.location:com.example.traveltracker/MainActivity///PointingToDeclaration/app/com.example.traveltracker/-main-activity/index.html
+$dokka.location:com.example.traveltracker/MainActivity/MainActivity/#/PointingToDeclaration/app/com.example.traveltracker/-main-activity/-main-activity.html
+$dokka.location:com.example.traveltracker/MapaFragment///PointingToDeclaration/app/com.example.traveltracker/-mapa-fragment/index.html
+$dokka.location:com.example.traveltracker/MapaFragment/MapaFragment/#/PointingToDeclaration/app/com.example.traveltracker/-mapa-fragment/-mapa-fragment.html
+$dokka.location:com.example.traveltracker/MapaFragment/colorPais/#/PointingToDeclaration/app/com.example.traveltracker/-mapa-fragment/color-pais.html
+$dokka.location:com.example.traveltracker/MapaFragment/crearXML/#android.content.Context/PointingToDeclaration/app/com.example.traveltracker/-mapa-fragment/crear-x-m-l.html
+$dokka.location:com.example.traveltracker/MapaFragment/eliminarPaisesVisitados/#kotlin.String?#kotlin.collections.List[Mapa.Country]/PointingToDeclaration/app/com.example.traveltracker/-mapa-fragment/eliminar-paises-visitados.html
+$dokka.location:com.example.traveltracker/MapaFragment/getCountryById/#kotlin.String/PointingToDeclaration/app/com.example.traveltracker/-mapa-fragment/get-country-by-id.html
+$dokka.location:com.example.traveltracker/MapaFragment/mapasHash/#/PointingToDeclaration/app/com.example.traveltracker/-mapa-fragment/mapas-hash.html
+$dokka.location:com.example.traveltracker/MapaFragment/mostrarXMLenTextView/#android.content.Context#android.widget.TextView/PointingToDeclaration/app/com.example.traveltracker/-mapa-fragment/mostrar-x-m-len-text-view.html
+$dokka.location:com.example.traveltracker/MapaFragment/onCreate/#android.os.Bundle?/PointingToDeclaration/app/com.example.traveltracker/-mapa-fragment/on-create.html
+$dokka.location:com.example.traveltracker/MapaFragment/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/app/com.example.traveltracker/-mapa-fragment/on-create-view.html
+$dokka.location:com.example.traveltracker/MapaFragment/paisesVisitados/#kotlin.String?#kotlin.collections.List[Mapa.Country]/PointingToDeclaration/app/com.example.traveltracker/-mapa-fragment/paises-visitados.html
+$dokka.location:com.example.traveltracker/PerfilFragment///PointingToDeclaration/app/com.example.traveltracker/-perfil-fragment/index.html
+$dokka.location:com.example.traveltracker/PerfilFragment/PerfilFragment/#/PointingToDeclaration/app/com.example.traveltracker/-perfil-fragment/-perfil-fragment.html
+$dokka.location:com.example.traveltracker/PerfilFragment/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/app/com.example.traveltracker/-perfil-fragment/on-create-view.html
+$dokka.location:controlers////PointingToDeclaration/app/controlers/index.html
+$dokka.location:controlers/GuardarFotoController///PointingToDeclaration/app/controlers/-guardar-foto-controller/index.html
+$dokka.location:controlers/GuardarFotoController/GuardarFotoController/#android.content.Context/PointingToDeclaration/app/controlers/-guardar-foto-controller/-guardar-foto-controller.html
+$dokka.location:controlers/GuardarFotoController/context/#/PointingToDeclaration/app/controlers/-guardar-foto-controller/context.html
+$dokka.location:controlers/GuardarFotoController/getPhotoAndSaveOnDb/#/PointingToDeclaration/app/controlers/-guardar-foto-controller/get-photo-and-save-on-db.html
+$dokka.location:model.firebase.dao////PointingToDeclaration/app/model.firebase.dao/index.html
+$dokka.location:model.firebase.dao/UsuarioDAO///PointingToDeclaration/app/model.firebase.dao/-usuario-d-a-o/index.html
+$dokka.location:model.firebase.dao/UsuarioDAO/UsuarioDAO/#/PointingToDeclaration/app/model.firebase.dao/-usuario-d-a-o/-usuario-d-a-o.html
+$dokka.location:model.firebase.dao/UsuarioDAO/comprobarSiEmailEstaEnUso/#kotlin.String/PointingToDeclaration/app/model.firebase.dao/-usuario-d-a-o/comprobar-si-email-esta-en-uso.html
+$dokka.location:model.firebase.dao/UsuarioDAO/comprobarSiUsuarioExiste/#kotlin.String/PointingToDeclaration/app/model.firebase.dao/-usuario-d-a-o/comprobar-si-usuario-existe.html
+$dokka.location:model.firebase.dao/UsuarioDAO/comprobarUsuario/#kotlin.String#kotlin.String/PointingToDeclaration/app/model.firebase.dao/-usuario-d-a-o/comprobar-usuario.html
+$dokka.location:model.firebase.dao/UsuarioDAO/insertarUsuario/#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/app/model.firebase.dao/-usuario-d-a-o/insertar-usuario.html
+$dokka.location:model.firebase.entity////PointingToDeclaration/app/model.firebase.entity/index.html
+$dokka.location:model.firebase.entity/Usuario///PointingToDeclaration/app/model.firebase.entity/-usuario/index.html
+$dokka.location:model.firebase.entity/Usuario/Usuario/#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/app/model.firebase.entity/-usuario/-usuario.html
+$dokka.location:model.firebase.entity/Usuario/contraEncriptada/#/PointingToDeclaration/app/model.firebase.entity/-usuario/contra-encriptada.html
+$dokka.location:model.firebase.entity/Usuario/email/#/PointingToDeclaration/app/model.firebase.entity/-usuario/email.html
+$dokka.location:model.firebase.entity/Usuario/usuario/#/PointingToDeclaration/app/model.firebase.entity/-usuario/usuario.html
+$dokka.location:model.local.dao////PointingToDeclaration/app/model.local.dao/index.html
+$dokka.location:model.local.dao/EstadoPaisDAO///PointingToDeclaration/app/model.local.dao/-estado-pais-d-a-o/index.html
+$dokka.location:model.local.dao/EstadoPaisDAO/getAll/#/PointingToDeclaration/app/model.local.dao/-estado-pais-d-a-o/get-all.html
+$dokka.location:model.local.dao/EstadoPaisDAO/getPaisesVisitados/#/PointingToDeclaration/app/model.local.dao/-estado-pais-d-a-o/get-paises-visitados.html
+$dokka.location:model.local.dao/EstadoPaisDAO/insert/#model.local.entity.EstadoPais/PointingToDeclaration/app/model.local.dao/-estado-pais-d-a-o/insert.html
+$dokka.location:model.local.dao/EstadoPaisDAO/updateHaEstado/#kotlin.String#kotlin.Boolean/PointingToDeclaration/app/model.local.dao/-estado-pais-d-a-o/update-ha-estado.html
+$dokka.location:model.local.dao/EstadoPaisDAO/updateVisitando/#kotlin.String#kotlin.Boolean/PointingToDeclaration/app/model.local.dao/-estado-pais-d-a-o/update-visitando.html
+$dokka.location:model.local.dao/PaisConfirmadoDAO///PointingToDeclaration/app/model.local.dao/-pais-confirmado-d-a-o/index.html
+$dokka.location:model.local.dao/PaisConfirmadoDAO/esConfirmado/#kotlin.String/PointingToDeclaration/app/model.local.dao/-pais-confirmado-d-a-o/es-confirmado.html
+$dokka.location:model.local.dao/PaisConfirmadoDAO/esConfirmadoCount/#kotlin.String/PointingToDeclaration/app/model.local.dao/-pais-confirmado-d-a-o/es-confirmado-count.html
+$dokka.location:model.local.dao/PaisConfirmadoDAO/insertPaisConfirmado/#model.local.entity.PaisConfirmado/PointingToDeclaration/app/model.local.dao/-pais-confirmado-d-a-o/insert-pais-confirmado.html
+$dokka.location:model.local.database////PointingToDeclaration/app/model.local.database/index.html
+$dokka.location:model.local.database/LocalDatabase.Companion///PointingToDeclaration/app/model.local.database/-local-database/-companion/index.html
+$dokka.location:model.local.database/LocalDatabase.Companion/getInstance/#android.content.Context/PointingToDeclaration/app/model.local.database/-local-database/-companion/get-instance.html
+$dokka.location:model.local.database/LocalDatabase///PointingToDeclaration/app/model.local.database/-local-database/index.html
+$dokka.location:model.local.database/LocalDatabase/LocalDatabase/#/PointingToDeclaration/app/model.local.database/-local-database/-local-database.html
+$dokka.location:model.local.database/LocalDatabase/estadoPaisDao/#/PointingToDeclaration/app/model.local.database/-local-database/estado-pais-dao.html
+$dokka.location:model.local.database/LocalDatabase/paisConfirmadoDAO/#/PointingToDeclaration/app/model.local.database/-local-database/pais-confirmado-d-a-o.html
+$dokka.location:model.local.entity////PointingToDeclaration/app/model.local.entity/index.html
+$dokka.location:model.local.entity/EstadoPais///PointingToDeclaration/app/model.local.entity/-estado-pais/index.html
+$dokka.location:model.local.entity/EstadoPais/EstadoPais/#kotlin.Int#kotlin.String#kotlin.Boolean#kotlin.Boolean#kotlin.String/PointingToDeclaration/app/model.local.entity/-estado-pais/-estado-pais.html
+$dokka.location:model.local.entity/EstadoPais/codPais/#/PointingToDeclaration/app/model.local.entity/-estado-pais/cod-pais.html
+$dokka.location:model.local.entity/EstadoPais/haEstado/#/PointingToDeclaration/app/model.local.entity/-estado-pais/ha-estado.html
+$dokka.location:model.local.entity/EstadoPais/nombrePais/#/PointingToDeclaration/app/model.local.entity/-estado-pais/nombre-pais.html
+$dokka.location:model.local.entity/EstadoPais/ultimaModificacion/#/PointingToDeclaration/app/model.local.entity/-estado-pais/ultima-modificacion.html
+$dokka.location:model.local.entity/EstadoPais/visitando/#/PointingToDeclaration/app/model.local.entity/-estado-pais/visitando.html
+$dokka.location:model.local.entity/PaisConfirmado///PointingToDeclaration/app/model.local.entity/-pais-confirmado/index.html
+$dokka.location:model.local.entity/PaisConfirmado/PaisConfirmado/#kotlin.Int#kotlin.ByteArray?#kotlin.String/PointingToDeclaration/app/model.local.entity/-pais-confirmado/-pais-confirmado.html
+$dokka.location:model.local.entity/PaisConfirmado/codConfirmado/#/PointingToDeclaration/app/model.local.entity/-pais-confirmado/cod-confirmado.html
+$dokka.location:model.local.entity/PaisConfirmado/codPais/#/PointingToDeclaration/app/model.local.entity/-pais-confirmado/cod-pais.html
+$dokka.location:model.local.entity/PaisConfirmado/foto/#/PointingToDeclaration/app/model.local.entity/-pais-confirmado/foto.html
+$dokka.location:utils////PointingToDeclaration/app/utils/index.html
+$dokka.location:utils/ConfirmarPais///PointingToDeclaration/app/utils/-confirmar-pais/index.html
+$dokka.location:utils/ConfirmarPais/ConfirmarPais/#android.content.Context/PointingToDeclaration/app/utils/-confirmar-pais/-confirmar-pais.html
+$dokka.location:utils/ConfirmarPais/onActivityResult/#kotlin.Int#kotlin.Int#android.content.Intent?/PointingToDeclaration/app/utils/-confirmar-pais/on-activity-result.html
+$dokka.location:utils/ConfirmarPais/openCamera/#/PointingToDeclaration/app/utils/-confirmar-pais/open-camera.html
+$dokka.location:utils/Localizacion///PointingToDeclaration/app/utils/-localizacion/index.html
+$dokka.location:utils/Localizacion/Localizacion/#/PointingToDeclaration/app/utils/-localizacion/-localizacion.html
+$dokka.location:utils/Localizacion/coordenadasAPais/#kotlin.Double#kotlin.Double/PointingToDeclaration/app/utils/-localizacion/coordenadas-a-pais.html
+LoginyRegister
+Mapa
+Ofertas
+Recomendacion
+com.example.traveltracker
+controlers
+model.firebase.dao
+model.firebase.entity
+model.local.dao
+model.local.database
+model.local.entity
+utils
+
