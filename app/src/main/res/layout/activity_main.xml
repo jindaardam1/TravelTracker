@@ -49,7 +49,7 @@
                 android:layout_height="70dp"
                 android:padding="16dp"
                 android:src="@drawable/ic_recommendation_icon"
-                android:contentDescription="Recomendación"
+                android:contentDescription="Recomendacion"
                 android:layout_gravity="center"
                 android:layout_marginLeft="15dp"/>
 
